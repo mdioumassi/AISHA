@@ -1,0 +1,14 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+page:
+    resource: '@PageBundle/Controller/'
+    type:     annotation
+    prefix:   /aisha
+
+inscription:
+    resource: '@InscriptionBundle/Controller/'
+    type:     annotation
+    prefix:   /admin
+

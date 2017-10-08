@@ -1,0 +1,69 @@
+<?php
+
+namespace InscriptionBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Enfant
+ *
+ * @ORM\Table(name="enfants")
+ * @ORM\Entity(repositoryClass="InscriptionBundle\Repository\EnfantRepository")
+ */
+class Enfant
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenom", type="string", length=255)
+     */
+    private $prenom;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_naissance", type="datetime")
+     */
+    private $dateNaissance;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="genre", type="string", length=35)
+     */
+    private $genre;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="create_at", type="datetime",nullable=true)
+     */
+    private $createAt;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="InscriptionBundle\Entity\Parents", inversedBy="enfants")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $parent;
+
+    public function  __construct()
+    {
+        $this->setCreateAt(new \DateTime("now"));
+    }
+}

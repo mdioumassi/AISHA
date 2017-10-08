@@ -1,0 +1,25 @@
+{% extends '@Inscription/layout.html.twig' %}
+
+{% block content %}
+    <div class="w3-container">
+
+        <table class="w3-table-all w3-card-4">
+            <thead>
+                <tr class="w3-green">
+                    <th>Nom</th><th>Prenom</th><th>Civilité</th><th>Téléphone</th><th>Adresse</th><th>Enfants</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for parent in parents %}
+                <tr>
+                    <td>{{ parent.nom }}</td>
+                    <td>{{ parent.prenom }}</td>
+                    <td>{{ parent.civilite }}</td>
+                    <td>{{ parent.telephone }}</td>
+                    <td>{{ parent.addresse }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
