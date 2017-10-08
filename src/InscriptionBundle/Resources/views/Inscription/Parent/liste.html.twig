@@ -6,7 +6,7 @@
         <table class="w3-table-all w3-card-4">
             <thead>
                 <tr class="w3-green">
-                    <th>Nom</th><th>Prenom</th><th>Civilité</th><th>Téléphone</th><th>Adresse</th><th>Enfants</th>
+                    <th>Nom</th><th>Prenom</th><th>Civilité</th><th>Téléphone</th><th>Adresse</th><th>Enfants</th><th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -17,6 +17,7 @@
                     <td>{{ parent.civilite }}</td>
                     <td>{{ parent.telephone }}</td>
                     <td>{{ parent.addresse }}</td>
+                    <td><span class="w3-badge w3-yellow "><a href="{{ path('enfants',{'id': parent.id}) }}"> {{ parent.enfants|length }} enfants</a></span></td></a>
                 </tr>
                 {% endfor %}
             </tbody>

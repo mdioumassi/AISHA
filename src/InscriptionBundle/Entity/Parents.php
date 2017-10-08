@@ -73,6 +73,7 @@ class Parents
     /**
      * @ORM\OneToMany(targetEntity="InscriptionBundle\Entity\Enfant", cascade={"persist","remove"}, mappedBy="parent")
      * @ORM\JoinColumn(nullable=false)
+     * @var Enfant[]
      */
     private $enfants;
     /**
@@ -80,8 +81,8 @@ class Parents
      */
     public function __construct()
     {
-       // $this->enfants = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->setCreateAt(new \DateTime("now"));
+       $this->enfants = new \Doctrine\Common\Collections\ArrayCollection();
+       $this->setCreateAt(new \DateTime("now"));
     }
 
     /**
