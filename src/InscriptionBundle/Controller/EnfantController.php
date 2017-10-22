@@ -1,0 +1,145 @@
+<?php
+
+namespace InscriptionBundle\Controller;
+
+use InscriptionBundle\Entity\Enfant;
+use InscriptionBundle\Form\EnfantType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+
+class EnfantController extends Controller
+{
+    /**
+     * @Route("/enfants", name="liste_enfants")
+     * @Method({"GET"})
+     * @Template("@Inscription/Inscription/Enfant/liste.html.twig")
+     */
+    public function getEnfants(){
+        $em = $this->getDoctrine()->getManager();
+        $enfants = $em->getRepository('InscriptionBundle:Enfant')
+                   ->findAll();
+        if(empty($enfants)){
+            throw $this->createNotFoundException('Not found enfants');
+        }
+
+        return [
+            'enfants' => $enfants
+        ];
+    }
+
+    /**
+     * @Route("/parents/{parent_id}/enfants", name="parent_enfants")
+     * @Template("@Inscription/Inscription/Enfant/liste.html.twig")
+     * @Method({"GET"})
+     */
+    public function getEnfantsAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $parent = $em->getRepository('InscriptionBundle:Parents')
+            ->find($request->get('parent_id'));
+
+        if(empty($parent)){
+            throw $this->createNotFoundException('Not found parent');
+        }
+
+        return [
+            'enfants' => $parent->getEnfants(),
+            'parent_id' => $request->get('parent_id'),
+            'parent' => $parent,
+        ];
+    }
+
+    /**
+     * @Route("/enfants/{id}/parent", name="enfant_parent")
+     * @Method({"GET"})
+     * @Template("@Inscription/Inscription/Parent/parent.html.twig")
+     */
+    public function getParent(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $enfant = $em->getRepository('InscriptionBundle:Enfant')
+                ->find($request->get('id'));
+        if(empty($enfant)){
+            throw $this->createNotFoundException('Not found Enfant');
+        }
+
+        return [
+            'parent' => $enfant->getParent(),
+        ];
+    }
+
+    /**
+     * @Route("/parents/{parent_id}/enfant/ajouter", name="ajout_enfant")
+     */
+    public function ajouterEnfantAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $parent = $em->getRepository('InscriptionBundle:Parents')
+                        ->find($request->get('parent_id'));
+        if (empty($parent)) {
+            throw  $this->createNotFoundException('Not found parent');
+        }
+        $enfant = new Enfant();
+        $enfant->setParent($parent);
+        $form = $this->createForm(EnfantType::class, $enfant);
+        $form->handleRequest($request);
+        if ($request->isMethod('POST') && $form->isValid()) {
+            $em->persist($enfant);
+            $em->flush();
+            return $this->redirectToRoute('parent_enfants', [
+                'parent_id' => $parent->getId()
+            ]);
+        }
+        return $this->render('@Inscription/Inscription/Enfant/ajouter.html.twig', [
+            'form' => $form->createView(),
+            'parent_id' => $parent->getId()
+        ]);
+    }
+
+    /**
+     * @Route("/enfants/{enfant_id}/enfant/delete" ,name="delete_enfant")
+     */
+    public function deleteEnfant(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $enfant = $em->getRepository('InscriptionBundle:Enfant')
+                     ->find($request->get('enfant_id'));
+        if (empty($enfant)) {
+            throw  $this->createNotFoundException('Not found parent');
+        }
+        $parent = $enfant->getParent();
+        $em->remove($enfant);
+        $em->flush();
+        return $this->redirectToRoute('parent_enfants', [
+            'parent_id' => $parent->getId()
+        ]);
+    }
+
+    /**
+     * @Route("/enfants/{enfant_id}/enfant/modifier", name="modifier_enfant")
+     */
+    public function modifierEnfantAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $enfant = $em->getRepository('InscriptionBundle:Enfant')
+            ->find($request->get('enfant_id'));
+        if (empty($enfant)) {
+            throw  $this->createNotFoundException('Not found parent');
+        }
+        $parent = $enfant->getParent();
+        $form = $this->createForm(EnfantType::class, $enfant);
+        $form->handleRequest($request);
+        if ($request->isMethod('POST') && $form->isValid()) {
+            $em->persist($enfant);
+            $em->flush();
+            return $this->redirectToRoute('parent_enfants', [
+                'parent_id' => $parent->getId()
+            ]);
+        }
+        return $this->render('@Inscription/Inscription/Enfant/modifier.html.twig', [
+           'form' => $form->createView(),
+            'parent_id' => $parent->getId()
+        ]);
+    }
+}

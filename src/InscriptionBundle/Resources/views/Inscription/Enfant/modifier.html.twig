@@ -1,0 +1,30 @@
+{% extends '@Inscription/layout.html.twig' %}
+
+{% block content %}
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    <fieldset class="w3-margin"><legend class="w3-gray w3-padding-small">Modifier un enfant</legend>
+        <div class="row">
+            <div class="col-sm-6">
+                {{ form_row(form.nom) }}
+            </div>
+            <div class="col-sm-6">
+                {{ form_row(form.prenom) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                {{ form_row(form.dateNaissance) }}
+            </div>
+            <div class="col-sm-6">
+                {{ form_row(form.genre) }}
+            </div>
+        </div>
+    </fieldset>
+    {{ form_end(form) }}
+    <div class="w3-bar">
+        <button type="submit" class="w3-button w3-white w3-border">Modifier</button>
+        <a href="{{ path('parent_enfants', {'parent_id':parent_id}) }}" class="w3-button w3-white w3-border">Annuler</a>
+        {#<button class="w3-button w3-red">Button</button>#}
+    </div>
+{% endblock %}

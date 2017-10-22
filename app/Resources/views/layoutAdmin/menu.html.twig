@@ -11,9 +11,17 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">PARENT<span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">PARENTS<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Liste</a></li>
+                        <li><a href="{{ path('liste_parents') }}">Liste</a></li>
+                        <li><a href="#">Enfants</a></li>
+                        <li><a href="#">Paiement</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">ENFANTS<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ path('liste_enfants') }}">Liste</a></li>
                         <li><a href="#">Enfants</a></li>
                         <li><a href="#">Paiement</a></li>
                     </ul>

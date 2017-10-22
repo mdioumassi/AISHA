@@ -1,0 +1,35 @@
+{% extends '@Inscription/layout.html.twig' %}
+{% block content %}
+    {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
+    {{ form_errors(form) }}
+    <fieldset class="w3-margin"><legend class="w3-gray w3-padding-small"> Ajouter un parent</legend>
+    <div class="row">
+        <div class="col-sm-4">
+            {{ form_row(form.nom) }}
+        </div>
+        <div class="col-sm-4">
+            {{ form_row(form.prenom) }}
+        </div>
+        <div class="col-sm-4">
+            {{ form_row(form.civilite) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            {{ form_row(form.telephone) }}
+        </div>
+        <div class="col-sm-4">
+            {{ form_row(form.fonction) }}
+        </div>
+        <div class="col-sm-4">
+            {{ form_row(form.addresse) }}
+        </div>
+    </div>
+    </fieldset>
+    <div class="w3-bar">
+        <button type="submit" class="w3-button w3-white w3-border">Ajouter</button>
+        <a href="{{ path('liste_parents') }}" class="w3-button w3-white w3-border">Annuler</a>
+        {#<button class="w3-button w3-red">Button</button>#}
+    </div>
+    {{ form_end(form) }}
+{% endblock %}

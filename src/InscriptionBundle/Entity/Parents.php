@@ -3,12 +3,16 @@
 namespace InscriptionBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity as UniqueEntity;
+
 
 /**
  * Parent
  *
  * @ORM\Table(name="parents")
  * @ORM\Entity(repositoryClass="InscriptionBundle\Repository\ParentRepository")
+ * @UniqueEntity(fields={"prenom"}, message="Ce parent est déjà enregistré")
  */
 class Parents
 {
@@ -25,6 +29,7 @@ class Parents
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $nom;
 
@@ -32,6 +37,7 @@ class Parents
      * @var string
      *
      * @ORM\Column(name="prenom", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $prenom;
 
@@ -39,6 +45,7 @@ class Parents
      * @var string
      *
      * @ORM\Column(name="civilite", type="string", length=30)
+     * @Assert\Choice({"Homme", "Femme"})
      */
     private $civilite;
 
@@ -46,6 +53,7 @@ class Parents
      * @var string
      *
      * @ORM\Column(name="fonction", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $fonction;
 
@@ -53,6 +61,7 @@ class Parents
      * @var int
      *
      * @ORM\Column(name="telephone", type="integer")
+     * @Assert\NotBlank()
      */
     private $telephone;
 
@@ -60,6 +69,7 @@ class Parents
      * @var string
      *
      * @ORM\Column(name="addresse", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $addresse;
 
@@ -296,4 +306,10 @@ class Parents
     {
         return $this->enfants;
     }
+
+    public function __toString()
+    {
+        return $this->getNom();
+    }
+
 }

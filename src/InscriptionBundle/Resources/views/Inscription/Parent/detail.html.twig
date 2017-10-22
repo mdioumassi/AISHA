@@ -1,0 +1,20 @@
+{% extends '@Inscription/layout.html.twig' %}
+{% block content %}
+<div class="w3-container">
+    <table class="w3-table-all w3-card-4">
+        <tr>
+            <th class="w3-green">Civilité</th><td>{{ parent.civilite}}</td>
+        </tr>
+        <tr>
+            <th class="w3-green">Nom & Prenom:</th><td>{{ parent.prenom }} {{ parent.nom|upper }}</td>
+        </tr>
+        <tr>
+            <th class="w3-green">Téléphone</th><td>{{ parent.telephone }}</td>
+        </tr>
+        <tr>
+            <th class="w3-green">Adresse:</th><td>{{ parent.addresse }}</td>
+        </tr>
+    </table>
+
+</div>
+{% endblock %}

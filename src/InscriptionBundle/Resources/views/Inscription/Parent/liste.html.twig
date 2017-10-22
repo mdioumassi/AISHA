@@ -2,25 +2,49 @@
 
 {% block content %}
     <div class="w3-container">
+        <p>
+            <input oninput="w3.filterHTML('#id01', '.item', this.value)" placeholder="Chercher...">
+        </p>
 
-        <table class="w3-table-all w3-card-4">
+        <table id="id01" class="w3-table-all w3-card-4">
             <thead>
                 <tr class="w3-green">
-                    <th>Nom</th><th>Prenom</th><th>Civilité</th><th>Téléphone</th><th>Adresse</th><th>Enfants</th><th>Actions</th>
+                    <th onclick="sortTable(0)">Nom</th>
+                    <th onclick="sortTable(1)">Prenom</th>
+                    <th>Civilité</th>
+                    <th>Téléphone</th>
+                    <th>Adresse</th>
+                    <th>Enfants</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 {% for parent in parents %}
-                <tr>
+                <tr class="item">
                     <td>{{ parent.nom }}</td>
                     <td>{{ parent.prenom }}</td>
                     <td>{{ parent.civilite }}</td>
                     <td>{{ parent.telephone }}</td>
                     <td>{{ parent.addresse }}</td>
-                    <td><span class="w3-badge w3-yellow "><a href="{{ path('enfants',{'id': parent.id}) }}"> {{ parent.enfants|length }} enfants</a></span></td></a>
+                    <td><span class="w3-badge w3-yellow "><a href="{{ path('parent_enfants',{'parent_id': parent.id}) }}"> {{ parent.enfants|length }} enfants</a></span></td></a>
+                    <td>
+                        <a href="{{ path('parent_delete', {'id':parent.id}) }}">
+                            <span title="Supprimer" class="glyphicon glyphicon-trash"></span>
+                        </a>
+                        <a href="{{ path('parent_update', {'id':parent.id}) }}">
+                            <span title="Modifier" class="glyphicon glyphicon-edit"></span>
+                        </a>
+                        <a href="{{ path('parent_display', {'id':parent.id}) }}">
+                            <span title="Voir" class="glyphicon glyphicon-eye-open"></span>
+                        </a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
+        <p style="margin-top: 10px">
+            <a href="{{ path('add_parents') }}" class="w3-button w3-blue">Ajouter un parent</a>
+        </p>
     </div>
+    <script src="{{ asset('js/tab/sorttab.js') }}"></script>
 {% endblock %}

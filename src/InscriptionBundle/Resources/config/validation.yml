@@ -1,0 +1,11 @@
+AppBundle\Entity\Enfant:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: prenom
+    properties:
+        nom:
+            - NotBlank: ~
+            - Type: string
+        prenom:
+            - NotBlank: ~
+            - Type: string
+

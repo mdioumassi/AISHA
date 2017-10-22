@@ -3,12 +3,16 @@
 namespace InscriptionBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity as UniqueEntity;
 
 /**
  * Enfant
  *
  * @ORM\Table(name="enfants")
  * @ORM\Entity(repositoryClass="InscriptionBundle\Repository\EnfantRepository")
+ * @UniqueEntity(fields={"prenom"}, message="Cet enfant est déjà enregistré")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Enfant
 {
@@ -25,6 +29,8 @@ class Enfant
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(min="4")
      */
     private $nom;
 
@@ -32,6 +38,8 @@ class Enfant
      * @var string
      *
      * @ORM\Column(name="prenom", type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(min="4")
      */
     private $prenom;
 
@@ -39,6 +47,7 @@ class Enfant
      * @var \DateTime
      *
      * @ORM\Column(name="date_naissance", type="datetime")
+     *
      */
     private $dateNaissance;
 
@@ -46,6 +55,7 @@ class Enfant
      * @var string
      *
      * @ORM\Column(name="genre", type="string", length=35)
+     * @Assert\Choice({"Garçon", "Fille"})
      */
     private $genre;
 
@@ -62,6 +72,11 @@ class Enfant
      */
     private $parent;
 
+    /**
+     * @ORM\Column(name="parent_id", type="integer")
+     */
+    private $parentId;
+    
     public function  __construct()
     {
         $this->setCreateAt(new \DateTime("now"));

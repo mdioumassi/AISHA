@@ -2,23 +2,45 @@
 
 {% block content %}
     <div class="w3-container">
-
-    <table class="w3-table-all w3-card-4">
-        <thead>
-        <tr class="w3-green">
-            <th>Nom</th><th>Prenom</th><th>Genre</th><th>Date Naissance</th><th>Parent</th><th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for enfant in enfants %}
-            <tr>
-                <td>{{ enfant.nom }}</td>
-                <td>{{ enfant.prenom }}</td>
-                <td>{{ enfant.genre }}</td>
-                <td>{{ enfant.dateNaissance|date('d/m/Y') }}</td>
-                <td><span class="w3-badge w3-yellow "><a href="#"> {{ enfant.parent.prenom }} {{ enfant.parent.nom|upper }}</a></span></td></a>
+        <h5>Les enfants de <strong>{{ parent.prenom }} {{ parent.nom|upper }}</strong></h5>
+        <table class="w3-table-all w3-card-4">
+            <thead>
+            <tr class="w3-green">
+                <th>Nom</th><th>Prenom</th><th>Genre</th><th>Age<th>Actions</th>
             </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for enfant in enfants %}
+                <tr>
+                    <td>{{ enfant.nom }}</td>
+                    <td>{{ enfant.prenom }}</td>
+                    <td>{{ enfant.genre }}</td>
+                    <td>{{ enfant.dateNaissance|age ~ " ans" }}</td>
+                    <td>
+                        <a href="{{ path('delete_enfant', {'enfant_id':enfant.id}) }}">
+                            <span title="Supprimer" class="glyphicon glyphicon-trash"></span>
+                        </a>
+                        <a href="{{ path('modifier_enfant', {'enfant_id':enfant.id}) }}">
+                            <span title="Modifier" class="glyphicon glyphicon-edit"></span>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <p style="margin-top: 10px">
+            <a href="{{ path('ajout_enfant',{'parent_id':parent_id}) }}" class="w3-button w3-blue" id="addChild">Ajouter un enfant</a>
+            <a href="{{ path('liste_parents') }}" class="w3-button w3-green"> Liste des parents</a>
+        </p>
+        <div id="formAddChild">
+
+        </div>
+    </div>
+    {#<script>#}
+        {#$('document').ready(function(){#}
+            {#$("#addChild").on("click", function(){#}
+           {#//     $("#formAddChild").append("{% render(controller('InscriptionBundle:Controller:ajouter', {})) %}");#}
+            {#});#}
+        {#});#}
+    {#</script>#}
 {% endblock %}
