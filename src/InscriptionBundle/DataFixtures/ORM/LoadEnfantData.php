@@ -28,7 +28,8 @@ class LoadEnfantData extends Fixture
                 ->setPrenom("Diango")
                 ->setGenre("Garçon")
                 ->setDateNaissance(new \DateTime("now"))
-                ->setParent($this->getReference('parent1'));
+                ->setParent($this->getReference('parent1'))
+                ->setNiveau($this->getReference('niv1'));
         $manager->persist($enfant1);
 
         $enfant2 = new Enfant();
@@ -36,7 +37,8 @@ class LoadEnfantData extends Fixture
                 ->setPrenom("Fatima")
                 ->setGenre("Fille")
                 ->setDateNaissance(new \DateTime("now"))
-            ->setParent($this->getReference('parent1'));
+                ->setParent($this->getReference('parent1'))
+                ->setNiveau($this->getReference('niv1'));
         $manager->persist($enfant2);
 
         $enfant3 = new Enfant();
@@ -44,7 +46,8 @@ class LoadEnfantData extends Fixture
             ->setPrenom("Oyoub")
             ->setGenre("Garçon")
             ->setDateNaissance(new \DateTime("now"))
-            ->setParent($this->getReference('parent1'));
+            ->setParent($this->getReference('parent1'))
+            ->setNiveau($this->getReference('niv2'));
         $manager->persist($enfant3);
 
         $manager->flush();
@@ -56,6 +59,7 @@ class LoadEnfantData extends Fixture
     {
         return [
             LoadParentData::class,
+            LoadNiveauData::class
         ];
     }
 }
