@@ -30,11 +30,13 @@ class Inscrit
 
     /**
      * @ORM\ManyToOne(targetEntity="InscriptionBundle\Entity\Enfant")
+     * @ORM\JoinColumn(name="enfant_id", referencedColumnName="id", onDelete="SET NULL")
      */
     private $enfant;
 
     /**
      * @ORM\ManyToOne(targetEntity="InscriptionBundle\Entity\Niveau")
+     * @ORM\JoinColumn(name="niveau_id", referencedColumnName="id", onDelete="SET NULL")
      */
     private $niveau;
 
