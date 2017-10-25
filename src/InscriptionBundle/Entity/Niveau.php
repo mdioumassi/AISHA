@@ -36,23 +36,9 @@ class Niveau
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity="InscriptionBundle\Entity\Enfant", cascade={"persist","remove"}, mappedBy="niveau")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $enfants;
-
-    /**
      * @ORM\ManyToMany(targetEntity="InscriptionBundle\Entity\Matiere", cascade={"persist"}, inversedBy="niveaux")
      */
     private $matieres;
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->enfants = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->matieres = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Get id
@@ -112,38 +98,18 @@ class Niveau
         return $this->description;
     }
 
-    /**
-     * Add enfant
-     *
-     * @param \InscriptionBundle\Entity\Enfant $enfant
-     *
-     * @return Niveau
-     */
-    public function addEnfant(\InscriptionBundle\Entity\Enfant $enfant)
-    {
-        $this->enfants[] = $enfant;
 
-        return $this;
+    public function __toString()
+    {
+        return $this->getNom();
     }
 
     /**
-     * Remove enfant
-     *
-     * @param \InscriptionBundle\Entity\Enfant $enfant
+     * Constructor
      */
-    public function removeEnfant(\InscriptionBundle\Entity\Enfant $enfant)
+    public function __construct()
     {
-        $this->enfants->removeElement($enfant);
-    }
-
-    /**
-     * Get enfants
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getEnfants()
-    {
-        return $this->enfants;
+        $this->matieres = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

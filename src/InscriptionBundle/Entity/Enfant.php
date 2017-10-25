@@ -73,22 +73,6 @@ class Enfant
     private $parent;
 
     /**
-     * @ORM\ManyToOne(targetEntity="InscriptionBundle\Entity\Niveau", inversedBy="enfants")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $niveau;
-
-    /**
-     * @ORM\Column(name="parent_id", type="integer")
-     */
-    private $parentId;
-    
-    public function  __construct()
-    {
-        $this->setCreateAt(new \DateTime("now"));
-    }
-
-    /**
      * Get id
      *
      * @return integer
@@ -240,53 +224,5 @@ class Enfant
     public function getParent()
     {
         return $this->parent;
-    }
-
-    /**
-     * Set parentId
-     *
-     * @param integer $parentId
-     *
-     * @return Enfant
-     */
-    public function setParentId($parentId)
-    {
-        $this->parentId = $parentId;
-
-        return $this;
-    }
-
-    /**
-     * Get parentId
-     *
-     * @return integer
-     */
-    public function getParentId()
-    {
-        return $this->parentId;
-    }
-
-    /**
-     * Set niveau
-     *
-     * @param \InscriptionBundle\Entity\Niveau $niveau
-     *
-     * @return Enfant
-     */
-    public function setNiveau(\InscriptionBundle\Entity\Niveau $niveau)
-    {
-        $this->niveau = $niveau;
-
-        return $this;
-    }
-
-    /**
-     * Get niveau
-     *
-     * @return \InscriptionBundle\Entity\Niveau
-     */
-    public function getNiveau()
-    {
-        return $this->niveau;
     }
 }

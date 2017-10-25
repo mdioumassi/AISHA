@@ -129,5 +129,45 @@ class Matiere
     {
         return $this->coefficient;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->niveaux = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add niveaux
+     *
+     * @param \InscriptionBundle\Entity\Niveau $niveaux
+     *
+     * @return Matiere
+     */
+    public function addNiveaux(\InscriptionBundle\Entity\Niveau $niveaux)
+    {
+        $this->niveaux[] = $niveaux;
+
+        return $this;
+    }
+
+    /**
+     * Remove niveaux
+     *
+     * @param \InscriptionBundle\Entity\Niveau $niveaux
+     */
+    public function removeNiveaux(\InscriptionBundle\Entity\Niveau $niveaux)
+    {
+        $this->niveaux->removeElement($niveaux);
+    }
+
+    /**
+     * Get niveaux
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getNiveaux()
+    {
+        return $this->niveaux;
+    }
+}

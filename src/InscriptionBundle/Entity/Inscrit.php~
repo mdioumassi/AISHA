@@ -1,0 +1,41 @@
+<?php
+
+namespace InscriptionBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Inscrit
+ *
+ * @ORM\Table(name="inscrit")
+ * @ORM\Entity(repositoryClass="InscriptionBundle\Repository\InscritRepository")
+ */
+class Inscrit
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime")
+     */
+    private $date;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="InscriptionBundle\Entity\Enfant")
+     */
+    private $enfant;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="InscriptionBundle\Entity\Niveau")
+     */
+    private $niveau;
+}
+
