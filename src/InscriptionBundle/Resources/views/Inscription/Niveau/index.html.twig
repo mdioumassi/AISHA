@@ -1,0 +1,27 @@
+{% extends '@Inscription/layout.html.twig' %}
+
+{% block content %}
+<div class="w3-container">
+    <table class="w3-table-all w3-card-4">
+        <thead>
+        <tr class="w3-green">
+            <th>Nom</th><th>Descrition</th><th>Matières</th><th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for niveau in niveaux %}
+            <tr>
+                <td>{{ niveau.nom }}</td>
+                <td>{{ niveau.description }}</td>
+                <td>
+                    <span class="w3-badge w3-yellow ">
+                        <a href="{{ path('matieres', {'id':niveau.id}) }}">{{ niveau.matieres|length }} matières</a>
+                    </span>
+                </td>
+                <td></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

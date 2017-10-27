@@ -30,7 +30,7 @@ class Inscrit
 
     /**
      * @ORM\ManyToOne(targetEntity="InscriptionBundle\Entity\Enfant")
-     * @ORM\JoinColumn(name="enfant_id", referencedColumnName="id", onDelete="SET NULL")
+     * @ORM\JoinColumn(name="enfant_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $enfant;
 

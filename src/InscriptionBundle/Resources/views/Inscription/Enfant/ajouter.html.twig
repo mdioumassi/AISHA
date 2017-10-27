@@ -4,13 +4,10 @@
     {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
     {{ form_errors(form) }}
     {% include '@Inscription/Inscription/Enfant/formAdd.html.twig' %}
-    <div id="formChild" style="border: 2px solid red; margin-top: 20px;">
 
-    </div>
     <div class="w3-bar">
         <button type="submit" class="w3-button w3-white w3-border">Ajouter</button>
         <a href="{{ path('parent_enfants', {'parent_id':parent_id}) }}" class="w3-button w3-white w3-border">Annuler</a>
-        <button id="addChild">+Ajouter un enfant</button>
     </div>
     {{ form_end(form) }}
 

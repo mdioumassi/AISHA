@@ -71,4 +71,184 @@ class Enfant
      * @ORM\JoinColumn(nullable=false)
      */
     private $parent;
+
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Enfant
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set prenom
+     *
+     * @param string $prenom
+     *
+     * @return Enfant
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    /**
+     * Get prenom
+     *
+     * @return string
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * Set dateNaissance
+     *
+     * @param \DateTime $dateNaissance
+     *
+     * @return Enfant
+     */
+    public function setDateNaissance($dateNaissance)
+    {
+        $this->dateNaissance = $dateNaissance;
+
+        return $this;
+    }
+
+    /**
+     * Get dateNaissance
+     *
+     * @return \DateTime
+     */
+    public function getDateNaissance()
+    {
+        return $this->dateNaissance;
+    }
+
+    /**
+     * Set genre
+     *
+     * @param string $genre
+     *
+     * @return Enfant
+     */
+    public function setGenre($genre)
+    {
+        $this->genre = $genre;
+
+        return $this;
+    }
+
+    /**
+     * Get genre
+     *
+     * @return string
+     */
+    public function getGenre()
+    {
+        return $this->genre;
+    }
+
+    /**
+     * Set createAt
+     *
+     * @param \DateTime $createAt
+     *
+     * @return Enfant
+     */
+    public function setCreateAt($createAt)
+    {
+        $this->createAt = $createAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createAt
+     *
+     * @return \DateTime
+     */
+    public function getCreateAt()
+    {
+        return $this->createAt;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param \InscriptionBundle\Entity\Parents $parent
+     *
+     * @return Enfant
+     */
+    public function setParent(\InscriptionBundle\Entity\Parents $parent)
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return \InscriptionBundle\Entity\Parents
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    /**
+     * Set inscrit
+     *
+     * @param \InscriptionBundle\Entity\Inscrit $inscrit
+     *
+     * @return Enfant
+     */
+    public function setInscrit(\InscriptionBundle\Entity\Inscrit $inscrit = null)
+    {
+        $this->inscrit = $inscrit;
+
+        return $this;
+    }
+
+    /**
+     * Get inscrit
+     *
+     * @return \InscriptionBundle\Entity\Inscrit
+     */
+    public function getInscrit()
+    {
+        return $this->inscrit;
+    }
 }

@@ -104,4 +104,45 @@ class Niveau
         return $this->getNom();
     }
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->matieres = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add matiere
+     *
+     * @param \InscriptionBundle\Entity\Matiere $matiere
+     *
+     * @return Niveau
+     */
+    public function addMatiere(\InscriptionBundle\Entity\Matiere $matiere)
+    {
+        $this->matieres[] = $matiere;
+
+        return $this;
+    }
+
+    /**
+     * Remove matiere
+     *
+     * @param \InscriptionBundle\Entity\Matiere $matiere
+     */
+    public function removeMatiere(\InscriptionBundle\Entity\Matiere $matiere)
+    {
+        $this->matieres->removeElement($matiere);
+    }
+
+    /**
+     * Get matieres
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMatieres()
+    {
+        return $this->matieres;
+    }
 }

@@ -31,7 +31,7 @@ class ParentController extends Controller
 
     /**
      * @Route("/parents/ajouter", name ="add_parents")
-     * @Template("@Inscription/Inscription/Parent/ajouter.html.twig")
+     * @Template("@Inscription/Inscription/Inscription.html.twig")
      */
     public function postParentsAction(Request $request){
         $parent = new Parents();
