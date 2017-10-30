@@ -11,10 +11,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 class InscriptionController extends Controller
 {
-    /**
-     * @Route("/inscription", name="inscription")
-     */
-    public function indexAction(Request $request)
+
+    /*public function indexAction(Request $request)
     {
         $parent = new Parents();
         $form = $this->createForm(ParentsType::class, $parent);
@@ -22,13 +20,13 @@ class InscriptionController extends Controller
         if ($request->isMethod('POST') && $form->isValid()) {
             $this->Em()->persist($parent);
             $this->Em()->flush();
-            return $this->redirectToRoute();
+           // return $this->redirectToRoute('ajout_enfant');
         }
 
         return $this->render('@Inscription/Inscription/Inscription.html.twig',[
             'form' => $form->createView()
         ]);
-    }
+    }*/
 
     public function postEnfant()
     {

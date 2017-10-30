@@ -1,25 +1,20 @@
 {% extends '@Inscription/layout.html.twig' %}
 
 {% block content %}
-    {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
-    {{ form_errors(form) }}
-    {% include '@Inscription/Inscription/Enfant/formAdd.html.twig' %}
-
-    <div class="w3-bar">
-        <button type="submit" class="w3-button w3-white w3-border">Ajouter</button>
-        <a href="{{ path('parent_enfants', {'parent_id':parent_id}) }}" class="w3-button w3-white w3-border">Annuler</a>
+    <div class="container">
+        <div class="row">
+            {% include ':layoutAdmin/inscription:navbar.html.twig' %}
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                {% include '@Inscription/Inscription/Enfant/form/enfant.html.twig' %}
+            </div>
+        </div>
     </div>
-    {{ form_end(form) }}
 
     <script>
-        $("document").ready(function () {
-            $("#addChild").on("click", function () {
-                $("#formChild").append("" +
-                    "  <div class=\"row\"><div class=\"col-sm-6\"><div class=\"form-group\"><label class=\"control-label required\">Nom</label><input type=\"text\" id="inscriptionbundle_enfant_nom" name=\"inscriptionbundle_enfant[nom]\"  maxlength="255" pattern=\".{4,}\" class=\"form-control\" /></div></div> " +
-                "<div class=\"col-sm-6\"><div class=\"form-group\"><label class=\"control-label required\" for=\"inscriptionbundle_enfant_prenom\">Prenom</label><input type="text" id=\"inscriptionbundle_enfant_prenom\" name=\"inscriptionbundle_enfant[prenom]\" maxlength=\"255\" pattern=\".{4,}\" class=\"form-control\" />"
-                "</div></div></div><div class=\"col-sm-6\"><div class=\"form-group\"><label class=\"control-label required\" for=\"inscriptionbundle_enfant_genre\">Genre</label><select id=\"inscriptionbundle_enfant_genre\" name=\"inscriptionbundle_enfant[genre]\" class=\"form-control\"><option value=\"Garçon\">Garçon</option><option value=\"Fille\">Fille</option></select></div></div></div>");
-                return false;
-            });
+        $(function () {
+            $("#insc").addClass("w3-disabled");$("#parent").addClass("w3-disabled");
         });
     </script>
 {% endblock %}
