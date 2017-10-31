@@ -73,6 +73,14 @@ class Enfant
     private $parent;
 
     /**
+     * Enfant constructor.
+     */
+    public function __construct()
+    {
+        $this->setCreateAt(new \DateTime("now"));
+    }
+
+    /**
      * Get id
      *
      * @return integer
@@ -224,5 +232,13 @@ class Enfant
     public function getParent()
     {
         return $this->parent;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->nom." ".$this->prenom;
     }
 }

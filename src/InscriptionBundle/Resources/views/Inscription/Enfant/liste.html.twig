@@ -6,7 +6,7 @@
         <table class="w3-table-all w3-card-4">
             <thead>
             <tr class="w3-green">
-                <th>Nom</th><th>Prenom</th><th>Genre</th><th>Age</th><th>Actions</th>
+                <th>Nom</th><th>Prenom</th><th>Genre</th><th>Age</th><th>Classe</th><th>Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -16,6 +16,7 @@
                     <td>{{ enfant.prenom }}</td>
                     <td>{{ enfant.genre }}</td>
                     <td>{{ enfant.dateNaissance|age ~ " ans" }}</td>
+                    <td>{{ enfant.nom }}</td>
                     <td>
                         <a href="{{ path('delete_enfant', {'enfant_id':enfant.id}) }}">
                             <span title="Supprimer" class="glyphicon glyphicon-trash"></span>

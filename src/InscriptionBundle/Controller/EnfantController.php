@@ -38,16 +38,19 @@ class EnfantController extends Controller
     public function getEnfantsAction(Request $request){
         $em = $this->getDoctrine()->getManager();
         $parent = $em->getRepository('InscriptionBundle:Parents')
-            ->find($request->get('parent_id'));
+                     ->find($request->get('parent_id'));
+        $niveaux = $em->getRepository('InscriptionBundle:Niveau')
+                      ->findAllNiveau($request->get('parent_id'));
 
         if(empty($parent)){
             throw $this->createNotFoundException('Not found parent');
         }
 
         return [
-            'enfants' => $parent->getEnfants(),
+            //'enfants' => $parent->getEnfants(),
             'parent_id' => $request->get('parent_id'),
             'parent' => $parent,
+            'enfants' => $niveaux
         ];
     }
 
@@ -87,8 +90,8 @@ class EnfantController extends Controller
         if ($request->isMethod('POST') && $form->isValid()) {
             $em->persist($enfant);
             $em->flush();
-            return $this->redirectToRoute('parent_enfants', [
-                'parent_id' => $parent->getId()
+            return $this->redirectToRoute('inscr_niveau', [
+                'enfant_id' => $enfant->getId()
             ]);
         }
         return $this->render('@Inscription/Inscription/Enfant/ajouter.html.twig', [

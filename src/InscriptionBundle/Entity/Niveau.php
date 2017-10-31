@@ -99,11 +99,6 @@ class Niveau
     }
 
 
-    public function __toString()
-    {
-        return $this->getNom();
-    }
-
     /**
      * Constructor
      */
@@ -144,5 +139,14 @@ class Niveau
     public function getMatieres()
     {
         return $this->matieres;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getNom();
     }
 }

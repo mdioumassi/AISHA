@@ -24,9 +24,10 @@ class Inscrit
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetime")
+     * @ORM\Column(name="create_at", type="datetime",nullable=true)
      */
-    private $date;
+    private $createAt;
+
 
     /**
      * @ORM\ManyToOne(targetEntity="InscriptionBundle\Entity\Enfant")
@@ -39,6 +40,14 @@ class Inscrit
      * @ORM\JoinColumn(name="niveau_id", referencedColumnName="id", onDelete="SET NULL")
      */
     private $niveau;
+
+    /**
+     * Inscrit constructor.
+     */
+    public function __construct()
+    {
+        $this->setCreateAt(new \DateTime("now"));
+    }
 
     /**
      * Get id
@@ -120,5 +129,29 @@ class Inscrit
     public function getNiveau()
     {
         return $this->niveau;
+    }
+
+    /**
+     * Set createAt
+     *
+     * @param \DateTime $createAt
+     *
+     * @return Inscrit
+     */
+    public function setCreateAt($createAt)
+    {
+        $this->createAt = $createAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createAt
+     *
+     * @return \DateTime
+     */
+    public function getCreateAt()
+    {
+        return $this->createAt;
     }
 }

@@ -2,7 +2,9 @@
 
 namespace InscriptionBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,9 +16,19 @@ class InscritType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date')
             ->add('enfant')
-            ->add('niveau');
+            ->add('niveau', EntityType::class, [
+                'class' => 'InscriptionBundle\Entity\Niveau',
+                'choice_label' => 'nom',
+                'multiple' => false,
+                'expanded' => true
+            ])
+            ->add('submit', SubmitType::class, [
+               'attr' => [
+                   'classe' => 'btn btn-primary',
+                   'label' => 'Enregistrer'
+               ]
+            ]);
     }
     
     /**

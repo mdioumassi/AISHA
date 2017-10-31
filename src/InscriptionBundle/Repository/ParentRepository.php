@@ -10,4 +10,5 @@ namespace InscriptionBundle\Repository;
  */
 class ParentRepository extends \Doctrine\ORM\EntityRepository
 {
+
 }
