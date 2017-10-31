@@ -16,6 +16,6 @@
 /vendor/
 /web/bundles/
 /nbproject/private/
-.idea/aisha.dev.iml
-.idea/modules.xml
-.idea/workspace.xml
+/.idea/aisha.dev.iml
+/.idea/modules.xml
+/.idea/workspace.xml
