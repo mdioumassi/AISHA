@@ -6,15 +6,17 @@ use InscriptionBundle\Controller\ParentController;
 use InscriptionBundle\Entity\Parents;
 use InscriptionBundle\Form\ParentsType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 class InscriptionController extends Controller
 {
     /**
-     * @Route("/inscription", name="inscription")
+     * @Route("/inscription/parent", name="parent_insc")
+     * @Template()
      */
-    public function indexAction(Request $request)
+    public function addParentAction(Request $request)
     {
         $parent = new Parents();
         $form = $this->createForm(ParentsType::class, $parent);
@@ -22,17 +24,40 @@ class InscriptionController extends Controller
         if ($request->isMethod('POST') && $form->isValid()) {
             $this->Em()->persist($parent);
             $this->Em()->flush();
-            return $this->redirectToRoute();
+            return $this->redirectToRoute('ajout_enfant',[
+                'parent_id' => $parent->getId()
+            ]);
         }
 
-        return $this->render('@Inscription/Inscription/Inscription.html.twig',[
+        return $this->render('@Inscription/Inscription/Inscrit/parent.html.twig',[
             'form' => $form->createView()
         ]);
     }
 
-    public function postEnfant()
+    /**
+     * @Route("/inscription/enfant", name="inscr_enfant")
+     */
+    public function addEnfantAction(Request $request, $parentid)
     {
-
+        $parent = $this->Em()->getRepository('InscriptionBundle:Parents')
+            ->find($parentid);
+        if (empty($parent)) {
+            throw  $this->createNotFoundException('Not found parent');
+        }
+        $enfant = new Enfant();
+        $enfant->setParent($parent);
+        $form = $this->createForm(EnfantType::class, $enfant);
+        $form->handleRequest($request);
+        if ($request->isMethod('POST') && $form->isValid()) {
+            $this->Em()->persist($enfant);
+            $this->Em()->flush();
+//            return $this->redirectToRoute('parent_enfants', [
+//                'enfant_id' => $enfant->getId()
+//            ]);
+        }
+        return $this->render('@Inscription/Inscription/Inscrit/enfant.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
     /**
      * @return \Doctrine\Common\Persistence\ObjectManager|object
