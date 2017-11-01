@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Matiere
  *
- * @ORM\Table(name="matiere")
+ * @ORM\Table(name="matieres")
  * @ORM\Entity(repositoryClass="InscriptionBundle\Repository\MatiereRepository")
  */
 class Matiere
@@ -31,7 +31,7 @@ class Matiere
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\Column(name="description", type="text", length=255)
      */
     private $description;
 
@@ -42,16 +42,11 @@ class Matiere
      */
     private $coefficient;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="InscriptionBundle\Entity\Niveau", cascade={"persist"}, mappedBy="matieres")
-     */
-    private $niveaux;
-
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -123,51 +118,10 @@ class Matiere
     /**
      * Get coefficient
      *
-     * @return int
+     * @return integer
      */
     public function getCoefficient()
     {
         return $this->coefficient;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->niveaux = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add niveaux
-     *
-     * @param \InscriptionBundle\Entity\Niveau $niveaux
-     *
-     * @return Matiere
-     */
-    public function addNiveaux(\InscriptionBundle\Entity\Niveau $niveaux)
-    {
-        $this->niveaux[] = $niveaux;
-
-        return $this;
-    }
-
-    /**
-     * Remove niveaux
-     *
-     * @param \InscriptionBundle\Entity\Niveau $niveaux
-     */
-    public function removeNiveaux(\InscriptionBundle\Entity\Niveau $niveaux)
-    {
-        $this->niveaux->removeElement($niveaux);
-    }
-
-    /**
-     * Get niveaux
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getNiveaux()
-    {
-        return $this->niveaux;
     }
 }

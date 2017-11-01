@@ -2,6 +2,8 @@
 
 namespace InscriptionBundle\Controller;
 
+use InscriptionBundle\Entity\Niveau;
+use InscriptionBundle\Form\NiveauType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -22,11 +24,29 @@ class NiveauController extends Controller
                      ->getRepository('InscriptionBundle:Niveau')
                      ->findAll()
         ;
-        $enfants =
         $this->isExist($niveaux, "niveau");
 
         return [
             'niveaux' => $niveaux
+        ];
+    }
+
+    /**
+     * @Route("/niveaux/ajouter", name="ajouter_niveau")
+     * @Template("@Inscription/Inscription/Niveau/ajouter.html.twig")
+     */
+    public function addNiveauAction(Request $request)
+    {
+        $niveau = new Niveau();
+        $form = $this->createForm(NiveauType::class, $niveau);
+        $form->handleRequest($request);
+        if ($request->isMethod('POST') && $form->isValid()) {
+            $this->Em()->persist($niveau);
+            $this->Em()->flush();
+            $this->redirectToRoute('liste_niveaux');
+        }
+        return [
+            'form' => $form->createView()
         ];
     }
 

@@ -1,0 +1,51 @@
+{% extends '@Inscription/layout.html.twig' %}
+
+{% block content %}
+    {{ form(form) }}
+    <a href="#" id="add_matiere" class="btn btn-default">Ajouter une matière</a>
+    <script>
+        $(function () {
+            var $container = $('div#inscriptionbundle_niveau_matieres');
+            var index = $container.find(':input').length;
+
+
+            $('#add_matiere').click(function(e) {
+                addMatiere($container);
+
+                e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+                return false;
+            });
+
+
+            if (index == 0) {
+                addMatiere($container);
+            } else {
+                $container.children('div').each(function() {
+                    addDeleteLink($(this));
+                });
+            }
+
+            // La fonction qui ajoute un formulaire CategoryType
+            function addMatiere($container) {
+                var template = $container.attr('data-prototype')
+                    .replace(/__name__label__/g, 'Catégorie n°' + (index+1))
+                    .replace(/__name__/g,        index)
+                ;
+                var $prototype = $(template);
+                addDeleteLink($prototype);
+                $container.append($prototype);
+                index++;
+            }
+
+            function addDeleteLink($prototype) {
+                var $deleteLink = $('<a href="#" class="btn btn-danger">Supprimer</a>');
+                $prototype.append($deleteLink);
+                $deleteLink.click(function(e) {
+                    $prototype.remove();
+                    e.preventDefault();
+                    return false;
+                });
+            }
+        });
+    </script>
+{% endblock %}

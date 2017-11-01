@@ -36,9 +36,17 @@ class Niveau
     private $description;
 
     /**
-     * @ORM\ManyToMany(targetEntity="InscriptionBundle\Entity\Matiere", cascade={"persist"}, inversedBy="niveaux")
+     * @ORM\ManyToMany(targetEntity="InscriptionBundle\Entity\Matiere", cascade={"persist","remove"})
+     *
      */
     private $matieres;
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->matieres = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -98,15 +106,6 @@ class Niveau
         return $this->description;
     }
 
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->matieres = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
     /**
      * Add matiere
      *
@@ -141,12 +140,8 @@ class Niveau
         return $this->matieres;
     }
 
-
-    /**
-     * @return string
-     */
     public function __toString()
     {
-        return $this->getNom();
+       return $this->getNom(); // TODO: Implement __toString() method.
     }
 }
