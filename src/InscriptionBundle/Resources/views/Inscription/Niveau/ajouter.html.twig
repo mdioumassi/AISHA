@@ -1,10 +1,66 @@
 {% extends '@Inscription/layout.html.twig' %}
 
 {% block content %}
-    {{ form(form) }}
-    <a href="#" id="add_matiere" class="btn btn-default">Ajouter une matière</a>
+    {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
+    {{ form_errors(form) }}
+    <fieldset class="w3-margin"><legend class="w3-yellow w3-padding-small">Ajouter un niveau</legend>
+        <div class="row">
+            <div class="col-sm-6">{{ form_row(form.nom) }}</div>
+            <div class="col-sm-6">
+                {{ form_row(form.description) }}
+            </div>
+        </div>
+    </fieldset>
+    {% set prototype_matiere = form.matieres.vars.prototype %}
+    <div id="prototype-matiere" class="prototype-matiere">
+        <fieldset class="w3-margin"><legend class="w3-gray w3-padding-small">Matière</legend>
+            <div class="row">
+                <div class="col-sm-6">{{ form_widget(prototype_matiere.libelle) }}</div>
+                <div class="col-sm-6">{{ form_widget(prototype_matiere.coefficient) }}</div>
+            </div>
+            <div class="col-sm-12">&nbsp;</div>
+            <div>
+                <div class="row">
+                    <div class="col-sm-12">{{ form_widget(prototype_matiere.description) }}</div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div id="container-matiere">
+        <div>
+            <a href="#" id="add_matiere" class="btn btn-success">Ajouter une matière</a>
+        </div>
+    </div>
+    {{ form_widget(form._token) }}
+    {{ form_end(form) }}
+
+
+
     <script>
-        $(function () {
+        $(function(){
+            $('#add_matiere').on('click', function(event){
+                event.preventDefault();
+                event.stopPropagation();
+
+                var $prototypeTome = $('#prototype-matiere').clone();
+                $prototypeTome = $($prototypeTome.html().replace(/__name__/g, $('.prototype-matiere').length));
+
+                var $linkDelete = $('<div><a href="#" class="btn btn-danger delete-tome">Supprimer</a></div>');
+                $prototypeTome.append($linkDelete);
+
+                $linkDelete.on('click', function(e){
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    $prototypeTome.remove();
+                });
+
+                $('#container-matiere').prepend($prototypeTome);
+            });
+        });
+
+
+       /* $(function () {
             var $container = $('div#inscriptionbundle_niveau_matieres');
             var index = $container.find(':input').length;
 
@@ -28,7 +84,7 @@
             // La fonction qui ajoute un formulaire CategoryType
             function addMatiere($container) {
                 var template = $container.attr('data-prototype')
-                    .replace(/__name__label__/g, 'Catégorie n°' + (index+1))
+                    .replace(/__name__label__/g, 'Matière n°' + (index+1))
                     .replace(/__name__/g,        index)
                 ;
                 var $prototype = $(template);
@@ -46,6 +102,6 @@
                     return false;
                 });
             }
-        });
+        });*/
     </script>
 {% endblock %}
