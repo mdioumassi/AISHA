@@ -81,7 +81,7 @@ class Parents
     private $createAt;
 
     /**
-     * @ORM\OneToMany(targetEntity="InscriptionBundle\Entity\Enfant", cascade={"persist","remove"}, mappedBy="parent")
+     * @ORM\OneToMany(targetEntity="InscriptionBundle\Entity\Enfant", cascade="all", orphanRemoval=true, mappedBy="parent")
      * @ORM\JoinColumn(nullable=false)
      * @var Enfant[]
      */
@@ -283,6 +283,7 @@ class Parents
     public function addEnfant(\InscriptionBundle\Entity\Enfant $enfant)
     {
         $this->enfants[] = $enfant;
+        $enfant->setParent($this);
 
         return $this;
     }

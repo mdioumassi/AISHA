@@ -75,9 +75,10 @@ class Enfant
     /**
      * Enfant constructor.
      */
-    public function __construct()
+    public function __construct(Parents $parent)
     {
         $this->setCreateAt(new \DateTime("now"));
+        $this->parent = $parent;
     }
 
     /**

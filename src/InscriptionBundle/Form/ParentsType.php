@@ -27,11 +27,17 @@ class ParentsType extends AbstractType
             ])
             ->add('fonction')
             ->add('telephone')
-            ->add('addresse');
-//            ->add('submit', SubmitType::class, [
-//                'attr' => ['class' => 'btn btn-primary'],
-//                'label' => 'Enregistrer'
-//            ]);
+            ->add('addresse')
+            ->add('enfants', CollectionType::class,[
+                'entry_type' => EnfantType::class,
+                'allow_add'  => true,
+                'allow_delete' => true,
+                'by_reference' => false
+            ])
+            ->add('submit', SubmitType::class, [
+                'attr' => ['class' => 'btn btn-primary'],
+                'label' => 'Enregistrer'
+            ]);
     }
     
     /**
