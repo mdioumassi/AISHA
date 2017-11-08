@@ -10,5 +10,19 @@ namespace InscriptionBundle\Repository;
  */
 class ParentRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function  findByParent($parent)
+    {
+        $em = $this->getEntityManager();
 
+        $query
+            = $em->createQuery('
+                SELECT e
+                FROM InscriptionBundle:Enfant e 
+                JOIN e.parent p
+                WHERE p.id = :parent
+            ');
+        $query->setParameter('parent', $parent);
+        return $query->getResult();
+
+    }
 }

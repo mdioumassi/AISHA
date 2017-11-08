@@ -23,27 +23,35 @@ class EnfantType extends AbstractType
                     'attr' => array(
                         'class' => 'w3-input w3-border',
                         'placeholder' => 'Nom'
-                    )
+                    ),
+                    'label' => false
                 ])
                 ->add('prenom',TextType::class, [
                     'attr' => array(
                         'class' => 'w3-input w3-border',
                         'placeholder' => 'Prenom'
-                    )
+                    ),
+                    'label' => false
                 ])
                 ->add('dateNaissance', BirthdayType::class, [
                     'widget' =>'single_text',
+                    'format' => 'dd-MM-yyyy',
                     'html5' => false,
                     'attr'  => [
-                        'class' => 'js-datepicker',
+                        'class' => 'form-control input-inline datepicker',
+                        'data-provide' => 'datepicker',
+                        'data-date-format' => 'dd-mm-yyyy',
                         'placeholder' => 'Date de naissance'
-                    ]
+                    ],
+                    'label' => false
                 ])
                 ->add('genre', ChoiceType::class, [
+                    'placeholder' => 'Choisir',
                     'choices' => [
                         'Garçon' => 'Garçon',
                         'Fille' => 'Fille'
-                    ]
+                    ],
+                    'label' => false
                 ]);
                 //->add('parentId', HiddenType::class)
     //            ->add('submit', SubmitType::class, [

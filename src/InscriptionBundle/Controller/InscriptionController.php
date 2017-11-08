@@ -27,7 +27,7 @@ class InscriptionController extends Controller
         if ($request->isMethod('POST') && $form->isValid()) {
             $this->Em()->persist($parent);
             $this->Em()->flush();
-            return $this->redirectToRoute('inscr_enfant',[
+            return $this->redirectToRoute('inscr_niveau',[
                 'parent_id' => $parent->getId()
             ]);
         }
@@ -40,7 +40,7 @@ class InscriptionController extends Controller
     /**
      * @Route("/inscription/enfant", name="inscr_enfant")
      */
-    public function addEnfantAction(Request $request)
+   /* public function addEnfantAction(Request $request)
     {
         $parent = $this->Em()->getRepository('InscriptionBundle:Parents')
             ->find($request->get('parent_id'));
@@ -61,21 +61,25 @@ class InscriptionController extends Controller
         return $this->render('@Inscription/Inscription/Inscrit/enfant.html.twig', [
             'form' => $form->createView()
         ]);
-    }
+    }*/
 
     /**
      * @Route("/inscription/niveau", name="inscr_niveau")
      */
     public function addNiveauAction(Request $request)
     {
-        $enfant = $this->Em()->getRepository('InscriptionBundle:Enfant')
-            ->find($request->get('enfant_id'));
+        $enfants = $this->Em()->getRepository('InscriptionBundle:Parents')
+            ->findByParent($request->get('parent_id'));
 
-        if (empty($enfant)) {
+        if (empty($enfants)) {
             throw  $this->createNotFoundException('Not found parent');
         }
         $inscrit = new Inscrit();
-        $inscrit->setEnfant($enfant);
+
+        foreach ($enfants as $enfant){
+            $inscrit->setEnfant($enfant);
+        }
+
         $form = $this->createForm(InscritType::class, $inscrit);
         $form->handleRequest($request);
         if ($request->isMethod('POST') && $form->isValid()) {
