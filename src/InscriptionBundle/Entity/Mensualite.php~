@@ -22,6 +22,10 @@ class Mensualite
     private $id;
 
     /**
+     * @ORM\Column(name="mois", type="string", length=25)
+     */
+    private $mois;
+    /**
      * @var bool
      *
      * @ORM\Column(name="paye", type="boolean")
@@ -48,133 +52,8 @@ class Mensualite
      */
     private $enfant;
 
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
+    public function __construct()
     {
-        return $this->id;
-    }
-
-    /**
-     * Set paye
-     *
-     * @param boolean $paye
-     *
-     * @return Mensualite
-     */
-    public function setPaye($paye)
-    {
-        $this->paye = $paye;
-
-        return $this;
-    }
-
-    /**
-     * Get paye
-     *
-     * @return boolean
-     */
-    public function getPaye()
-    {
-        return $this->paye;
-    }
-
-    /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     *
-     * @return Mensualite
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     *
-     * @return Mensualite
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    /**
-     * Get updatedAt
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * Set mensualite
-     *
-     * @param \InscriptionBundle\Entity\Mensualite $mensualite
-     *
-     * @return Mensualite
-     */
-    public function setMensualite(\InscriptionBundle\Entity\Mensualite $mensualite = null)
-    {
-        $this->mensualite = $mensualite;
-
-        return $this;
-    }
-
-    /**
-     * Get mensualite
-     *
-     * @return \InscriptionBundle\Entity\Mensualite
-     */
-    public function getMensualite()
-    {
-        return $this->mensualite;
-    }
-
-    /**
-     * Set enfant
-     *
-     * @param \InscriptionBundle\Entity\Enfant $enfant
-     *
-     * @return Mensualite
-     */
-    public function setEnfant(\InscriptionBundle\Entity\Enfant $enfant = null)
-    {
-        $this->enfant = $enfant;
-
-        return $this;
-    }
-
-    /**
-     * Get enfant
-     *
-     * @return \InscriptionBundle\Entity\Enfant
-     */
-    public function getEnfant()
-    {
-        return $this->enfant;
+        $this->setCreatedAt(new \DateTime("now"));
     }
 }

@@ -27,7 +27,7 @@ class Inscrit
     private $frais;
 
     /**
-     * @ORM\Column(name="paye", type="boolean")
+     * @ORM\Column(name="paye", type="boolean", nullable=true)
      */
     private $paye;
 

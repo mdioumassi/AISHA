@@ -50,6 +50,8 @@ class LoadEnfantData extends Fixture
         $manager->flush();
 
         $this->addReference('enfant1',$enfant1);
+        $this->addReference('enfant2',$enfant2);
+        $this->addReference('enfant3',$enfant3);
 
     }
 

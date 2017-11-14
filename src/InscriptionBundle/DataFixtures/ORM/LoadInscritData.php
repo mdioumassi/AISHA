@@ -26,7 +26,9 @@ class LoadInscritData extends Fixture
         $insc1 = new Inscrit();
         $insc1->setEnfant($this->getReference('enfant1'))
               ->setNiveau($this->getReference('niv1'))
-              ->setDate(new \DateTime("now"));
+              ->setPaye(1)
+              ->setFrais(500)
+              ->setAnnee(2017);
         $manager->persist($insc1);
         $manager->flush();
     }

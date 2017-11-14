@@ -13,8 +13,8 @@ class MensualiteType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('paye')
-                ->add('mensualite')
+        $builder->add('mois')
+                ->add('paye')
                 ->add('enfant');
     }
     

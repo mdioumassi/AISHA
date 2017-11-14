@@ -26,12 +26,14 @@ class LoadNiveauData extends Fixture
         $niv1 = new Niveau();
         $niv1->setNom("Jardin")
              ->setDescription("Le jardin regroupe des enfants moins de 5 à 6 ans")
+             ->setMensualite(1500)
              ->addMatiere($this->getReference('mat1'));
         $manager->persist($niv1);
 
         $niv2 = new Niveau();
         $niv2->setNom("Maternelle")
-            ->setDescription("La maternelle regroupe des enfants moins de 3 à 4 ans");
+             ->setDescription("La maternelle regroupe des enfants moins de 3 à 4 ans")
+             ->setMensualite(1000);
         $manager->persist($niv2);
         $manager->flush();
 

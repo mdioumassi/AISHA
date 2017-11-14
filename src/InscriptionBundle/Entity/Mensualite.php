@@ -22,6 +22,10 @@ class Mensualite
     private $id;
 
     /**
+     * @ORM\Column(name="mois", type="string", length=25)
+     */
+    private $mois;
+    /**
      * @var bool
      *
      * @ORM\Column(name="paye", type="boolean")
@@ -38,7 +42,7 @@ class Mensualite
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="updated_at", type="datetime")
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
      */
     private $updatedAt;
 
@@ -48,6 +52,11 @@ class Mensualite
      */
     private $enfant;
 
+    public function __construct()
+    {
+        $this->setCreatedAt(new \DateTime("now"));
+    }
+
     /**
      * Get id
      *
@@ -56,6 +65,30 @@ class Mensualite
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set mois
+     *
+     * @param string $mois
+     *
+     * @return Mensualite
+     */
+    public function setMois($mois)
+    {
+        $this->mois = $mois;
+
+        return $this;
+    }
+
+    /**
+     * Get mois
+     *
+     * @return string
+     */
+    public function getMois()
+    {
+        return $this->mois;
     }
 
     /**
@@ -128,30 +161,6 @@ class Mensualite
     public function getUpdatedAt()
     {
         return $this->updatedAt;
-    }
-
-    /**
-     * Set mensualite
-     *
-     * @param \InscriptionBundle\Entity\Mensualite $mensualite
-     *
-     * @return Mensualite
-     */
-    public function setMensualite(\InscriptionBundle\Entity\Mensualite $mensualite = null)
-    {
-        $this->mensualite = $mensualite;
-
-        return $this;
-    }
-
-    /**
-     * Get mensualite
-     *
-     * @return \InscriptionBundle\Entity\Mensualite
-     */
-    public function getMensualite()
-    {
-        return $this->mensualite;
     }
 
     /**
