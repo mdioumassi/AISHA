@@ -22,12 +22,19 @@ class Inscrit
     private $id;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="create_at", type="datetime",nullable=true)
+     * @ORM\Column(name="frais", type="integer")
      */
-    private $createAt;
+    private $frais;
 
+    /**
+     * @ORM\Column(name="paye", type="boolean")
+     */
+    private $paye;
+
+    /**
+     * @ORM\Column(name="annee", type="integer")
+     */
+    private $annee;
 
     /**
      * @ORM\ManyToOne(targetEntity="InscriptionBundle\Entity\Enfant")
@@ -42,11 +49,18 @@ class Inscrit
     private $niveau;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
+     */
+    private $createdAt;
+
+    /**
      * Inscrit constructor.
      */
     public function __construct()
     {
-        $this->setCreateAt(new \DateTime("now"));
+        $this->setCreatedAt(new \DateTime("now"));
     }
 
     /**
@@ -60,27 +74,75 @@ class Inscrit
     }
 
     /**
-     * Set date
+     * Set frais
      *
-     * @param \DateTime $date
+     * @param integer $frais
      *
      * @return Inscrit
      */
-    public function setDate($date)
+    public function setFrais($frais)
     {
-        $this->date = $date;
+        $this->frais = $frais;
 
         return $this;
     }
 
     /**
-     * Get date
+     * Get frais
+     *
+     * @return integer
+     */
+    public function getFrais()
+    {
+        return $this->frais;
+    }
+
+    /**
+     * Set annee
+     *
+     * @param integer $annee
+     *
+     * @return Inscrit
+     */
+    public function setAnnee($annee)
+    {
+        $this->annee = $annee;
+
+        return $this;
+    }
+
+    /**
+     * Get annee
+     *
+     * @return integer
+     */
+    public function getAnnee()
+    {
+        return $this->annee;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     *
+     * @return Inscrit
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
      *
      * @return \DateTime
      */
-    public function getDate()
+    public function getCreatedAt()
     {
-        return $this->date;
+        return $this->createdAt;
     }
 
     /**
@@ -132,26 +194,26 @@ class Inscrit
     }
 
     /**
-     * Set createAt
+     * Set paye
      *
-     * @param \DateTime $createAt
+     * @param boolean $paye
      *
      * @return Inscrit
      */
-    public function setCreateAt($createAt)
+    public function setPaye($paye)
     {
-        $this->createAt = $createAt;
+        $this->paye = $paye;
 
         return $this;
     }
 
     /**
-     * Get createAt
+     * Get paye
      *
-     * @return \DateTime
+     * @return boolean
      */
-    public function getCreateAt()
+    public function getPaye()
     {
-        return $this->createAt;
+        return $this->paye;
     }
 }

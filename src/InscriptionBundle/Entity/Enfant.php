@@ -73,13 +73,18 @@ class Enfant
     private $parent;
 
     /**
+     * @ORM\OneToMany(targetEntity="InscriptionBundle\Entity\Mensualite", mappedBy="enfant", cascade="all", orphanRemoval=true)
+     */
+    private $mensualites;
+
+    /**
      * Enfant constructor.
      */
-    public function __construct(Parents $parent = null)
+  /*  public function __construct(Parents $parent = null)
     {
         $this->setCreateAt(new \DateTime("now"));
         $this->parent = $parent;
-    }
+    }*/
 
     /**
      * Get id
@@ -241,5 +246,46 @@ class Enfant
     public function __toString()
     {
         return $this->nom." ".$this->prenom;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->mensualites = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add mensualite
+     *
+     * @param \InscriptionBundle\Entity\Mensualite $mensualite
+     *
+     * @return Enfant
+     */
+    public function addMensualite(\InscriptionBundle\Entity\Mensualite $mensualite)
+    {
+        $this->mensualites[] = $mensualite;
+
+        return $this;
+    }
+
+    /**
+     * Remove mensualite
+     *
+     * @param \InscriptionBundle\Entity\Mensualite $mensualite
+     */
+    public function removeMensualite(\InscriptionBundle\Entity\Mensualite $mensualite)
+    {
+        $this->mensualites->removeElement($mensualite);
+    }
+
+    /**
+     * Get mensualites
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMensualites()
+    {
+        return $this->mensualites;
     }
 }

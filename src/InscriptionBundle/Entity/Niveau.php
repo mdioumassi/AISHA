@@ -36,6 +36,18 @@ class Niveau
     private $description;
 
     /**
+     * @ORM\Column(name="mensualite", type="integer")
+     */
+    private $mensualite;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
+     */
+    private $createdAt;
+
+    /**
      * @ORM\ManyToMany(targetEntity="InscriptionBundle\Entity\Matiere", cascade={"persist","remove"})
      *
      */
@@ -46,6 +58,7 @@ class Niveau
     public function __construct()
     {
         $this->matieres = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->setCreatedAt(new \DateTime("now"));
     }
 
     /**
@@ -107,6 +120,54 @@ class Niveau
     }
 
     /**
+     * Set mensualite
+     *
+     * @param integer $mensualite
+     *
+     * @return Niveau
+     */
+    public function setMensualite($mensualite)
+    {
+        $this->mensualite = $mensualite;
+
+        return $this;
+    }
+
+    /**
+     * Get mensualite
+     *
+     * @return integer
+     */
+    public function getMensualite()
+    {
+        return $this->mensualite;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     *
+     * @return Niveau
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
      * Add matiere
      *
      * @param \InscriptionBundle\Entity\Matiere $matiere
@@ -138,10 +199,5 @@ class Niveau
     public function getMatieres()
     {
         return $this->matieres;
-    }
-
-    public function __toString()
-    {
-       return $this->getNom(); // TODO: Implement __toString() method.
     }
 }

@@ -26,6 +26,9 @@ class InscritType extends AbstractType
                 'query_builder' => function (EnfantRepository $er){
                     return $er->createQueryBuilder('e');
                 },
+                'attr' => [
+                    'class' => 'w3-radio'
+                ]
             ])
             ->add('niveau', EntityType::class, [
                 'class' => 'InscriptionBundle\Entity\Niveau',

@@ -72,7 +72,19 @@ class Enfant
      */
     private $parent;
 
+    /**
+     * @ORM\OneToMany(targetEntity="InscriptionBundle\Entity\Mensualite", mappedBy="enfant", cascade="all", orphanRemoval=true)
+     */
+    private $mensualites;
 
+    /**
+     * Enfant constructor.
+     */
+  /*  public function __construct(Parents $parent = null)
+    {
+        $this->setCreateAt(new \DateTime("now"));
+        $this->parent = $parent;
+    }*/
 
     /**
      * Get id
@@ -229,26 +241,10 @@ class Enfant
     }
 
     /**
-     * Set inscrit
-     *
-     * @param \InscriptionBundle\Entity\Inscrit $inscrit
-     *
-     * @return Enfant
+     * @return string
      */
-    public function setInscrit(\InscriptionBundle\Entity\Inscrit $inscrit = null)
+    public function __toString()
     {
-        $this->inscrit = $inscrit;
-
-        return $this;
-    }
-
-    /**
-     * Get inscrit
-     *
-     * @return \InscriptionBundle\Entity\Inscrit
-     */
-    public function getInscrit()
-    {
-        return $this->inscrit;
+        return $this->nom." ".$this->prenom;
     }
 }
