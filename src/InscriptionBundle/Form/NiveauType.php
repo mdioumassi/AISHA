@@ -17,10 +17,12 @@ class NiveauType extends AbstractType
     {
         $builder->add('nom')
                 ->add('description')
+                ->add('mensualite')
                 ->add('matieres', CollectionType::class, [
                     'entry_type'   => MatiereType::class,
                     'allow_add'    => true,
-                    'allow_delete' => true
+                    'allow_delete' => true,
+                    'by_reference' => false
                 ])
                 ->add('submit', SubmitType::class, [
                     'attr' => [

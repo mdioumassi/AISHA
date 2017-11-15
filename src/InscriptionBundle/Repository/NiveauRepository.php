@@ -26,4 +26,13 @@ class NiveauRepository extends \Doctrine\ORM\EntityRepository
 
         return $result;
     }
+
+    public function getElevesByNiveau()
+    {
+        $em = $this->getEntityManager();
+        $query =
+            $em->createQuery('
+                SELECT 
+            ');
+    }
 }

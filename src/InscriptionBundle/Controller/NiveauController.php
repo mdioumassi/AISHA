@@ -22,7 +22,7 @@ class NiveauController extends Controller
     {
         $niveaux = $this->Em()
                      ->getRepository('InscriptionBundle:Niveau')
-                     ->findAll()
+                     ->getElevesByNiveau()
         ;
         $this->isExist($niveaux, "niveau");
 

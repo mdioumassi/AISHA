@@ -80,11 +80,12 @@ class Enfant
     /**
      * Enfant constructor.
      */
-  /*  public function __construct(Parents $parent = null)
+    public function __construct(Parents $parent = null)
     {
+        $this->mensualites = new \Doctrine\Common\Collections\ArrayCollection();
         $this->setCreateAt(new \DateTime("now"));
         $this->parent = $parent;
-    }*/
+    }
 
     /**
      * Get id
@@ -246,13 +247,6 @@ class Enfant
     public function __toString()
     {
         return $this->nom." ".$this->prenom;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->mensualites = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

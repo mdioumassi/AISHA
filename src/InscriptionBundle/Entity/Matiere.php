@@ -31,7 +31,7 @@ class Matiere
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text", length=255)
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 
@@ -42,6 +42,19 @@ class Matiere
      */
     private $coefficient;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="InscriptionBundle\Entity\Niveau", inversedBy="matieres")
+     */
+    private $niveau;
+
+    /**
+     * Matiere constructor.
+     * @param Niveau|null $niveau
+     */
+    public function __construct(Niveau $niveau = null)
+    {
+        $this->niveau = $niveau;
+    }
 
     /**
      * Get id
@@ -123,5 +136,29 @@ class Matiere
     public function getCoefficient()
     {
         return $this->coefficient;
+    }
+
+    /**
+     * Set niveau
+     *
+     * @param \InscriptionBundle\Entity\Niveau $niveau
+     *
+     * @return Matiere
+     */
+    public function setNiveau(\InscriptionBundle\Entity\Niveau $niveau = null)
+    {
+        $this->niveau = $niveau;
+
+        return $this;
+    }
+
+    /**
+     * Get niveau
+     *
+     * @return \InscriptionBundle\Entity\Niveau
+     */
+    public function getNiveau()
+    {
+        return $this->niveau;
     }
 }

@@ -43,8 +43,7 @@ class Matiere
     private $coefficient;
 
     /**
-     * @ORM\ManyToOne(targetEntity="InscriptionBundle\Entity\Niveau", cascade={"persist"}, inversedBy="matieres")
-     *  @ORM\JoinColumn(name="niveau_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="InscriptionBundle\Entity\Niveau", inversedBy="matieres")
      */
     private $niveau;
 
@@ -128,29 +127,5 @@ class Matiere
     public function getCoefficient()
     {
         return $this->coefficient;
-    }
-
-    /**
-     * Set niveau
-     *
-     * @param \InscriptionBundle\Entity\Niveau $niveau
-     *
-     * @return Matiere
-     */
-    public function setNiveau(\InscriptionBundle\Entity\Niveau $niveau = null)
-    {
-        $this->niveau = $niveau;
-
-        return $this;
-    }
-
-    /**
-     * Get niveau
-     *
-     * @return \InscriptionBundle\Entity\Niveau
-     */
-    public function getNiveau()
-    {
-        return $this->niveau;
     }
 }

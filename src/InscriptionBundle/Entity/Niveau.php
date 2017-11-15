@@ -31,7 +31,7 @@ class Niveau
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 
@@ -48,7 +48,7 @@ class Niveau
     private $createdAt;
 
     /**
-     * @ORM\ManyToMany(targetEntity="InscriptionBundle\Entity\Matiere", cascade={"persist","remove"})
+     * @ORM\OneToMany(targetEntity="InscriptionBundle\Entity\Matiere", mappedBy="niveau", cascade={"persist","remove"})
      *
      */
     private $matieres;
@@ -177,7 +177,7 @@ class Niveau
     public function addMatiere(\InscriptionBundle\Entity\Matiere $matiere)
     {
         $this->matieres[] = $matiere;
-
+        $matiere->setNiveau($this);
         return $this;
     }
 
