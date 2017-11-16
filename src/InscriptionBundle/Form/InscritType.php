@@ -2,12 +2,7 @@
 
 namespace InscriptionBundle\Form;
 
-use InscriptionBundle\InscriptionBundle;
-use InscriptionBundle\Repository\EnfantRepository;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -18,30 +13,11 @@ class InscritType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('enfant', EntityType::class,[
-                'class' => 'InscriptionBundle\Entity\Enfant',
-                'multiple' => false,
-                'expanded' => true,
-                'query_builder' => function (EnfantRepository $er){
-                    return $er->createQueryBuilder('e');
-                },
-                'attr' => [
-                    'class' => 'w3-radio'
-                ]
-            ])
-            ->add('niveau', EntityType::class, [
-                'class' => 'InscriptionBundle\Entity\Niveau',
-                'choice_label' => 'nom',
-                'multiple' => false,
-                'expanded' => true
-            ])
-            ->add('submit', SubmitType::class, [
-               'attr' => [
-                   'classe' => 'btn btn-primary',
-                   'label' => 'Enregistrer'
-               ]
-            ]);
+        $builder->add('frais')
+                ->add('paye')
+                ->add('annee')
+                ->add('enfant', EnfantType::class)
+                ->add('niveau', NiveauType::class);
     }
     
     /**

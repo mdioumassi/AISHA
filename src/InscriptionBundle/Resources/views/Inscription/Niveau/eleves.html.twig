@@ -17,7 +17,11 @@
                     <td>{{ eleve.genre }}</td>
                     <td>{{ eleve.mensualite ~ " UM"}}</td>
                     <td>{{ eleve.mois }}</td>
-                    <td>{{ eleve.paye }}</td>
+                    {% if eleve.paye %}
+                        <td style="color: #66dd66"><span class="glyphicon glyphicon-ok-circle"></span></td>
+                    {% else %}
+                        <td style="color:red"><span class="glyphicon glyphicon-remove-circle"></span></td>
+                    {% endif %}
                 </tr>
             {% endfor %}
             </tbody>

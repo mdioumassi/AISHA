@@ -71,13 +71,20 @@ class InscriptionController extends Controller
         $enfants = $this->Em()->getRepository('InscriptionBundle:Parents')
             ->findByParent($request->get('parent_id'));
 
+        $niveaux = $this->Em()->getRepository('InscriptionBundle:Parents')
+            ->findByNiveau($request->get('parent_id'));
+
         if (empty($enfants)) {
-            throw  $this->createNotFoundException('Not found parent');
+            throw  $this->createNotFoundException('Not found enfant');
         }
         $inscrit = new Inscrit();
 
         foreach ($enfants as $enfant){
             $inscrit->setEnfant($enfant);
+        }
+
+        foreach ($niveaux as $niveau){
+            $inscrit->setNiveau($niveau);
         }
 
         $form = $this->createForm(InscritType::class, $inscrit);
@@ -86,6 +93,7 @@ class InscriptionController extends Controller
             $this->Em()->persist($inscrit);
             $this->Em()->flush();
         }
+        $form = $this->createForm(InscritType::class, $inscrit);
         return $this->render('@Inscription/Inscription/Inscrit/inscrit.html.twig', [
             'form' => $form->createView()
         ]);

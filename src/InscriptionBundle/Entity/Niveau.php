@@ -72,27 +72,27 @@ class Niveau
     }
 
     /**
-     * Set nom
+     * Set classe
      *
-     * @param string $nom
+     * @param string $classe
      *
      * @return Niveau
      */
-    public function setNom($nom)
+    public function setClasse($classe)
     {
-        $this->nom = $nom;
+        $this->classe = $classe;
 
         return $this;
     }
 
     /**
-     * Get nom
+     * Get classe
      *
      * @return string
      */
-    public function getNom()
+    public function getClasse()
     {
-        return $this->nom;
+        return $this->classe;
     }
 
     /**
@@ -177,7 +177,7 @@ class Niveau
     public function addMatiere(\InscriptionBundle\Entity\Matiere $matiere)
     {
         $this->matieres[] = $matiere;
-        $matiere->setNiveau($this);
+
         return $this;
     }
 
@@ -199,29 +199,5 @@ class Niveau
     public function getMatieres()
     {
         return $this->matieres;
-    }
-
-    /**
-     * Set classe
-     *
-     * @param string $classe
-     *
-     * @return Niveau
-     */
-    public function setClasse($classe)
-    {
-        $this->classe = $classe;
-
-        return $this;
-    }
-
-    /**
-     * Get classe
-     *
-     * @return string
-     */
-    public function getClasse()
-    {
-        return $this->classe;
     }
 }

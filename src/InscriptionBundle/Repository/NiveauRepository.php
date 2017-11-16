@@ -14,7 +14,7 @@ class NiveauRepository extends \Doctrine\ORM\EntityRepository
     {
         $em = $this->getEntityManager();
         $query = $em->createQuery("
-            SELECT e.id, e.nom, e.prenom, e.dateNaissance, e.genre, n.nom
+            SELECT e.id, e.nom, e.prenom, e.dateNaissance, e.genre, n.classe
             FROM InscriptionBundle:Inscrit i 
             LEFT JOIN i.niveau n 
             LEFT JOIN i.enfant e 
@@ -27,12 +27,4 @@ class NiveauRepository extends \Doctrine\ORM\EntityRepository
         return $result;
     }
 
-    public function getElevesByNiveau()
-    {
-        $em = $this->getEntityManager();
-        $query =
-            $em->createQuery('
-                SELECT 
-            ');
-    }
 }

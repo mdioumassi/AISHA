@@ -1,2 +1,34 @@
+{{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
+{{ form_errors(form) }}
 
-    {{ form(form) }}
+<fieldset class="w3-margin"><legend class="w3-yellow w3-padding-small">Ajouter un enfant</legend>
+    <div class="row"><div class="col-sm-6">{{ form_row(form.enfant.nom) }}</div>
+        <div class="col-sm-6">{{ form_row(form.enfant.prenom) }}</div></div>
+    <div class="row">
+        <div class="col-sm-6">
+            {{ form_row(form.enfant.dateNaissance) }}
+        </div>
+        <div class="col-sm-6">
+            {{ form_row(form.enfant.genre) }}
+        </div>
+    </div>
+</fieldset>
+
+<fieldset class="w3-margin"><legend class="w3-yellow w3-padding-small">Ajouter un niveau</legend>
+    <div class="row">
+        <div class="col-sm-6">{{ form_row(form.niveau.classe) }}</div>
+        <div class="col-sm-6">{{ form_row(form.niveau.mensualite) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">{{ form_row(form.niveau.description) }}</div>
+    </div>
+</fieldset>
+
+<fieldset class="w3-margin"><legend class="w3-yellow w3-padding-small">Scolarité</legend>
+    <div class="row">
+        <div class="col-sm-4">{{ form_row(form.annee) }}</div>
+        <div class="col-sm-4">{{ form_row(form.frais) }}</div>
+        <div class="col-sm-4">{{ form_row(form.paye) }}</div>
+    </div>
+</fieldset>
+{{ form_end(form) }}

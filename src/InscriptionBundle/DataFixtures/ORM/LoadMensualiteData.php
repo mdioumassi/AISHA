@@ -35,6 +35,12 @@ class LoadMensualiteData extends Fixture
             ->setPaye(1)
             ->setEnfant($this->getReference('enfant2'));
         $manager->persist($mois2);
+
+        $mois3 = new Mensualite();
+        $mois3 ->setMois('Février')
+            ->setPaye(1)
+            ->setEnfant($this->getReference('enfant3'));
+        $manager->persist($mois3);
         $manager->flush();
     }
 

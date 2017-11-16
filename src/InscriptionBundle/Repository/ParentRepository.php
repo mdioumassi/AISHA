@@ -25,4 +25,21 @@ class ParentRepository extends \Doctrine\ORM\EntityRepository
         return $query->getResult();
 
     }
+
+    public function  findByNiveau($parent)
+    {
+        $em = $this->getEntityManager();
+
+        $query
+            = $em->createQuery('
+                SELECT i
+                FROM InscriptionBundle:Inscrit i 
+                JOIN i.enfant e 
+                JOIN e.parent p
+                WHERE p.id = :parent
+            ');
+        $query->setParameter('parent', $parent);
+        return $query->getResult();
+
+    }
 }

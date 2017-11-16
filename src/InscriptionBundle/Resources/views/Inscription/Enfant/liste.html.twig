@@ -16,7 +16,7 @@
                     <td>{{ enfant.prenom }}</td>
                     <td>{{ enfant.genre }}</td>
                     <td>{{ enfant.dateNaissance|age ~ " ans" }}</td>
-                    <td>{{ enfant.nom }}</td>
+                    <td>{{ enfant.classe }}</td>
                     <td>
                         <a href="{{ path('delete_enfant', {'enfant_id':enfant.id}) }}">
                             <span title="Supprimer" class="glyphicon glyphicon-trash"></span>

@@ -98,6 +98,30 @@ class Inscrit
     }
 
     /**
+     * Set paye
+     *
+     * @param boolean $paye
+     *
+     * @return Inscrit
+     */
+    public function setPaye($paye)
+    {
+        $this->paye = $paye;
+
+        return $this;
+    }
+
+    /**
+     * Get paye
+     *
+     * @return boolean
+     */
+    public function getPaye()
+    {
+        return $this->paye;
+    }
+
+    /**
      * Set annee
      *
      * @param integer $annee
@@ -191,29 +215,5 @@ class Inscrit
     public function getNiveau()
     {
         return $this->niveau;
-    }
-
-    /**
-     * Set paye
-     *
-     * @param boolean $paye
-     *
-     * @return Inscrit
-     */
-    public function setPaye($paye)
-    {
-        $this->paye = $paye;
-
-        return $this;
-    }
-
-    /**
-     * Get paye
-     *
-     * @return boolean
-     */
-    public function getPaye()
-    {
-        return $this->paye;
     }
 }
