@@ -5,14 +5,16 @@
     <table class="w3-table-all w3-card-4">
         <thead>
         <tr class="w3-green">
-            <th>Nom</th><th>Descrition</th><th>Matières</th><th>Actions</th>
+            <th>Classe</th><th>Descrition</th><th>Mensualité</th><th>Effectifs</th><th>Matières</th><th>Actions</th>
         </tr>
         </thead>
         <tbody>
         {% for niveau in niveaux %}
-            <tr>
-                <td>{{ niveau.nom }}</td>
+            <tr style="text-align: center">
+                <td>{{ niveau.classe}}</td>
                 <td>{{ niveau.description }}</td>
+                <td>{{ niveau.mensualite ~ " UM"}}</td>
+                <td><a href="{{ path('niveaux_eleves', {'classe':niveau.id}) }}"> {{ render(controller('InscriptionBundle:Inscription:nbinscrits', {'classe': niveau.id})) }}</a></td>
                 <td>
                     <span class="w3-badge w3-yellow ">
                         <a href="{{ path('matieres', {'id':niveau.id}) }}">{{ niveau.matieres|length }} matières</a>

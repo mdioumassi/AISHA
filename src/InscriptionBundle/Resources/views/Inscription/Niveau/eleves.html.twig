@@ -1,0 +1,26 @@
+{% extends '@Inscription/layout.html.twig' %}
+
+{% block content %}
+    <div class="w3-container">
+        <table class="w3-table-all w3-card-4">
+            <thead>
+            <tr class="w3-green">
+                <th>Nom</th><th>Prenom</th><th>Date Naissance</th><th>Sexe</th><th>Mensualité</th><th>Mois</th><th>Payé</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for eleve in eleves %}
+                <tr style="text-align: center">
+                    <td>{{ eleve.nom}}</td>
+                    <td>{{ eleve.prenom }}</td>
+                    <td>{{ eleve.dateNaissance|date('d/m/Y') }}</td>
+                    <td>{{ eleve.genre }}</td>
+                    <td>{{ eleve.mensualite ~ " UM"}}</td>
+                    <td>{{ eleve.mois }}</td>
+                    <td>{{ eleve.paye }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

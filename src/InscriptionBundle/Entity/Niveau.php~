@@ -24,14 +24,14 @@ class Niveau
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="classe", type="string", length=255)
      */
-    private $nom;
+    private $classe;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 
@@ -177,7 +177,7 @@ class Niveau
     public function addMatiere(\InscriptionBundle\Entity\Matiere $matiere)
     {
         $this->matieres[] = $matiere;
-
+        $matiere->setNiveau($this);
         return $this;
     }
 

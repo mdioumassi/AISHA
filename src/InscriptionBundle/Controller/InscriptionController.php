@@ -90,6 +90,19 @@ class InscriptionController extends Controller
             'form' => $form->createView()
         ]);
     }
+
+    /**
+     * @Template("InscriptionBundle:Inscription/Niveau:nbinscrit.html.twig")
+     */
+    public function nbinscritsAction($classe)
+    {
+        $nbinscrit = $this->Em()->getRepository('InscriptionBundle:Inscrit')
+                                ->findByEleve($classe);
+        return [
+            'classe' => $nbinscrit
+        ];
+    }
+
     /**
      * @return \Doctrine\Common\Persistence\ObjectManager|object
      */

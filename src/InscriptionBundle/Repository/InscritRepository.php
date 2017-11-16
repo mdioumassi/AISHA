@@ -10,4 +10,39 @@ namespace InscriptionBundle\Repository;
  */
 class InscritRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @param $classe
+     * @return mixed
+     */
+    public function findByEleve($classe)
+    {
+        $count = $this->getEntityManager()
+                 ->createQuery('
+                    SELECT COUNT(i)
+                    FROM InscriptionBundle:Inscrit i 
+                    JOIN i.enfant e 
+                    JOIN i.niveau n 
+                    WHERE n.id = :classe
+                 ');
+        $count->setParameter('classe', $classe);
+        return $count->getSingleScalarResult();
+    }
+
+    /**
+     * @param $classe
+     */
+    public function getElevesByNiveau($classe)
+    {
+        $eleves = $this->getEntityManager()
+                  ->createQuery('
+                    SELECT e.nom, e.prenom, e.dateNaissance, e.genre, n.mensualite, m.mois, m.paye
+                    FROM InscriptionBundle:Inscrit i 
+                    JOIN i.enfant e 
+                    JOIN i.niveau n 
+                    JOIN e.mensualites m
+                    WHERE n.id = :classe
+                  ');
+        $eleves->setParameter('classe', $classe);
+        return $eleves->getResult();
+    }
 }

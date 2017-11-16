@@ -22,7 +22,7 @@ class NiveauController extends Controller
     {
         $niveaux = $this->Em()
                      ->getRepository('InscriptionBundle:Niveau')
-                     ->getElevesByNiveau()
+                     ->findAll()
         ;
         $this->isExist($niveaux, "niveau");
 
@@ -47,6 +47,20 @@ class NiveauController extends Controller
         }
         return [
             'form' => $form->createView()
+        ];
+    }
+
+    /**
+     * @Route("niveaux/{classe}/eleves", name="niveaux_eleves")
+     * @Template("InscriptionBundle:Inscription/Niveau:eleves.html.twig")
+     */
+    public function getElevesAction($classe)
+    {
+        $eleves = $this->Em()->getRepository('InscriptionBundle:Inscrit')
+                             ->getElevesByNiveau($classe);
+
+        return [
+          'eleves' => $eleves  
         ];
     }
 

@@ -24,9 +24,9 @@ class Niveau
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="classe", type="string", length=255)
      */
-    private $nom;
+    private $classe;
 
     /**
      * @var string
@@ -199,5 +199,29 @@ class Niveau
     public function getMatieres()
     {
         return $this->matieres;
+    }
+
+    /**
+     * Set classe
+     *
+     * @param string $classe
+     *
+     * @return Niveau
+     */
+    public function setClasse($classe)
+    {
+        $this->classe = $classe;
+
+        return $this;
+    }
+
+    /**
+     * Get classe
+     *
+     * @return string
+     */
+    public function getClasse()
+    {
+        return $this->classe;
     }
 }

@@ -24,14 +24,14 @@ class LoadNiveauData extends Fixture
     public function load(ObjectManager $manager)
     {
         $niv1 = new Niveau();
-        $niv1->setNom("Jardin")
+        $niv1->setClasse("Jardin")
              ->setDescription("Le jardin regroupe des enfants moins de 5 à 6 ans")
              ->setMensualite(1500)
              ->addMatiere($this->getReference('mat1'));
         $manager->persist($niv1);
 
         $niv2 = new Niveau();
-        $niv2->setNom("Maternelle")
+        $niv2->setClasse("Maternelle")
              ->setDescription("La maternelle regroupe des enfants moins de 3 à 4 ans")
              ->setMensualite(1000);
         $manager->persist($niv2);

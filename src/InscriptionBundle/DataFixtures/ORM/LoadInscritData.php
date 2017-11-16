@@ -30,6 +30,23 @@ class LoadInscritData extends Fixture
               ->setFrais(500)
               ->setAnnee(2017);
         $manager->persist($insc1);
+
+        $insc2 = new Inscrit();
+        $insc2->setEnfant($this->getReference('enfant2'))
+            ->setNiveau($this->getReference('niv1'))
+            ->setPaye(1)
+            ->setFrais(500)
+            ->setAnnee(2017);
+        $manager->persist($insc2);
+
+        $insc3 = new Inscrit();
+        $insc3->setEnfant($this->getReference('enfant3'))
+            ->setNiveau($this->getReference('niv1'))
+            ->setPaye(1)
+            ->setFrais(500)
+            ->setAnnee(2017);
+        $manager->persist($insc3);
+
         $manager->flush();
     }
 

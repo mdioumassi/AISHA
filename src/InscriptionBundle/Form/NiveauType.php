@@ -15,7 +15,7 @@ class NiveauType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')
+        $builder->add('classe')
                 ->add('description')
                 ->add('mensualite')
                 ->add('matieres', CollectionType::class, [
