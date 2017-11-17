@@ -71,8 +71,6 @@ class InscriptionController extends Controller
         $enfants = $this->Em()->getRepository('InscriptionBundle:Parents')
             ->findByParent($request->get('parent_id'));
 
-        $niveaux = $this->Em()->getRepository('InscriptionBundle:Parents')
-            ->findByNiveau($request->get('parent_id'));
 
         if (empty($enfants)) {
             throw  $this->createNotFoundException('Not found enfant');
@@ -83,9 +81,7 @@ class InscriptionController extends Controller
             $inscrit->setEnfant($enfant);
         }
 
-        foreach ($niveaux as $niveau){
-            $inscrit->setNiveau($niveau);
-        }
+
 
         $form = $this->createForm(InscritType::class, $inscrit);
         $form->handleRequest($request);

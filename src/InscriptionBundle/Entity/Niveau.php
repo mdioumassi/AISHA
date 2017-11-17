@@ -200,4 +200,9 @@ class Niveau
     {
         return $this->matieres;
     }
+
+    public function __toString()
+    {
+        return $this->classe;
+    }
 }

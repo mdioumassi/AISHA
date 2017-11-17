@@ -54,7 +54,7 @@ class Enfant
     /**
      * @var string
      *
-     * @ORM\Column(name="genre", type="string", length=35)
+     * @ORM\Column(name="genre", type="string", length=35)ToOne(targetEnt
      * @Assert\Choice({"Garçon", "Fille"})
      */
     private $genre;
@@ -73,6 +73,11 @@ class Enfant
     private $parent;
 
     /**
+     * @ORM\OneToOne(targetEntity="InscriptionBundle\Entity\Inscrit", inversedBy="niveau")
+     */
+    private $niveau;
+
+    /**
      * @ORM\OneToMany(targetEntity="InscriptionBundle\Entity\Mensualite", mappedBy="enfant", cascade="all", orphanRemoval=true)
      */
     private $mensualites;
@@ -80,171 +85,10 @@ class Enfant
     /**
      * Enfant constructor.
      */
-  /*  public function __construct(Parents $parent = null)
+    public function __construct(Parents $parent = null)
     {
+        $this->mensualites = new \Doctrine\Common\Collections\ArrayCollection();
         $this->setCreateAt(new \DateTime("now"));
         $this->parent = $parent;
-    }*/
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set nom
-     *
-     * @param string $nom
-     *
-     * @return Enfant
-     */
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    /**
-     * Get nom
-     *
-     * @return string
-     */
-    public function getNom()
-    {
-        return $this->nom;
-    }
-
-    /**
-     * Set prenom
-     *
-     * @param string $prenom
-     *
-     * @return Enfant
-     */
-    public function setPrenom($prenom)
-    {
-        $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    /**
-     * Get prenom
-     *
-     * @return string
-     */
-    public function getPrenom()
-    {
-        return $this->prenom;
-    }
-
-    /**
-     * Set dateNaissance
-     *
-     * @param \DateTime $dateNaissance
-     *
-     * @return Enfant
-     */
-    public function setDateNaissance($dateNaissance)
-    {
-        $this->dateNaissance = $dateNaissance;
-
-        return $this;
-    }
-
-    /**
-     * Get dateNaissance
-     *
-     * @return \DateTime
-     */
-    public function getDateNaissance()
-    {
-        return $this->dateNaissance;
-    }
-
-    /**
-     * Set genre
-     *
-     * @param string $genre
-     *
-     * @return Enfant
-     */
-    public function setGenre($genre)
-    {
-        $this->genre = $genre;
-
-        return $this;
-    }
-
-    /**
-     * Get genre
-     *
-     * @return string
-     */
-    public function getGenre()
-    {
-        return $this->genre;
-    }
-
-    /**
-     * Set createAt
-     *
-     * @param \DateTime $createAt
-     *
-     * @return Enfant
-     */
-    public function setCreateAt($createAt)
-    {
-        $this->createAt = $createAt;
-
-        return $this;
-    }
-
-    /**
-     * Get createAt
-     *
-     * @return \DateTime
-     */
-    public function getCreateAt()
-    {
-        return $this->createAt;
-    }
-
-    /**
-     * Set parent
-     *
-     * @param \InscriptionBundle\Entity\Parents $parent
-     *
-     * @return Enfant
-     */
-    public function setParent(\InscriptionBundle\Entity\Parents $parent)
-    {
-        $this->parent = $parent;
-
-        return $this;
-    }
-
-    /**
-     * Get parent
-     *
-     * @return \InscriptionBundle\Entity\Parents
-     */
-    public function getParent()
-    {
-        return $this->parent;
-    }
-
-    /**
-     * @return string
-     */
-    public function __toString()
-    {
-        return $this->nom." ".$this->prenom;
     }
 }

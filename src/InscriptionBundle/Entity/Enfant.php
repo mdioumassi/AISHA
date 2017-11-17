@@ -54,7 +54,7 @@ class Enfant
     /**
      * @var string
      *
-     * @ORM\Column(name="genre", type="string", length=35)
+     * @ORM\Column(name="genre", type="string", length=35)ToOne(targetEnt
      * @Assert\Choice({"Garçon", "Fille"})
      */
     private $genre;
@@ -71,6 +71,11 @@ class Enfant
      * @ORM\JoinColumn(nullable=false)
      */
     private $parent;
+
+    /**
+     * @ORM\OneToOne(targetEntity="InscriptionBundle\Entity\Inscrit", inversedBy="niveau")
+     */
+    private $niveau;
 
     /**
      * @ORM\OneToMany(targetEntity="InscriptionBundle\Entity\Mensualite", mappedBy="enfant", cascade="all", orphanRemoval=true)
@@ -242,11 +247,27 @@ class Enfant
     }
 
     /**
-     * @return string
+     * Set niveau
+     *
+     * @param \InscriptionBundle\Entity\Inscrit $niveau
+     *
+     * @return Enfant
      */
-    public function __toString()
+    public function setNiveau(\InscriptionBundle\Entity\Inscrit $niveau = null)
     {
-        return $this->nom." ".$this->prenom;
+        $this->niveau = $niveau;
+
+        return $this;
+    }
+
+    /**
+     * Get niveau
+     *
+     * @return \InscriptionBundle\Entity\Inscrit
+     */
+    public function getNiveau()
+    {
+        return $this->niveau;
     }
 
     /**

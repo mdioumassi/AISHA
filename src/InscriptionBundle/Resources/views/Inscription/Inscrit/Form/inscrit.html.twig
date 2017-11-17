@@ -1,8 +1,9 @@
 {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
 {{ form_errors(form) }}
 
-<fieldset class="w3-margin"><legend class="w3-yellow w3-padding-small">Ajouter un enfant</legend>
-    <div class="row"><div class="col-sm-6">{{ form_row(form.enfant.nom) }}</div>
+<fieldset class="w3-margin"><legend class="w3-yellow w3-padding-small">Enfant</legend>
+    <div class="row">
+        <div class="col-sm-6">{{ form_row(form.enfant.nom) }}</div>
         <div class="col-sm-6">{{ form_row(form.enfant.prenom) }}</div></div>
     <div class="row">
         <div class="col-sm-6">
@@ -13,14 +14,9 @@
         </div>
     </div>
 </fieldset>
-
-<fieldset class="w3-margin"><legend class="w3-yellow w3-padding-small">Ajouter un niveau</legend>
+<fieldset class="w3-margin"><legend class="w3-yellow w3-padding-small">Classe</legend>
     <div class="row">
-        <div class="col-sm-6">{{ form_row(form.niveau.classe) }}</div>
-        <div class="col-sm-6">{{ form_row(form.niveau.mensualite) }}</div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12">{{ form_row(form.niveau.description) }}</div>
+        <div class="col-sm-12">{{ form_row(form.niveau) }}</div>
     </div>
 </fieldset>
 
@@ -31,4 +27,11 @@
         <div class="col-sm-4">{{ form_row(form.paye) }}</div>
     </div>
 </fieldset>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="w3-panel" style="width:100%">
+            <button type="submit" class="w3-btn w3-block w3-blue">Suivant ></button>
+        </div>
+    </div>
+</div>
 {{ form_end(form) }}

@@ -2,6 +2,7 @@
 
 namespace InscriptionBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -53,6 +54,12 @@ class EnfantType extends AbstractType
                     ],
                     'label' => false
                 ]);
+              /*  ->add('niveau', EntityType::class, [
+                    'class' => 'InscriptionBundle\Entity\Niveau',
+                    'choice_label' => 'classe',
+                    'placeholder' => 'Classe',
+                    'label' => false
+                ]);*/
                 //->add('parentId', HiddenType::class)
     //            ->add('submit', SubmitType::class, [
     //                'attr' => ['class' => 'btn btn-primary'],

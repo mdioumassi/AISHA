@@ -32,9 +32,10 @@ class ParentRepository extends \Doctrine\ORM\EntityRepository
 
         $query
             = $em->createQuery('
-                SELECT i
+                SELECT e
                 FROM InscriptionBundle:Inscrit i 
                 JOIN i.enfant e 
+                JOIN i.niveau n
                 JOIN e.parent p
                 WHERE p.id = :parent
             ');

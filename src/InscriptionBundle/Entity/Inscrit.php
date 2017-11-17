@@ -43,7 +43,7 @@ class Inscrit
     private $enfant;
 
     /**
-     * @ORM\ManyToOne(targetEntity="InscriptionBundle\Entity\Niveau")
+     * @ORM\ManyToOne(targetEntity="InscriptionBundle\Entity\Niveau", cascade="all")
      * @ORM\JoinColumn(name="niveau_id", referencedColumnName="id", onDelete="SET NULL")
      */
     private $niveau;
@@ -215,5 +215,10 @@ class Inscrit
     public function getNiveau()
     {
         return $this->niveau;
+    }
+
+    public function __toString()
+    {
+        return $this->niveau->getClasse();
     }
 }
