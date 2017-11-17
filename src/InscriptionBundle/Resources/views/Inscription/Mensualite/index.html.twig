@@ -3,18 +3,19 @@
 {% block content %}
     <div class="container">
         <div class="row">
-            {#{% include ':layoutAdmin/inscription:navbar.html.twig' %}#}
+            {% include ':layoutAdmin/inscription:navbar.html.twig' %}
         </div>
         <div class="row">
             <div class="col-sm-12">
-                {% include '@Inscription/Inscription/Enfant/form/enfant.html.twig' %}
+                {% include '@Inscription/Inscription/Mensualite/Form/form.html.twig' %}
             </div>
         </div>
     </div>
 
     <script>
         $(function () {
-            $("#insc").addClass("w3-disabled");$("#parent").addClass("w3-disabled");
+            $("#parent").addClass("w3-disabled");
+            $("#enfant").addClass("w3-disabled");
             $("#mensualite").addClass("w3-disabled");
         });
     </script>

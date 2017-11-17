@@ -303,4 +303,9 @@ class Enfant
     {
         return $this->mensualites;
     }
+
+    public function __toString()
+    {
+        return $this->getNom();
+    }
 }

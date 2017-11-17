@@ -14,23 +14,14 @@
         </div>
     </div>
 </fieldset>
-<fieldset class="w3-margin"><legend class="w3-yellow w3-padding-small">Classe</legend>
+
+<fieldset class="w3-margin"><legend class="w3-yellow w3-padding-small">Mensualité</legend>
     <div class="row">
-        <div class="col-sm-12">{{ form_row(form.niveau) }}</div>
-        {#<div class="col-sm-6">{{ form_row(form.niveau.mensualite) }}</div>#}
-    </div>
-   {# <div class="row">
-        <div class="col-sm-12">{{ form_row(form.niveau.description) }}</div>
-    </div>#}
+        <div class="col-sm-6">{{ form_row(form.mois) }}</div>
+        <div class="col-sm-6">{{ form_row(form.paye) }}</div></div>
+    <div class="row">
 </fieldset>
 
-<fieldset class="w3-margin"><legend class="w3-yellow w3-padding-small">Scolarité</legend>
-    <div class="row">
-        <div class="col-sm-4">{{ form_row(form.annee) }}</div>
-        <div class="col-sm-4">{{ form_row(form.frais) }}</div>
-        <div class="col-sm-4">{{ form_row(form.paye) }}</div>
-    </div>
-</fieldset>
 <div class="row">
     <div class="col-sm-12">
         <div class="w3-panel" style="width:100%">

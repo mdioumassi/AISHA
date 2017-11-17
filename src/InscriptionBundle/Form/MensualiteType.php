@@ -15,7 +15,7 @@ class MensualiteType extends AbstractType
     {
         $builder->add('mois')
                 ->add('paye')
-                ->add('enfant');
+                ->add('enfant', EnfantType::class);
     }
     
     /**

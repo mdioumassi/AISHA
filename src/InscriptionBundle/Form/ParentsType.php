@@ -62,17 +62,17 @@ class ParentsType extends AbstractType
                         'placeholder' => 'Adresse'
                     ],
                     'label' => false
-                ])
-                ->add('enfants', CollectionType::class,[
+                ]);
+                /*->add('enfants', CollectionType::class,[
                     'entry_type' => EnfantType::class,
                     'allow_add'  => true,
                     'allow_delete' => true,
                     'by_reference' => false
-                ])
-                ->add('submit', SubmitType::class, [
+                ]);
+                /*->add('submit', SubmitType::class, [
                     'attr' => ['class' => 'btn btn-primary'],
                     'label' => 'Enregistrer'
-                ]);
+                ]);*/
     }
     
     /**

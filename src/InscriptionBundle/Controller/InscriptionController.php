@@ -4,9 +4,11 @@ namespace InscriptionBundle\Controller;
 
 use InscriptionBundle\Entity\Enfant;
 use InscriptionBundle\Entity\Inscrit;
+use InscriptionBundle\Entity\Mensualite;
 use InscriptionBundle\Entity\Parents;
 use InscriptionBundle\Form\EnfantType;
 use InscriptionBundle\Form\InscritType;
+use InscriptionBundle\Form\MensualiteType;
 use InscriptionBundle\Form\ParentsType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -27,7 +29,7 @@ class InscriptionController extends Controller
         if ($request->isMethod('POST') && $form->isValid()) {
             $this->Em()->persist($parent);
             $this->Em()->flush();
-            return $this->redirectToRoute('inscr_niveau',[
+            return $this->redirectToRoute('inscription_enfant',[
                 'parent_id' => $parent->getId()
             ]);
         }
@@ -38,9 +40,9 @@ class InscriptionController extends Controller
     }
 
     /**
-     * @Route("/inscription/enfant", name="inscr_enfant")
+     * @Route("/inscription/enfant", name="inscription_enfant")
      */
-   /* public function addEnfantAction(Request $request)
+    public function addEnfantAction(Request $request)
     {
         $parent = $this->Em()->getRepository('InscriptionBundle:Parents')
             ->find($request->get('parent_id'));
@@ -54,43 +56,68 @@ class InscriptionController extends Controller
         if ($request->isMethod('POST') && $form->isValid()) {
             $this->Em()->persist($enfant);
             $this->Em()->flush();
-            return $this->redirectToRoute('inscr_niveau', [
+            return $this->redirectToRoute('inscription_niveau', [
                 'enfant_id' => $enfant->getId()
             ]);
         }
         return $this->render('@Inscription/Inscription/Inscrit/enfant.html.twig', [
             'form' => $form->createView()
         ]);
-    }*/
+    }
 
     /**
-     * @Route("/inscription/niveau", name="inscr_niveau")
+     * @Route("/inscription/niveau", name="inscription_niveau")
      */
     public function addNiveauAction(Request $request)
     {
-        $enfants = $this->Em()->getRepository('InscriptionBundle:Parents')
-            ->findByParent($request->get('parent_id'));
+        $enfant = $this->Em()->getRepository('InscriptionBundle:Enfant')
+            ->find($request->get('enfant_id'));
 
 
-        if (empty($enfants)) {
+        if (empty($enfant)) {
             throw  $this->createNotFoundException('Not found enfant');
         }
         $inscrit = new Inscrit();
-
-        foreach ($enfants as $enfant){
-            $inscrit->setEnfant($enfant);
-        }
-
-
+        $inscrit->setEnfant($enfant);
 
         $form = $this->createForm(InscritType::class, $inscrit);
         $form->handleRequest($request);
+
         if ($request->isMethod('POST') && $form->isValid()) {
             $this->Em()->persist($inscrit);
             $this->Em()->flush();
+            return $this->redirectToRoute('inscription_mensualite', [
+                'enfant_id' => $enfant->getId()
+            ]);
         }
-        $form = $this->createForm(InscritType::class, $inscrit);
+
         return $this->render('@Inscription/Inscription/Inscrit/inscrit.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/inscription/mensualite", name="inscription_mensualite")
+     */
+    public function addMensualiteAction(Request $request)
+    {
+        $enfant = $this->Em()->getRepository('InscriptionBundle:Enfant')
+            ->find($request->get('enfant_id'));
+
+        if (empty($enfant)) {
+            throw  $this->createNotFoundException('Not found enfant');
+        }
+
+        $mensualite = new Mensualite();
+        $mensualite->setEnfant($enfant);
+        $form = $this->createForm(MensualiteType::class, $mensualite);
+
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+            $this->Em()->persist($mensualite);
+            $this->Em()->flush();
+        }
+
+        return $this->render('@Inscription/Inscription/Mensualite/index.html.twig', [
             'form' => $form->createView()
         ]);
     }
@@ -101,11 +128,12 @@ class InscriptionController extends Controller
     public function nbinscritsAction($classe)
     {
         $nbinscrit = $this->Em()->getRepository('InscriptionBundle:Inscrit')
-                                ->findByEleve($classe);
+            ->findByEleve($classe);
         return [
             'classe' => $nbinscrit
         ];
     }
+
 
     /**
      * @return \Doctrine\Common\Persistence\ObjectManager|object

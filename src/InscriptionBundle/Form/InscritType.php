@@ -4,6 +4,7 @@ namespace InscriptionBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -31,13 +32,12 @@ class InscritType extends AbstractType
                     ]
                 ])
                 ->add('enfant', EnfantType::class)
-                ->add('niveau', NiveauType::class);
-                    /*  ->add('niveau', EntityType::class, [
-                    'class' => 'InscriptionBundle\Entity\Niveau',
-                    'choice_label' => 'classe',
-                    'placeholder' => 'Classe',
-                    'label' => false
-                ]);*/
+             //   ->add('niveau', NiveauType::class);
+                    ->add('niveau', null, [
+                        'placeholder' => 'Classe',
+                        'label' => false
+                ]);
+              //  ]);
     }
     
     /**
