@@ -34,13 +34,12 @@ class ParentsType extends AbstractType
                      'label' => false
                 ])
                 ->add('civilite', ChoiceType::class, [
-                    'placeholder' => 'Choisir',
+                    'placeholder' => 'Civilité',
                     'choices' => [
                         'Homme' => 'Homme',
                         'Femme' => 'Femme'
                     ],
                     'label' =>false
-
                 ])
                 ->add('fonction', TextType::class, [
                     'attr' => [

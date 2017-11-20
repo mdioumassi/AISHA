@@ -3,12 +3,14 @@
 namespace InscriptionBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity as UniqueEntity;
 
 /**
  * Niveau
  *
  * @ORM\Table(name="niveaux")
  * @ORM\Entity(repositoryClass="InscriptionBundle\Repository\NiveauRepository")
+ * @UniqueEntity(fields={"classe"}, message="Cette classe est déjà enregistrée")
  */
 class Niveau
 {

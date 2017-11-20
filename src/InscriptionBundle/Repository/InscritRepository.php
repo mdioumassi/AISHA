@@ -17,7 +17,7 @@ class InscritRepository extends \Doctrine\ORM\EntityRepository
     public function findByEleve($classe)
     {
         $count = $this->getEntityManager()
-                 ->createQuery('
+            ->createQuery('
                     SELECT COUNT(i)
                     FROM InscriptionBundle:Inscrit i 
                     JOIN i.enfant e 
@@ -34,7 +34,7 @@ class InscritRepository extends \Doctrine\ORM\EntityRepository
     public function getElevesByNiveau($classe)
     {
         $eleves = $this->getEntityManager()
-                  ->createQuery('
+            ->createQuery('
                     SELECT e.nom, e.prenom, e.dateNaissance, e.genre, n.mensualite, m.mois, m.paye
                     FROM InscriptionBundle:Inscrit i 
                     JOIN i.enfant e 
@@ -44,5 +44,25 @@ class InscritRepository extends \Doctrine\ORM\EntityRepository
                   ');
         $eleves->setParameter('classe', $classe);
         return $eleves->getResult();
+    }
+
+    /**
+     * @param $enfant
+     * @return array|\Doctrine\ORM\Query
+     */
+    public function findFicheByEnfant($enfant)
+    {
+        $fiche = $this->getEntityManager()
+            ->createQuery('
+                    SELECT i
+                    FROM InscriptionBundle:Inscrit i 
+                    JOIN i.enfant e 
+                    JOIN i.niveau n
+                    JOIN e.mensualites m 
+                    JOIN e.parent p
+                    WHERE  e.id = :enfant
+                 ');
+        $fiche->setParameter('enfant', $enfant);
+        return $fiche->getSingleResult();
     }
 }

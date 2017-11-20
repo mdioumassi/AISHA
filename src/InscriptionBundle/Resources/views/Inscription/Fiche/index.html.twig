@@ -1,0 +1,93 @@
+{% extends '@Inscription/layout.html.twig' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 w3-margin">
+            {% include ':layoutAdmin/inscription:navbar.html.twig' %}
+            </div>
+        </div>
+        <fieldset><legend>Parent</legend>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div >
+                        <img src="{{ asset('img/enfant/child.png') }}" style="width:50%" alt="Person">
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            {{ form_label(formParent.nom, 'Nom:' ,{'label_attr': {'class': ''}}) }}
+                            {{ form_widget(formParent.nom, {'attr': {'class': 'w3-input'}}) }}
+                        </div>
+                        <div class="col-sm-4">
+                            {{ form_label(formParent.prenom, 'Prenom:') }}
+                            {{ form_widget(formParent.prenom, {'attr':{'class':'w3-input'}}) }}
+                        </div>
+                        <div class="col-sm-4">
+                            {{ form_label(formParent.civilite, 'Civilité:') }}
+                            {{ form_widget(formParent.civilite, {'attr':{'class':'w3-input'}}) }}
+                        </div>
+                    </div>
+                    <div class="row"><div class="col-sm-9">&nbsp;</div></div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            {{ form_label(formParent.telephone, 'Date de naissance:') }}
+                            {{ form_widget(formParent.telephone, {'attr':{'class':'w3-input'}}) }}
+                        </div>
+                        <div class="col-sm-4">
+                            {{ form_label(formParent.fonction, 'Fonction') }}
+                            {{ form_widget(formParent.fonction, {'attr':{'class':'w3-input'}}) }}
+                        </div>
+                        <div class="col-sm-4">
+                            {{ form_label(formParent.addresse, 'Adresse') }}
+                            {{ form_widget(formParent.addresse, {'attr':{'class':'w3-input'}}) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset><legend>Enfant</legend>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div >
+                        <img src="{{ asset('img/enfant/child.png') }}" style="width:50%" alt="Person">
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            {{ form_label(formEnfant.nom, 'Nom:' ,{'label_attr': {'class': ''}}) }}
+                            {{ form_widget(formEnfant.nom, {'attr': {'class': 'w3-input'}}) }}
+                        </div>
+                        <div class="col-sm-6">
+                            {{ form_label(formEnfant.prenom, 'Prenom:') }}
+                            {{ form_widget(formEnfant.prenom, {'attr':{'class':'w3-input'}}) }}
+                        </div>
+                    </div>
+                    <div class="row"><div class="col-sm-9">&nbsp;</div></div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            {{ form_label(formEnfant.dateNaissance, 'Date de naissance:') }}
+                            {{ form_widget(formEnfant.dateNaissance, {'attr':{'class':'w3-input'}}) }}
+                        </div>
+                        <div class="col-sm-6">
+                            {{ form_label(formEnfant.genre, 'Sexe') }}
+                            {{ form_widget(formEnfant.genre, {'attr':{'class':'w3-input'}}) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <script>
+        $(function () {
+            $("#insc").addClass("w3-disabled");
+            $("#enfant").addClass("w3-disabled");
+            $("#parent").addClass("w3-disabled");
+            $("#mensualite").addClass("w3-disabled");
+        });
+    </script>
+{% endblock %}

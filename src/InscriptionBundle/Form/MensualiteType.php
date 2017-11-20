@@ -3,6 +3,7 @@
 namespace InscriptionBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +14,15 @@ class MensualiteType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('mois')
+        $builder->add('mois', ChoiceType::class, [
+                    'placeholder' => 'Le mois',
+                     'choices' => [
+                         'Janvier' => 'janvier',
+                         'Février' => 'fevrier',
+                         'Mars'    => 'mars',
+                     ],
+                     'label' => false
+                 ])
                 ->add('paye')
                 ->add('enfant', EnfantType::class);
     }

@@ -115,6 +115,9 @@ class InscriptionController extends Controller
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
             $this->Em()->persist($mensualite);
             $this->Em()->flush();
+            return $this->redirectToRoute('inscription_fiche', [
+                'enfant_id' => $enfant->getId()
+            ]);
         }
 
         return $this->render('@Inscription/Inscription/Mensualite/index.html.twig', [
@@ -123,6 +126,31 @@ class InscriptionController extends Controller
     }
 
     /**
+     * @Route("inscription/fiche", name="inscription_fiche")
+     * @Template("@Inscription/Inscription/Fiche/index.html.twig")
+     * @param Request $request
+     * @return array
+     */
+    public function getFicheAction(Request $request)
+    {
+        $fiche = $this->Em()
+                      ->getRepository('InscriptionBundle:Inscrit')
+                      ->findFicheByEnfant($request->get('enfant_id'));
+
+        $enfant = $fiche->getEnfant();
+        $parent = $enfant->getParent();
+
+        $formEnfant = $this->createForm(EnfantType::class, $enfant);
+        $formParent = $this->createForm(ParentsType::class, $parent);
+
+        return $this->render('@Inscription/Inscription/Fiche/index.html.twig', [
+            'formEnfant' => $formEnfant->createView(),
+            'formParent' => $formParent->createView(),
+        ]);
+    }
+
+    /**
+     * Affiche les effectifs d'une classe
      * @Template("InscriptionBundle:Inscription/Niveau:nbinscrit.html.twig")
      */
     public function nbinscritsAction($classe)

@@ -3,7 +3,9 @@
 {% block content %}
     <div class="container">
         <div class="row">
-            {% include ':layoutAdmin/inscription:navbar.html.twig' %}
+            <div class="col-sm-12 w3-margin">
+              {% include ':layoutAdmin/inscription:navbar.html.twig' %}
+            </div>
         </div>
         <div class="row">
             <div class="col-sm-12">
@@ -16,6 +18,8 @@
         $(function () {
             $("#parent").addClass("w3-disabled");
             $("#insc").addClass("w3-disabled");
+            $("#mensualite").addClass("w3-disabled");
+            $("#fiche").addClass("w3-disabled");
         });
     </script>
 {% endblock %}

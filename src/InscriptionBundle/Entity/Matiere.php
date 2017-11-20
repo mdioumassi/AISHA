@@ -3,12 +3,15 @@
 namespace InscriptionBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity as UniqueEntity;
+
 
 /**
  * Matiere
  *
  * @ORM\Table(name="matieres")
  * @ORM\Entity(repositoryClass="InscriptionBundle\Repository\MatiereRepository")
+ * @UniqueEntity(fields={"libelle"}, message="Ce libelle est déjà enregistré")
  */
 class Matiere
 {

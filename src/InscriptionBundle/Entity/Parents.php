@@ -12,7 +12,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity as UniqueEntity;
  *
  * @ORM\Table(name="parents")
  * @ORM\Entity(repositoryClass="InscriptionBundle\Repository\ParentRepository")
- * @UniqueEntity(fields={"prenom"}, message="Ce parent est déjà enregistré")
+ * @UniqueEntity(fields={"nom","prenom"}, message="Ce parent est déjà enregistré")
  */
 class Parents
 {
