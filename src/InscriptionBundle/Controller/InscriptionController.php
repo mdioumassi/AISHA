@@ -9,6 +9,7 @@ use InscriptionBundle\Entity\Parents;
 use InscriptionBundle\Form\EnfantType;
 use InscriptionBundle\Form\InscritType;
 use InscriptionBundle\Form\MensualiteType;
+use InscriptionBundle\Form\NiveauType;
 use InscriptionBundle\Form\ParentsType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -139,13 +140,22 @@ class InscriptionController extends Controller
 
         $enfant = $fiche->getEnfant();
         $parent = $enfant->getParent();
+        $classe = $fiche->getNiveau();
+        $mensualite = $enfant->getMensualites();
 
         $formEnfant = $this->createForm(EnfantType::class, $enfant);
         $formParent = $this->createForm(ParentsType::class, $parent);
+        $formClasse = $this->createForm(NiveauType::class, $classe);
+        $formInscrit = $this->createForm(InscritType::class, $fiche);
+        $formMensualite = $this->createForm(MensualiteType::class, $mensualite);
+
 
         return $this->render('@Inscription/Inscription/Fiche/index.html.twig', [
-            'formEnfant' => $formEnfant->createView(),
-            'formParent' => $formParent->createView(),
+                'formEnfant' => $formEnfant->createView(),
+                'formParent' => $formParent->createView(),
+                'formClasse'     => $formClasse->createView(),
+                'formInscrit' => $formInscrit->createView(),
+                'formMens'    => $formMensualite->createView()
         ]);
     }
 
