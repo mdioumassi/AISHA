@@ -72,11 +72,6 @@ class Enfant
     private $parent;
 
     /**
-     * @ORM\OneToOne(targetEntity="InscriptionBundle\Entity\Inscrit", inversedBy="niveau")
-     */
-    private $niveau;
-
-    /**
      * @ORM\OneToMany(targetEntity="InscriptionBundle\Entity\Mensualite", mappedBy="enfant", cascade="all", orphanRemoval=true)
      */
     private $mensualites;
@@ -246,30 +241,6 @@ class Enfant
     }
 
     /**
-     * Set niveau
-     *
-     * @param \InscriptionBundle\Entity\Inscrit $niveau
-     *
-     * @return Enfant
-     */
-    public function setNiveau(\InscriptionBundle\Entity\Inscrit $niveau = null)
-    {
-        $this->niveau = $niveau;
-
-        return $this;
-    }
-
-    /**
-     * Get niveau
-     *
-     * @return \InscriptionBundle\Entity\Inscrit
-     */
-    public function getNiveau()
-    {
-        return $this->niveau;
-    }
-
-    /**
      * Add mensualite
      *
      * @param \InscriptionBundle\Entity\Mensualite $mensualite
@@ -301,10 +272,5 @@ class Enfant
     public function getMensualites()
     {
         return $this->mensualites;
-    }
-
-    public function __toString()
-    {
-        return $this->getNom();
     }
 }

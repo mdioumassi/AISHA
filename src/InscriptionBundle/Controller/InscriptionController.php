@@ -141,13 +141,18 @@ class InscriptionController extends Controller
         $enfant = $fiche->getEnfant();
         $parent = $enfant->getParent();
         $classe = $fiche->getNiveau();
-        $mensualite = $enfant->getMensualites();
+        $mensualites = $enfant->getMensualites();
 
         $formEnfant = $this->createForm(EnfantType::class, $enfant);
         $formParent = $this->createForm(ParentsType::class, $parent);
         $formClasse = $this->createForm(NiveauType::class, $classe);
         $formInscrit = $this->createForm(InscritType::class, $fiche);
-        $formMensualite = $this->createForm(MensualiteType::class, $mensualite);
+
+        /*foreach ($mensualites as $mensualite) {
+            var_dump($mensualite->getMois());
+            //$formMensualite = $this->createForm(MensualiteType::class, $mensualite);
+        }*/
+
 
 
         return $this->render('@Inscription/Inscription/Fiche/index.html.twig', [
@@ -155,7 +160,7 @@ class InscriptionController extends Controller
                 'formParent' => $formParent->createView(),
                 'formClasse'     => $formClasse->createView(),
                 'formInscrit' => $formInscrit->createView(),
-                'formMens'    => $formMensualite->createView()
+                'mensualites'    => $mensualites
         ]);
     }
 

@@ -24,6 +24,9 @@
                         <a href="{{ path('modifier_enfant', {'enfant_id':enfant.id}) }}">
                             <span title="Modifier" class="glyphicon glyphicon-edit"></span>
                         </a>
+                        <a href="{{ path('inscription_fiche', {'enfant_id':enfant.id}) }}">
+                            <span title="Modifier" class="glyphicon glyphicon-edit"></span>
+                        </a>
                     </td>
                 </tr>
             {% endfor %}
@@ -37,11 +40,9 @@
 
         </div>
     </div>
-    {#<script>#}
-        {#$('document').ready(function(){#}
-            {#$("#addChild").on("click", function(){#}
-           {#//     $("#formAddChild").append("{% render(controller('InscriptionBundle:Controller:ajouter', {})) %}");#}
-            {#});#}
-        {#});#}
-    {#</script>#}
+     <script>
+        $(function(){
+            $("#register").css({"display":"none"});
+        });
+     </script>
 {% endblock %}

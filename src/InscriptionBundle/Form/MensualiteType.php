@@ -4,6 +4,7 @@ namespace InscriptionBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -24,7 +25,13 @@ class MensualiteType extends AbstractType
                      'label' => false
                  ])
                 ->add('paye')
+                ->add('commentaire', TextareaType::class, [
+                    'attr' => ['placeholder' => 'Commentaire'],
+                    'label' => false,
+                    'required' => false
+                ])
                 ->add('enfant', EnfantType::class);
+             //   ->add('niveau', NiveauType::class);
     }
     
     /**

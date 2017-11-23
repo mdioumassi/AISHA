@@ -26,8 +26,7 @@ class LoadNiveauData extends Fixture
         $niv1 = new Niveau();
         $niv1->setClasse("Jardin")
              ->setDescription("Le jardin regroupe des enfants moins de 5 à 6 ans")
-             ->setMensualite(1500)
-             ->addMatiere($this->getReference('mat1'));
+             ->setMensualite(1500);
         $manager->persist($niv1);
 
         $niv2 = new Niveau();
@@ -39,12 +38,5 @@ class LoadNiveauData extends Fixture
 
         $this->addReference("niv1", $niv1);
         $this->addReference("niv2", $niv2);
-    }
-
-    public function  getDependencies()
-    {
-        return [
-            LoadMatiereData::class
-        ];
     }
 }

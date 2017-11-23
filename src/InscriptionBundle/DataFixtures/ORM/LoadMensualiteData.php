@@ -27,19 +27,22 @@ class LoadMensualiteData extends Fixture
         $mois1 = new Mensualite();
         $mois1 ->setMois('Janvier')
                ->setPaye(1)
-               ->setEnfant($this->getReference('enfant1'));
+               ->setEnfant($this->getReference('enfant1'))
+               ->setNiveau($this->getReference('niv1'));
         $manager->persist($mois1);
 
         $mois2 = new Mensualite();
         $mois2 ->setMois('Février')
             ->setPaye(1)
-            ->setEnfant($this->getReference('enfant2'));
+            ->setEnfant($this->getReference('enfant2'))
+            ->setNiveau($this->getReference('niv1'));;
         $manager->persist($mois2);
 
         $mois3 = new Mensualite();
         $mois3 ->setMois('Février')
             ->setPaye(1)
-            ->setEnfant($this->getReference('enfant3'));
+            ->setEnfant($this->getReference('enfant3'))
+            ->setNiveau($this->getReference('niv1'));;
         $manager->persist($mois3);
         $manager->flush();
     }
@@ -47,7 +50,8 @@ class LoadMensualiteData extends Fixture
     public function  getDependencies()
     {
         return [
-            LoadEnfantData::class
+            LoadEnfantData::class,
+            LoadNiveauData::class
         ];
     }
 }

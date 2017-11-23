@@ -1,7 +1,7 @@
 {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
 {{ form_errors(form) }}
 
-<fieldset class="w3-margin"><legend class="w3-yellow w3-padding-small">Enfant</legend>
+<fieldset class="w3-margin"><legend class="w3-gray w3-padding-small">Enfant</legend>
     <div class="row">
         <div class="col-sm-6">{{ form_row(form.enfant.nom) }}</div>
         <div class="col-sm-6">{{ form_row(form.enfant.prenom) }}</div></div>
@@ -15,7 +15,7 @@
     </div>
 </fieldset>
 
-<fieldset class="w3-margin"><legend class="w3-yellow w3-padding-small">Classe</legend>
+<fieldset class="w3-margin"><legend class="w3-gray w3-padding-small">Classe</legend>
     <div class="row">
         <div class="col-sm-12">{{ form_row(form.niveau) }}</div>
         {#<div class="col-sm-6">{{ form_row(form.niveau.mensualite) }}</div>#}
@@ -25,7 +25,7 @@
     </div>#}
 </fieldset>
 
-<fieldset class="w3-margin"><legend class="w3-yellow w3-padding-small">Frais Inscription</legend>
+<fieldset class="w3-margin"><legend class="w3-gray w3-padding-small">Frais Inscription</legend>
     <div class="row">
         <div class="col-sm-4">{{ form_row(form.annee) }}</div>
         <div class="col-sm-4">{{ form_row(form.frais) }}</div>

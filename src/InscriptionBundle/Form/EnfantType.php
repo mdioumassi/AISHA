@@ -52,6 +52,9 @@ class EnfantType extends AbstractType
                         'Garçon' => 'Garçon',
                         'Fille' => 'Fille'
                     ],
+                    'label_attr' => ['class' =>'radio-inline'],
+                    'multiple' => false,
+                    'expanded' => true,
                     'label' => false
                 ]);
               /*  ->add('niveau', EntityType::class, [

@@ -33,24 +33,29 @@ class Mensualite
     private $paye;
 
     /**
+     * @ORM\Column(name="commentaire", type="text", nullable=true)
+     */
+    private $commentaire;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="created_at", type="datetime")
      */
     private $createdAt;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
-     */
-    private $updatedAt;
-
 
     /**
-     * @ORM\ManyToOne(targetEntity="InscriptionBundle\Entity\Enfant", inversedBy="mensualites")
+     * @ORM\ManyToOne(targetEntity="InscriptionBundle\Entity\Enfant")
+     * @ORM\JoinColumn(name="enfant_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $enfant;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="InscriptionBundle\Entity\Niveau", cascade="all")
+     * @ORM\JoinColumn(name="niveau_id", referencedColumnName="id", onDelete="SET NULL")
+     */
+    private $niveau;
 
     public function __construct()
     {
@@ -140,30 +145,6 @@ class Mensualite
     }
 
     /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     *
-     * @return Mensualite
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    /**
-     * Get updatedAt
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
-    }
-
-    /**
      * Set enfant
      *
      * @param \InscriptionBundle\Entity\Enfant $enfant
@@ -185,5 +166,53 @@ class Mensualite
     public function getEnfant()
     {
         return $this->enfant;
+    }
+
+    /**
+     * Set niveau
+     *
+     * @param \InscriptionBundle\Entity\Niveau $niveau
+     *
+     * @return Mensualite
+     */
+    public function setNiveau(\InscriptionBundle\Entity\Niveau $niveau = null)
+    {
+        $this->niveau = $niveau;
+
+        return $this;
+    }
+
+    /**
+     * Get niveau
+     *
+     * @return \InscriptionBundle\Entity\Niveau
+     */
+    public function getNiveau()
+    {
+        return $this->niveau;
+    }
+
+    /**
+     * Set commentaire
+     *
+     * @param string $commentaire
+     *
+     * @return Mensualite
+     */
+    public function setCommentaire($commentaire)
+    {
+        $this->commentaire = $commentaire;
+
+        return $this;
+    }
+
+    /**
+     * Get commentaire
+     *
+     * @return string
+     */
+    public function getCommentaire()
+    {
+        return $this->commentaire;
     }
 }

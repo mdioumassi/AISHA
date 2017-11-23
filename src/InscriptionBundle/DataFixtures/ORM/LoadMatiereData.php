@@ -26,11 +26,19 @@ class LoadMatiereData extends  Fixture
         $mat1 = new Matiere();
         $mat1->setLibelle("Arabe")
             ->setDescription("La langue arabe, est une langue de base de la religion")
-            ->setCoefficient(5);
+            ->setCoefficient(5)
+            ->setNiveau($this->getReference('niv1'));
 
         $manager->persist($mat1);
         $manager->flush();
 
         $this->addReference('mat1', $mat1);
+    }
+
+    public function  getDependencies()
+    {
+        return [
+           LoadNiveauData::class
+        ];
     }
 }

@@ -2,8 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e521cd53-8107-43c9-a177-9a19027904a9" name="Default" comment="Ajout des options">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/InscriptionBundle/Form/InscritTypeOLD.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/layoutAdmin/inscription/navbar.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/layoutAdmin/inscription/navbar.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/InscriptionBundle/Controller/InscriptionController.php" afterPath="$PROJECT_DIR$/src/InscriptionBundle/Controller/InscriptionController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/InscriptionBundle/DataFixtures/ORM/LoadMatiereData.php" afterPath="$PROJECT_DIR$/src/InscriptionBundle/DataFixtures/ORM/LoadMatiereData.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/InscriptionBundle/DataFixtures/ORM/LoadMensualiteData.php" afterPath="$PROJECT_DIR$/src/InscriptionBundle/DataFixtures/ORM/LoadMensualiteData.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/InscriptionBundle/DataFixtures/ORM/LoadNiveauData.php" afterPath="$PROJECT_DIR$/src/InscriptionBundle/DataFixtures/ORM/LoadNiveauData.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/InscriptionBundle/Entity/Enfant.php" afterPath="$PROJECT_DIR$/src/InscriptionBundle/Entity/Enfant.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/InscriptionBundle/Entity/Mensualite.php" afterPath="$PROJECT_DIR$/src/InscriptionBundle/Entity/Mensualite.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/InscriptionBundle/Form/EnfantType.php" afterPath="$PROJECT_DIR$/src/InscriptionBundle/Form/EnfantType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/InscriptionBundle/Form/InscritType.php" afterPath="$PROJECT_DIR$/src/InscriptionBundle/Form/InscritType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/InscriptionBundle/Form/MensualiteType.php" afterPath="$PROJECT_DIR$/src/InscriptionBundle/Form/MensualiteType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/InscriptionBundle/Form/ParentsType.php" afterPath="$PROJECT_DIR$/src/InscriptionBundle/Form/ParentsType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Enfant/liste.html.twig" afterPath="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Enfant/liste.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Fiche/index.html.twig" afterPath="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Fiche/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/Form/inscrit.html.twig" afterPath="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/Form/inscrit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/enfant.html.twig" afterPath="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/enfant.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/inscrit.html.twig" afterPath="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/inscrit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/parent.html.twig" afterPath="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/parent.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Mensualite/Form/form.html.twig" afterPath="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Mensualite/Form/form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Mensualite/index.html.twig" afterPath="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Mensualite/index.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,23 +51,45 @@
       <file leaf-file-name="inscrit.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/inscrit.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="18" lean-forward="false" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+            <state relative-caret-position="51">
+              <caret line="3" column="39" lean-forward="false" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
               <folding>
                 <element signature="e#12#41#0#Twig" expanded="false" />
-                <element signature="e#195#236#0#Twig" expanded="false" />
-                <element signature="e#365#420#0#Twig" expanded="false" />
+                <element signature="e#209#250#0#Twig" expanded="false" />
+                <element signature="e#379#434#0#Twig" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InscriptionController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Controller/InscriptionController.php">
+      <file leaf-file-name="inscrit.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/Form/inscrit.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="143" column="45" lean-forward="false" selection-start-line="143" selection-start-column="45" selection-end-line="143" selection-end-column="45" />
+            <state relative-caret-position="306">
+              <caret line="27" column="50" lean-forward="false" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Mensualite/Form/form.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="21" column="28" lean-forward="false" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Mensualite/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="33" lean-forward="false" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+              <folding>
+                <element signature="e#209#250#0#Twig" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -56,84 +97,59 @@
       <file leaf-file-name="MensualiteType.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Form/MensualiteType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="21" column="43" lean-forward="false" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+            <state relative-caret-position="283">
+              <caret line="30" column="39" lean-forward="false" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Inscrit.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Entity/Inscrit.php">
+      <file leaf-file-name="Mensualite.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Entity/Mensualite.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="214" column="29" lean-forward="false" selection-start-line="214" selection-start-column="20" selection-end-line="214" selection-end-column="29" />
+            <state relative-caret-position="297">
+              <caret line="40" column="21" lean-forward="true" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Fiche/index.html.twig">
+      <file leaf-file-name="ParentsType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Form/ParentsType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="120" column="54" lean-forward="false" selection-start-line="120" selection-start-column="54" selection-end-line="120" selection-end-column="54" />
-              <folding>
-                <element signature="e#12#41#0#Twig" expanded="false" />
-                <element signature="e#191#232#0#Twig" expanded="false" />
-                <element signature="e#514#531#0#HTML" expanded="true" />
-                <element signature="e#1537#1543#1#HTML" expanded="true" />
-                <element signature="e#2704#2721#0#HTML" expanded="true" />
-                <element signature="e#3471#3477#1#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Enfant.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Entity/Enfant.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="79" column="67" lean-forward="false" selection-start-line="79" selection-start-column="61" selection-end-line="79" selection-end-column="67" />
+            <state relative-caret-position="238">
+              <caret line="43" column="20" lean-forward="false" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="enfant.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Enfant/form/enfant.html.twig">
+      <file leaf-file-name="NiveauType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Form/NiveauType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="3" lean-forward="false" selection-start-line="3" selection-start-column="3" selection-end-line="12" selection-end-column="10" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="459">
+              <caret line="43" column="19" lean-forward="false" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InscritRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Repository/InscritRepository.php">
+      <file leaf-file-name="InscritType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Form/InscritType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="48" column="7" lean-forward="false" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
-              <folding>
-                <marker date="1511192286308" expanded="true" signature="440:624" ph="SELECT COUNT... InscriptionBundle" />
-                <marker date="1511192286308" expanded="true" signature="933:1221" ph="SELECT e.nom... InscriptionBundle" />
-                <marker date="1511192286308" expanded="true" signature="1561:1816" ph="SELECT e, n,... InscriptionBundle" />
-              </folding>
+            <state relative-caret-position="408">
+              <caret line="35" column="43" lean-forward="false" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parent.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Parent/form/parent.html.twig">
+      <file leaf-file-name="EnfantType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Form/EnfantType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-272">
-              <caret line="2" column="68" lean-forward="false" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="68" />
-              <folding>
-                <marker date="1510931041771" expanded="false" signature="1244:1250" ph=" " />
-              </folding>
+            <state relative-caret-position="279">
+              <caret line="54" column="60" lean-forward="false" selection-start-line="54" selection-start-column="60" selection-end-line="54" selection-end-column="60" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -191,7 +207,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/InscriptionBundle/DataFixtures/ORM/LoadEnfantData.php" />
         <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Admin/index.html.twig" />
         <option value="$PROJECT_DIR$/src/InscriptionBundle/Controller/AdminController.php" />
         <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Matiere/liste.html.twig" />
@@ -201,47 +216,48 @@
         <option value="$USER_HOME$/dev/Email/html/index.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/InscriptionBundle/Form/MatiereType.php" />
-        <option value="$PROJECT_DIR$/src/InscriptionBundle/DataFixtures/ORM/LoadNiveauData.php" />
         <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Niveau/nbinscrit.html.twig" />
         <option value="$PROJECT_DIR$/src/InscriptionBundle/DataFixtures/ORM/LoadInscritData.php" />
         <option value="$PROJECT_DIR$/src/InscriptionBundle/Controller/NiveauController.php" />
-        <option value="$PROJECT_DIR$/src/InscriptionBundle/Entity/Mensualite.php" />
-        <option value="$PROJECT_DIR$/src/InscriptionBundle/DataFixtures/ORM/LoadMensualiteData.php" />
         <option value="$PROJECT_DIR$/src/InscriptionBundle/Repository/NiveauRepository.php" />
-        <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Enfant/liste.html.twig" />
         <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Niveau/ajouter.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Niveau/index.html.twig" />
         <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Niveau/eleves.html.twig" />
         <option value="$PROJECT_DIR$/src/InscriptionBundle/Repository/ParentRepository.php" />
-        <option value="$PROJECT_DIR$/src/InscriptionBundle/Form/EnfantType.php" />
         <option value="$PROJECT_DIR$/src/InscriptionBundle/Entity/Inscrit.php" />
         <option value="$PROJECT_DIR$/src/InscriptionBundle/Form/NiveauType.php" />
         <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Parent/form/parent.html.twig" />
-        <option value="$PROJECT_DIR$/src/InscriptionBundle/Form/InscritType.php" />
-        <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Parent/ajouter.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/layoutAdmin/menu.html.twig" />
-        <option value="$PROJECT_DIR$/src/InscriptionBundle/Form/ParentsType.php" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/InscriptionBundle/Entity/Parents.php" />
         <option value="$PROJECT_DIR$/src/InscriptionBundle/Entity/Niveau.php" />
-        <option value="$PROJECT_DIR$/src/InscriptionBundle/Entity/Enfant.php" />
         <option value="$PROJECT_DIR$/src/InscriptionBundle/Entity/Matiere.php" />
-        <option value="$PROJECT_DIR$/src/InscriptionBundle/Form/MensualiteType.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/layoutAdmin/inscription/navbar.html.twig" />
         <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Enfant/form/enfant.html.twig" />
         <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Enfant/ajouter.html.twig" />
-        <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Mensualite/Form/form.html.twig" />
-        <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Mensualite/index.html.twig" />
         <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/parent.html.twig" />
-        <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/Form/inscrit.html.twig" />
-        <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/inscrit.html.twig" />
-        <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/enfant.html.twig" />
         <option value="$PROJECT_DIR$/src/InscriptionBundle/Controller/EnfantController.php" />
+        <option value="$PROJECT_DIR$/src/InscriptionBundle/DataFixtures/ORM/LoadNiveauData.php" />
+        <option value="$PROJECT_DIR$/src/InscriptionBundle/DataFixtures/ORM/LoadMatiereData.php" />
+        <option value="$PROJECT_DIR$/src/InscriptionBundle/DataFixtures/ORM/LoadMensualiteData.php" />
         <option value="$PROJECT_DIR$/src/InscriptionBundle/Repository/InscritRepository.php" />
-        <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Fiche/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/InscriptionBundle/Entity/Enfant.php" />
         <option value="$PROJECT_DIR$/src/InscriptionBundle/Controller/InscriptionController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/layoutAdmin/inscription/navbar.html.twig" />
+        <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Fiche/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Enfant/liste.html.twig" />
+        <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Parent/ajouter.html.twig" />
+        <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/parent.html.twig" />
+        <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/enfant.html.twig" />
+        <option value="$PROJECT_DIR$/src/InscriptionBundle/Form/EnfantType.php" />
+        <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/inscrit.html.twig" />
+        <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/Form/inscrit.html.twig" />
+        <option value="$PROJECT_DIR$/src/InscriptionBundle/Form/InscritType.php" />
+        <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Mensualite/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/InscriptionBundle/Form/ParentsType.php" />
+        <option value="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Mensualite/Form/form.html.twig" />
+        <option value="$PROJECT_DIR$/src/InscriptionBundle/Form/MensualiteType.php" />
+        <option value="$PROJECT_DIR$/src/InscriptionBundle/Entity/Mensualite.php" />
       </list>
     </option>
   </component>
@@ -551,6 +567,40 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Niveau" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AISHA" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AISHA" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="InscriptionBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Inscription" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Mensualite" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -754,44 +804,6 @@
               <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Inscription" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Enfant" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="form" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AISHA" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AISHA" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="InscriptionBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -877,6 +889,32 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="DataFixtures" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ORM" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AISHA" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AISHA" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="InscriptionBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -909,7 +947,85 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AISHA" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AISHA" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layoutAdmin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AISHA" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AISHA" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layoutAdmin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="inscription" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AISHA" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AISHA" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -920,7 +1036,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/dev/quick4u" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -1098,7 +1214,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="282162000" />
+    <option name="totallyTimeSpent" value="305044000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1111,7 +1227,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1535" height="904" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25251848" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1120,17 +1235,27 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24550128" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25251848" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934132" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1151,20 +1276,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/Exception/error404.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Controller/ParentController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="33" column="64" lean-forward="false" selection-start-line="33" selection-start-column="64" selection-end-line="33" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscription.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1186,13 +1297,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/DataFixtures/ORM/LoadNiveauData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="28" column="34" lean-forward="false" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/DataFixtures/ORM/LoadInscritData.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="539">
@@ -1204,21 +1308,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="453">
           <caret line="51" column="48" lean-forward="false" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Entity/Mensualite.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="52" column="18" lean-forward="false" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/DataFixtures/ORM/LoadMensualiteData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="41" column="52" lean-forward="false" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -1237,13 +1326,6 @@
         <state relative-caret-position="289">
           <caret line="17" column="44" lean-forward="false" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Niveau/eleves.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="44" lean-forward="false" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -1268,22 +1350,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Form/InscritTypeOLD.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="38" column="31" lean-forward="false" selection-start-line="37" selection-start-column="14" selection-end-line="38" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Form/NiveauType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="43" column="19" lean-forward="false" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Form/InscritTypeOLD.php" />
     <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Niveau/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -1326,37 +1393,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/layoutAdmin/menu.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="21" column="80" lean-forward="false" selection-start-line="21" selection-start-column="80" selection-end-line="21" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Form/ParentsType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="42" column="18" lean-forward="false" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Form/EnfantType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="61" column="21" lean-forward="false" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Form/InscritType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="37" column="40" lean-forward="false" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Form/MatiereType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1377,85 +1413,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Entity/Niveau.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Entity/Parents.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        <state relative-caret-position="95">
+          <caret line="57" column="18" lean-forward="false" selection-start-line="57" selection-start-column="18" selection-end-line="57" selection-end-column="18" />
           <folding>
-            <element signature="e#44#76#0#PHP" expanded="false" />
+            <marker date="1511263048213" expanded="true" signature="382:3817" ph="{...}" />
+            <marker date="1511263048213" expanded="true" signature="815:824" ph=" @var \DateTime ..." />
+            <marker date="1511263048213" expanded="true" signature="3807:3815" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Entity/Matiere.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
+        <state relative-caret-position="-1991">
           <caret line="5" column="77" lean-forward="false" selection-start-line="5" selection-start-column="77" selection-end-line="5" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/layoutAdmin/inscription/navbar.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="77" lean-forward="false" selection-start-line="5" selection-start-column="77" selection-end-line="5" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Mensualite/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="1" lean-forward="false" selection-start-line="3" selection-start-column="1" selection-end-line="6" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Mensualite/Form/form.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="85" lean-forward="false" selection-start-line="27" selection-start-column="85" selection-end-line="27" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Enfant/liste.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="40" lean-forward="false" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/parent.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="18" lean-forward="false" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Parent/ajouter.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="14" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/Form/inscrit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/enfant.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="21" lean-forward="false" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1464,7 +1435,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="28" lean-forward="false" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1490,15 +1460,146 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="3" lean-forward="false" selection-start-line="3" selection-start-column="3" selection-end-line="12" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Entity/Parents.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/DataFixtures/ORM/LoadParentData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/DataFixtures/ORM/LoadNiveauData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="28" column="35" lean-forward="false" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/DataFixtures/ORM/LoadMatiereData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="40" column="32" lean-forward="false" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Entity/Inscrit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="38" column="4" lean-forward="false" selection-start-line="38" selection-start-column="4" selection-end-line="48" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/DataFixtures/ORM/LoadMensualiteData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="55" column="5" lean-forward="false" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Repository/InscritRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="64" column="48" lean-forward="false" selection-start-line="64" selection-start-column="48" selection-end-line="64" selection-end-column="48" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <marker date="1511276049353" expanded="true" signature="440:624" ph="SELECT COUNT... InscriptionBundle" />
+            <marker date="1511276049353" expanded="true" signature="933:1177" ph="SELECT e.nom... InscriptionBundle" />
+            <marker date="1511276049353" expanded="true" signature="933:1221" ph="SELECT e.nom... InscriptionBundle" />
+            <marker date="1511276049353" expanded="true" signature="1561:1816" ph="SELECT i FRO... InscriptionBundle" />
+            <marker date="1511276049353" expanded="true" signature="1735:1816" ph="SELECT i FRO... InscriptionBundle" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Entity/Enfant.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="86" column="5" lean-forward="false" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Niveau/eleves.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="20" lean-forward="false" selection-start-line="19" selection-start-column="20" selection-end-line="23" selection-end-column="31" />
+          <folding>
+            <element signature="e#12#41#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/layoutAdmin/menu.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="21" column="80" lean-forward="false" selection-start-line="21" selection-start-column="80" selection-end-line="21" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/layoutAdmin/inscription/navbar.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#4;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Controller/InscriptionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="129" column="41" lean-forward="false" selection-start-line="129" selection-start-column="41" selection-end-line="129" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Enfant/liste.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding>
+            <element signature="e#12#41#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Fiche/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="39" />
+          <folding>
+            <element signature="e#12#41#0#Twig" expanded="false" />
+            <element signature="e#205#246#0#Twig" expanded="false" />
+            <element signature="e#7300#7318#0#HTML" expanded="true" />
+            <element signature="e#7430#7448#0#HTML" expanded="true" />
+            <element signature="e#7563#7581#0#HTML" expanded="true" />
+            <element signature="e#7691#7709#0#HTML" expanded="true" />
+            <marker date="1511443401298" expanded="false" signature="2261:2270" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Parent/form/parent.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-272">
+        <state relative-caret-position="17">
           <caret line="2" column="68" lean-forward="false" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="68" />
           <folding>
             <marker date="1510931041771" expanded="false" signature="1244:1250" ph=" " />
@@ -1506,73 +1607,123 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Entity/Inscrit.php">
+    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Parent/ajouter.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="214" column="29" lean-forward="false" selection-start-line="214" selection-start-column="20" selection-end-line="214" selection-end-column="29" />
+        <state relative-caret-position="34">
+          <caret line="2" column="25" lean-forward="false" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+          <folding>
+            <element signature="e#12#41#0#Twig" expanded="false" />
+            <element signature="e#299#352#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/parent.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="39" lean-forward="false" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
+          <folding>
+            <element signature="e#12#41#0#Twig" expanded="false" />
+            <element signature="e#209#250#0#Twig" expanded="false" />
+            <element signature="e#379#432#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/enfant.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="39" lean-forward="false" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
+          <folding>
+            <element signature="e#12#41#0#Twig" expanded="false" />
+            <element signature="e#207#248#0#Twig" expanded="false" />
+            <element signature="e#377#430#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Form/EnfantType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="54" column="60" lean-forward="false" selection-start-line="54" selection-start-column="60" selection-end-line="54" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Form/MensualiteType.php">
+    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Form/NiveauType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="21" column="43" lean-forward="false" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+        <state relative-caret-position="459">
+          <caret line="43" column="19" lean-forward="false" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Form/InscritType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="35" column="43" lean-forward="false" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/inscrit.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="18" lean-forward="false" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+        <state relative-caret-position="51">
+          <caret line="3" column="39" lean-forward="false" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
           <folding>
             <element signature="e#12#41#0#Twig" expanded="false" />
-            <element signature="e#195#236#0#Twig" expanded="false" />
-            <element signature="e#365#420#0#Twig" expanded="false" />
+            <element signature="e#209#250#0#Twig" expanded="false" />
+            <element signature="e#379#434#0#Twig" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Entity/Enfant.php">
+    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/Form/inscrit.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="79" column="67" lean-forward="false" selection-start-line="79" selection-start-column="61" selection-end-line="79" selection-end-column="67" />
+        <state relative-caret-position="306">
+          <caret line="27" column="50" lean-forward="false" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Fiche/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Form/ParentsType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="120" column="54" lean-forward="false" selection-start-line="120" selection-start-column="54" selection-end-line="120" selection-end-column="54" />
+        <state relative-caret-position="238">
+          <caret line="43" column="20" lean-forward="false" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Mensualite/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="33" lean-forward="false" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
           <folding>
-            <element signature="e#12#41#0#Twig" expanded="false" />
-            <element signature="e#191#232#0#Twig" expanded="false" />
-            <element signature="e#514#531#0#HTML" expanded="true" />
-            <element signature="e#1537#1543#1#HTML" expanded="true" />
-            <element signature="e#2704#2721#0#HTML" expanded="true" />
-            <element signature="e#3471#3477#1#HTML" expanded="true" />
+            <element signature="e#209#250#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Repository/InscritRepository.php">
+    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Mensualite/Form/form.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="48" column="7" lean-forward="false" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
-          <folding>
-            <marker date="1511192286308" expanded="true" signature="440:624" ph="SELECT COUNT... InscriptionBundle" />
-            <marker date="1511192286308" expanded="true" signature="933:1221" ph="SELECT e.nom... InscriptionBundle" />
-            <marker date="1511192286308" expanded="true" signature="1561:1816" ph="SELECT e, n,... InscriptionBundle" />
-          </folding>
+        <state relative-caret-position="255">
+          <caret line="21" column="28" lean-forward="false" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Controller/InscriptionController.php">
+    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Form/MensualiteType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="143" column="45" lean-forward="false" selection-start-line="143" selection-start-column="45" selection-end-line="143" selection-end-column="45" />
+        <state relative-caret-position="283">
+          <caret line="30" column="39" lean-forward="false" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InscriptionBundle/Entity/Mensualite.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="40" column="21" lean-forward="true" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
           <folding />
         </state>
       </provider>

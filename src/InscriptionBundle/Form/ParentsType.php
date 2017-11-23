@@ -39,6 +39,8 @@ class ParentsType extends AbstractType
                         'Homme' => 'Homme',
                         'Femme' => 'Femme'
                     ],
+                    'expanded' => true,
+                    'label_attr' => ['class' => 'radio-inline'],
                     'label' =>false
                 ])
                 ->add('fonction', TextType::class, [

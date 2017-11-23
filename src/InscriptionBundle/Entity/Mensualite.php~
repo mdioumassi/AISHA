@@ -33,27 +33,186 @@ class Mensualite
     private $paye;
 
     /**
+     * @ORM\Column(name="commentaire", type="text", nullable=true)
+     */
+    private $commentaire;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="created_at", type="datetime")
      */
     private $createdAt;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="updated_at", type="datetime")
-     */
-    private $updatedAt;
-
 
     /**
-     * @ORM\ManyToOne(targetEntity="InscriptionBundle\Entity\Enfant", inversedBy="mensualites")
+     * @ORM\ManyToOne(targetEntity="InscriptionBundle\Entity\Enfant")
+     * @ORM\JoinColumn(name="enfant_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $enfant;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="InscriptionBundle\Entity\Niveau", cascade="all")
+     * @ORM\JoinColumn(name="niveau_id", referencedColumnName="id", onDelete="SET NULL")
+     */
+    private $niveau;
 
     public function __construct()
     {
         $this->setCreatedAt(new \DateTime("now"));
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set mois
+     *
+     * @param string $mois
+     *
+     * @return Mensualite
+     */
+    public function setMois($mois)
+    {
+        $this->mois = $mois;
+
+        return $this;
+    }
+
+    /**
+     * Get mois
+     *
+     * @return string
+     */
+    public function getMois()
+    {
+        return $this->mois;
+    }
+
+    /**
+     * Set paye
+     *
+     * @param boolean $paye
+     *
+     * @return Mensualite
+     */
+    public function setPaye($paye)
+    {
+        $this->paye = $paye;
+
+        return $this;
+    }
+
+    /**
+     * Get paye
+     *
+     * @return boolean
+     */
+    public function getPaye()
+    {
+        return $this->paye;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     *
+     * @return Mensualite
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set enfant
+     *
+     * @param \InscriptionBundle\Entity\Enfant $enfant
+     *
+     * @return Mensualite
+     */
+    public function setEnfant(\InscriptionBundle\Entity\Enfant $enfant = null)
+    {
+        $this->enfant = $enfant;
+
+        return $this;
+    }
+
+    /**
+     * Get enfant
+     *
+     * @return \InscriptionBundle\Entity\Enfant
+     */
+    public function getEnfant()
+    {
+        return $this->enfant;
+    }
+
+    /**
+     * Set niveau
+     *
+     * @param \InscriptionBundle\Entity\Niveau $niveau
+     *
+     * @return Mensualite
+     */
+    public function setNiveau(\InscriptionBundle\Entity\Niveau $niveau = null)
+    {
+        $this->niveau = $niveau;
+
+        return $this;
+    }
+
+    /**
+     * Get niveau
+     *
+     * @return \InscriptionBundle\Entity\Niveau
+     */
+    public function getNiveau()
+    {
+        return $this->niveau;
+    }
+
+    /**
+     * Set commentaire
+     *
+     * @param string $commentaire
+     *
+     * @return Mensualite
+     */
+    public function setCommentaire($commentaire)
+    {
+        $this->commentaire = $commentaire;
+
+        return $this;
+    }
+
+    /**
+     * Get commentaire
+     *
+     * @return string
+     */
+    public function getCommentaire()
+    {
+        return $this->commentaire;
     }
 }

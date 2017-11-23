@@ -34,8 +34,9 @@ class InscritType extends AbstractType
                 ->add('enfant', EnfantType::class)
              //   ->add('niveau', NiveauType::class);
                     ->add('niveau', null, [
-                        'placeholder' => 'Classe',
-                        'label' => false
+                        'label' => false,
+                        'expanded' => true,
+                        'label_attr' => ['class' => 'radio-inline']
                 ]);
               //  ]);
     }
