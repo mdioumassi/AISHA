@@ -28,4 +28,23 @@ class EnfantRepository extends \Doctrine\ORM\EntityRepository
         $fiche->setParameter('enfant', $enfant);
         return $fiche->getSingleResult();
     }
+
+    /**
+     * @param $enfant
+     * @return array|\Doctrine\ORM\Query
+     */
+    public function findByEnfant($enfant)
+    {
+        $fiche = $this->getEntityManager()
+            ->createQuery('
+                    SELECT i
+                    FROM InscriptionBundle:Inscrit i 
+                    JOIN i.enfant e 
+                    JOIN e.mensualites m 
+                    JOIN e.parent p
+                    WHERE  e.id = :enfant
+                 ');
+        $fiche->setParameter('enfant', $enfant);
+        return $fiche->getResult();
+    }
 }

@@ -1,7 +1,7 @@
 {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
 {{ form_errors(form) }}
 
-<fieldset class="w3-margin w3-white"><legend class="w3-yellow w3-padding-small">Enfant</legend>
+<fieldset class="w3-margin w3-white"><legend class="w3-gray w3-padding-small">Enfant</legend>
     <div class="row">
         <div class="col-sm-6">
             {{ form_label(form.enfant.nom, 'Nom:') }}
@@ -12,6 +12,7 @@
             {{ form_widget(form.enfant.prenom, {'attr':{'class':'w3-disabled'}}) }}
         </div>
     </div>
+    <div class="row"><div class="col-sm-12">&nbsp;</div></div>
     <div class="row">
         <div class="col-sm-6">
             {{ form_label(form.enfant.dateNaissance, 'Date de naissance') }}
@@ -24,7 +25,7 @@
     </div>
 </fieldset>
 
-<fieldset class="w3-margin w3-white"><legend class="w3-yellow w3-padding-small">Classe</legend>
+<fieldset class="w3-margin w3-white"><legend class="w3-gray w3-padding-small">Classe</legend>
     <div class="row">
         <div class="col-sm-6">
             {{ form_label(form.niveau.classe, 'Classe:') }}
@@ -34,10 +35,14 @@
             {{ form_label(form.niveau.mensualite, 'Frais mensuel:') }}
             {{ form_widget(form.niveau.mensualite, {'attr':{'class':'w3-disabled'}}) }}
         </div>
+        <div class="col-sm-12">
+            {{ form_label(form.niveau.description, 'Description:') }}
+            {{ form_widget(form.niveau.description, {'attr':{'class':'w3-disabled'}}) }}
+        </div>
     </div>
 </fieldset>
 
-<fieldset class="w3-margin"><legend class="w3-yellow w3-padding-small">Mensualité</legend>
+<fieldset class="w3-margin w3-white w3-card-3"><legend class="w3-yellow w3-padding-small">Mensualité</legend>
     <div class="row">
         <div class="col-sm-4">{{ form_row(form.mois) }}</div>
         <div class="col-sm-4">{{ form_row(form.paye) }}</div>

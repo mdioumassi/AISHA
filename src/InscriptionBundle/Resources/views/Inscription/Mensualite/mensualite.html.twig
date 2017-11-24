@@ -1,0 +1,23 @@
+{% extends '@Inscription/layout.html.twig' %}
+
+{% block content %}
+    <table class="w3-table-all">
+        <thead>
+        <tr><th>Mois</th><th>Payé</th><th>Commentaire</th></tr>
+        </thead>
+        <tbody>
+        {% for mensualite in mensualites %}
+            <tr>
+                <td>{{ mensualite.mois }}</td>
+                {% if mensualite.paye %}
+                    <td style="color: #66dd66"><span class="glyphicon glyphicon-ok-circle"></span></td>
+                {% else %}
+                    <td style="color:red"><span class="glyphicon glyphicon-remove-circle"></span></td>
+                {% endif %}
+                <td>{{ mensualite.commentaire }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+

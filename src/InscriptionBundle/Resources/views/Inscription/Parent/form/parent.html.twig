@@ -1,6 +1,6 @@
 {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
 {{ form_errors(form) }}
-<fieldset class="w3-margin"><legend class="w3-gray w3-padding-small"> Ajouter un parent</legend>
+<fieldset class="w3-margin w3-white"><legend class="w3-gray w3-padding-small"> Ajouter un parent</legend>
     <div class="row">
         <div class="col-sm-4">
             {{ form_row(form.nom) }}
@@ -87,6 +87,10 @@
             $('.js-datepicker').datepicker({
                 format: 'yyyy-mm-dd'
             });
+            $("#enfant").addClass("w3-disabled");
+            $("#insc").addClass("w3-disabled");
+            $("#mensualite").addClass("w3-disabled");
+            $("#fiche").addClass("w3-disabled");
         });
     </script>
 {% endblock %}

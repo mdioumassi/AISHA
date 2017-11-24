@@ -10,4 +10,22 @@ namespace InscriptionBundle\Repository;
  */
 class MensualiteRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @param $enfant
+     * @return array|\Doctrine\ORM\Query
+     */
+    public function findByEnfant($enfant)
+    {
+        $fiche = $this->getEntityManager()
+            ->createQuery('
+                    SELECT i
+                    FROM InscriptionBundle:Inscrit i 
+                    JOIN i.enfant e 
+                    JOIN e.mensualites m 
+                    JOIN e.parent p
+                    WHERE  e.id = :enfant
+                 ');
+        $fiche->setParameter('enfant', $enfant);
+        return $fiche->getResult();
+    }
 }

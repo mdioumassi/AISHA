@@ -25,7 +25,10 @@
                             <span title="Modifier" class="glyphicon glyphicon-edit"></span>
                         </a>
                         <a href="{{ path('inscription_fiche', {'enfant_id':enfant.id}) }}">
-                            <span title="Modifier" class="glyphicon glyphicon-edit"></span>
+                            <span title="Fiche enfant" class="glyphicon glyphicon-file"></span>
+                        </a>
+                        <a href="{{ path('mensualite_child', {'enfant_id':enfant.id}) }}">
+                            <span title="Mensualité" class="glyphicon glyphicon-usd"></span>
                         </a>
                     </td>
                 </tr>

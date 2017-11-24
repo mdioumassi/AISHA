@@ -7,7 +7,7 @@
             {% include ':layoutAdmin/inscription:navbar.html.twig' %}
             </div>
         </div>
-        <fieldset class="w3-card-2"><legend class="w3-green w3-padding-small">Enfant</legend>
+        <fieldset class="w3-white w3-card-2"><legend class="w3-green w3-padding-small">Enfant</legend>
             <div class="row">
                 <div class="col-sm-2">
                     <div >
@@ -33,7 +33,7 @@
                         </div>
 
                         <div class="col-sm-6">
-                            {{ form_label(formEnfant.genre, 'Sexe') }}
+                            {{ form_label(formEnfant.genre, 'Sexe:') }}<br>
                             {{ form_widget(formEnfant.genre, {'attr':{'class':'w3-input'}}) }}
                         </div>
                     </div>
@@ -41,7 +41,7 @@
             </div>
         </fieldset>
         <br>
-        <fieldset class="w3-card-2"><legend class="w3-green w3-padding-small">PARENT</legend>
+        <fieldset class="w3-white w3-card-2"><legend class="w3-green w3-padding-small">PARENT</legend>
             <div class="row">
                 {#<div class="col-sm-2">
                     <div >
@@ -59,7 +59,7 @@
                             {{ form_widget(formParent.prenom, {'attr':{'class':'w3-input'}}) }}
                         </div>
                         <div class="col-sm-4">
-                            {{ form_label(formParent.civilite, 'Civilité:') }}
+                            {{ form_label(formParent.civilite, 'Civilité:') }}<br>
                             {{ form_widget(formParent.civilite, {'attr':{'class':'w3-input'}}) }}
                         </div>
                     </div>
@@ -82,7 +82,7 @@
             </div>
         </fieldset>
         <br>
-        <fieldset class="w3-card-2"><legend class="w3-green w3-padding-small">CLASSE</legend>
+        <fieldset class="w3-white w3-card-2"><legend class="w3-green w3-padding-small">CLASSE</legend>
             <div class="row">
                 <div class="col-sm-6">
                     {{ form_label(formClasse.classe, 'Classe:') }}
@@ -95,7 +95,7 @@
             </div>
         </fieldset><br>
 
-        <fieldset class="w3-card-2"><legend class="w3-green w3-padding-small">INSCRIPTION</legend>
+        <fieldset class="w3-white w3-card-2"><legend class="w3-green w3-padding-small">INSCRIPTION</legend>
             <div class="row">
                 <div class="col-sm-5">
                     {{ form_label(formInscrit.annee, 'Année:') }}
@@ -112,7 +112,7 @@
             </div>
         </fieldset><br>
 
-        <fieldset class="w3-card-2"><legend class="w3-green w3-padding-small">MENSUALITE</legend>
+        <fieldset class="w3-white w3-card-2"><legend class="w3-green w3-padding-small">MENSUALITE</legend>
             <table class="w3-table-all">
                 <thead>
                 <tr><th>Mois</th><th>Payé</th><th>Commentaire</th></tr>
