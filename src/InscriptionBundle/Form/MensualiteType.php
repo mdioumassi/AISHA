@@ -30,8 +30,8 @@ class MensualiteType extends AbstractType
                     'label' => false,
                     'required' => false
                 ])
-                ->add('enfant', EnfantType::class);
-             //   ->add('niveau', NiveauType::class);
+                ->add('enfant', EnfantType::class)
+               ->add('niveau', NiveauType::class);
     }
     
     /**

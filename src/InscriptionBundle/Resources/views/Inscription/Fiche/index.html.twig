@@ -145,10 +145,13 @@
             </div>
         </fieldset><br>#}
         <div class="row w3-margin" id="register">
-            <div class="col-sm-3"><button class="w3-button w3-block w3-black" style="width:100%">Ajouter un enfant</button></div>
-            <div class="col-sm-3"><button class="w3-button w3-block w3-black" style="width:100%">Nouvelle inscription</button></div>
-            <div class="col-sm-3"><button class="w3-button w3-block w3-black" style="width:100%">Imprimer en PDF</button></div>
-            <div class="col-sm-3"><button class="w3-button w3-block w3-black" style="width:100%">Button</button></div>
+            <div class="col-sm-4">
+                <a href="{{ path('inscription_enfant', {'parent_id':parent_id}) }}"><button class="w3-button w3-block w3-black" style="width:100%">Ajouter un enfant</button></a>
+            </div>
+            <div class="col-sm-4">
+                <a href="{{ path('parent_insc') }}" ><button class="w3-button w3-block w3-black" style="width:100%">Nouvelle inscription</button></a>
+            </div>
+            <div class="col-sm-4"><button class="w3-button w3-block w3-black" style="width:100%">Imprimer en PDF</button></div>
         </div>
     </div>
 

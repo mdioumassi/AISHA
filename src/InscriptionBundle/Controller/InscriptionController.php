@@ -103,14 +103,15 @@ class InscriptionController extends Controller
     public function addMensualiteAction(Request $request)
     {
         $enfant = $this->Em()->getRepository('InscriptionBundle:Enfant')
-            ->find($request->get('enfant_id'));
+            ->findByClasse($request->get('enfant_id'));
 
         if (empty($enfant)) {
             throw  $this->createNotFoundException('Not found enfant');
         }
 
         $mensualite = new Mensualite();
-        $mensualite->setEnfant($enfant);
+        $mensualite->setEnfant($enfant->getEnfant());
+        $mensualite->setNiveau($enfant->getNiveau());
         $form = $this->createForm(MensualiteType::class, $mensualite);
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
@@ -148,19 +149,13 @@ class InscriptionController extends Controller
         $formClasse = $this->createForm(NiveauType::class, $classe);
         $formInscrit = $this->createForm(InscritType::class, $fiche);
 
-        /*foreach ($mensualites as $mensualite) {
-            var_dump($mensualite->getMois());
-            //$formMensualite = $this->createForm(MensualiteType::class, $mensualite);
-        }*/
-
-
-
         return $this->render('@Inscription/Inscription/Fiche/index.html.twig', [
                 'formEnfant' => $formEnfant->createView(),
                 'formParent' => $formParent->createView(),
                 'formClasse'     => $formClasse->createView(),
                 'formInscrit' => $formInscrit->createView(),
-                'mensualites'    => $mensualites
+                'mensualites'    => $mensualites,
+                'parent_id'   => $enfant->getParent()->getId()
         ]);
     }
 

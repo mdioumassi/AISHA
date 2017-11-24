@@ -1,16 +1,38 @@
 {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
 {{ form_errors(form) }}
 
-<fieldset class="w3-margin"><legend class="w3-yellow w3-padding-small">Enfant</legend>
-    <div class="row">
-        <div class="col-sm-6">{{ form_row(form.enfant.nom) }}</div>
-        <div class="col-sm-6">{{ form_row(form.enfant.prenom) }}</div></div>
+<fieldset class="w3-margin w3-white"><legend class="w3-yellow w3-padding-small">Enfant</legend>
     <div class="row">
         <div class="col-sm-6">
-            {{ form_row(form.enfant.dateNaissance) }}
+            {{ form_label(form.enfant.nom, 'Nom:') }}
+            {{ form_widget(form.enfant.nom, {'attr':{'class':'w3-disabled'}}) }}
         </div>
         <div class="col-sm-6">
+            {{ form_label(form.enfant.prenom, 'Prenom:') }}
+            {{ form_widget(form.enfant.prenom, {'attr':{'class':'w3-disabled'}}) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            {{ form_label(form.enfant.dateNaissance, 'Date de naissance') }}
+            {{ form_widget(form.enfant.dateNaissance, {'attr':{'class':'w3-disabled'}}) }}
+        </div>
+        <div class="col-sm-6">
+            {{ form_label(form.enfant.genre, 'Sexe') }}
             {{ form_row(form.enfant.genre) }}
+        </div>
+    </div>
+</fieldset>
+
+<fieldset class="w3-margin w3-white"><legend class="w3-yellow w3-padding-small">Classe</legend>
+    <div class="row">
+        <div class="col-sm-6">
+            {{ form_label(form.niveau.classe, 'Classe:') }}
+            {{ form_widget(form.niveau.classe, {'attr':{'class':'w3-disabled'}}) }}
+        </div>
+        <div class="col-sm-6">
+            {{ form_label(form.niveau.mensualite, 'Frais mensuel:') }}
+            {{ form_widget(form.niveau.mensualite, {'attr':{'class':'w3-disabled'}}) }}
         </div>
     </div>
 </fieldset>
@@ -21,7 +43,6 @@
         <div class="col-sm-4">{{ form_row(form.paye) }}</div>
         <div class="col-sm-4">{{ form_row(form.commentaire) }}</div>
     </div>
-    <div class="row">
 </fieldset>
 
 <div class="row">

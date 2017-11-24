@@ -10,4 +10,22 @@ namespace InscriptionBundle\Repository;
  */
 class EnfantRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @param $enfant
+     * @return array|\Doctrine\ORM\Query
+     */
+    public function findByClasse($enfant)
+    {
+        $fiche = $this->getEntityManager()
+            ->createQuery('
+                    SELECT i
+                    FROM InscriptionBundle:Inscrit i 
+                    JOIN i.enfant e 
+                    JOIN i.niveau n
+                    JOIN e.parent p
+                    WHERE  e.id = :enfant
+                 ');
+        $fiche->setParameter('enfant', $enfant);
+        return $fiche->getSingleResult();
+    }
 }
