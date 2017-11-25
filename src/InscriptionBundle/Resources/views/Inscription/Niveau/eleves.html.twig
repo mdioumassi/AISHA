@@ -5,7 +5,7 @@
         <table class="w3-table-all w3-card-4">
             <thead>
             <tr class="w3-green">
-                <th>Nom</th><th>Prenom</th><th>Date Naissance</th><th>Sexe</th><th>Mensualité</th><th>Mois</th><th>Payé</th>
+                <th>Nom</th><th>Prenom</th><th>Date Naissance</th><th>Sexe</th><th>Mensualité</th>
             </tr>
             </thead>
             <tbody>
@@ -15,13 +15,14 @@
                     <td>{{ eleve.prenom }}</td>
                     <td>{{ eleve.dateNaissance|date('d/m/Y') }}</td>
                     <td>{{ eleve.genre }}</td>
-                    <td>{{ eleve.mensualite ~ " UM"}}</td>
-                    <td>{{ eleve.mois }}</td>
-                    {% if eleve.paye %}
-                        <td style="color: #66dd66"><span class="glyphicon glyphicon-ok-circle"></span></td>
-                    {% else %}
-                        <td style="color:red"><span class="glyphicon glyphicon-remove-circle"></span></td>
-                    {% endif %}
+                    <td></td>
+                    {#<td>{{ eleve.mensualite ~ " UM"}}</td>#}
+                    {#<td>{{ eleve.mois }}</td>#}
+                    {#{% if eleve.paye %}#}
+                        {#<td style="color: #66dd66"><span class="glyphicon glyphicon-ok-circle"></span></td>#}
+                    {#{% else %}#}
+                        {#<td style="color:red"><span class="glyphicon glyphicon-remove-circle"></span></td>#}
+                    {#{% endif %}#}
                 </tr>
             {% endfor %}
             </tbody>

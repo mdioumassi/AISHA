@@ -35,11 +35,10 @@ class InscritRepository extends \Doctrine\ORM\EntityRepository
     {
         $eleves = $this->getEntityManager()
             ->createQuery('
-                    SELECT e.nom, e.prenom, e.dateNaissance, e.genre, n.mensualite, m.mois, m.paye
+                    SELECT e.nom, e.prenom, e.dateNaissance, e.genre
                     FROM InscriptionBundle:Inscrit i 
                     JOIN i.enfant e 
                     JOIN i.niveau n 
-                    JOIN e.mensualites m
                     WHERE n.id = :classe
                   ');
         $eleves->setParameter('classe', $classe);
