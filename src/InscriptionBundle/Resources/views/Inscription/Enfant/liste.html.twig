@@ -27,9 +27,6 @@
                         <a href="{{ path('inscription_fiche', {'enfant_id':enfant.id}) }}">
                             <span title="Fiche enfant" class="glyphicon glyphicon-file"></span>
                         </a>
-                        <a href="{{ path('mensualite_child', {'enfant_id':enfant.id}) }}">
-                            <span title="Mensualité" class="glyphicon glyphicon-usd"></span>
-                        </a>
                     </td>
                 </tr>
             {% endfor %}
@@ -43,9 +40,4 @@
 
         </div>
     </div>
-     <script>
-        $(function(){
-            $("#register").css({"display":"none"});
-        });
-     </script>
 {% endblock %}

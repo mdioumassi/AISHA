@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * MensualiteNiveau
  *
  * @ORM\Table(name="mensualite")
- * @ORM\Entity(repositoryClass="InscriptionBundle\Repository\MensualiteEnfantRepository")
+ * @ORM\Entity(repositoryClass="InscriptionBundle\Repository\MensualiteRepository")
  */
 class Mensualite
 {
@@ -40,20 +40,20 @@ class Mensualite
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="created_at", type="datetime")
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
      */
     private $createdAt;
 
 
     /**
      * @ORM\ManyToOne(targetEntity="InscriptionBundle\Entity\Enfant")
-     * @ORM\JoinColumn(name="enfant_id", referencedColumnName="id", onDelete="CASCADE")
+     * @ORM\JoinColumn(name="enfant_id", referencedColumnName="id", onDelete="SET NULL", nullable=true)
      */
     private $enfant;
 
     /**
-     * @ORM\ManyToOne(targetEntity="InscriptionBundle\Entity\Niveau", cascade="all")
-     * @ORM\JoinColumn(name="niveau_id", referencedColumnName="id", onDelete="SET NULL")
+     * @ORM\ManyToOne(targetEntity="InscriptionBundle\Entity\Niveau")
+     * @ORM\JoinColumn(name="niveau_id", referencedColumnName="id", onDelete="SET NULL", nullable=true)
      */
     private $niveau;
 

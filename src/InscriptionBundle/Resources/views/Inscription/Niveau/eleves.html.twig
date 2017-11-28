@@ -15,7 +15,11 @@
                     <td>{{ eleve.prenom }}</td>
                     <td>{{ eleve.dateNaissance|date('d/m/Y') }}</td>
                     <td>{{ eleve.genre }}</td>
-                    <td></td>
+                    <td>
+                        <a class="various" data-fancybox-type="iframe" href="{{ path('mensualite_child', {'enfant_id':eleve.id}) }}">
+                            <span title="Mensualité" class="glyphicon glyphicon-usd"></span>
+                        </a>
+                    </td>
                     {#<td>{{ eleve.mensualite ~ " UM"}}</td>#}
                     {#<td>{{ eleve.mois }}</td>#}
                     {#{% if eleve.paye %}#}
@@ -28,4 +32,20 @@
             </tbody>
         </table>
     </div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".various").fancybox({
+                maxWidth	: 800,
+                maxHeight	: 600,
+                fitToView	: false,
+                width		: '70%',
+                height		: '70%',
+                autoSize	: false,
+                closeClick	: false,
+                openEffect	: 'none',
+                closeEffect	: 'none'
+            });
+        });
+    </script>
 {% endblock %}

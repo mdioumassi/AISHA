@@ -1,0 +1,50 @@
+<fieldset class="w3-card-2 w3-margin w3-padding-small"><legend class="w3-yellow w3-padding-small">Mensualisation</legend>
+    {{ form_start(form, {'attr':{'class':'frmMensuel'}}) }}
+    <div class="row">
+        <div class="col-sm-3">
+            {{ form_label(form.mois) }}
+            {{ form_widget(form.mois) }}
+        </div>
+        <div class="col-sm-3">
+            {{ form_label(form.paye, 'A payer:') }}
+            {{ form_widget(form.paye) }}
+        </div>
+        <div class="col-sm-6">
+            {{ form_label(form.commentaire) }}
+            {{ form_widget(form.commentaire, {'attr':{'placeholder':'Commentaire'}}) }}
+        </div>
+        <div class="col-sm-12 w3-margin-top">
+            <div class="w3-bar">
+                <button type="submit" class="w3-button w3-green" id="valider">Valider</button>
+                <button type="reset" class="w3-button w3-teal">Reset</button>
+            </div>
+        </div>
+    </div>
+   {{ form_end(form) }}
+</fieldset>
+
+{% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $(".form-group").hide();
+        });
+
+        $(function () {
+            $("#valider").click(function (e) {
+                    var url = "{{ path('add_mensualite', {'enfant_id':enfant}) }}"; // the script where you handle the form input.
+                    var box = $("#result");
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        data: $(".frmMensuel").serialize(), // serializes the form's elements.
+                        success: function (data) {
+                            $("#result1").hide()
+                            box.html(data);
+                        }
+                    });
+                    e.preventDefault(); // avoid to execute the actual submit of the form.
+            });
+        });
+    </script>
+{% endblock %}

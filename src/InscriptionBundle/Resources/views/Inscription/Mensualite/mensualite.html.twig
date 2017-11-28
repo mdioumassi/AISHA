@@ -1,23 +1,55 @@
-{% extends '@Inscription/layout.html.twig' %}
-
-{% block content %}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<div id="result1">
+    <h2>{{ classe }}</h2>
     <table class="w3-table-all">
         <thead>
-        <tr><th>Mois</th><th>Payé</th><th>Commentaire</th></tr>
+        <tr class="w3-green"><th>Mois</th><th>Coût Mensuel</th><th>Payé</th><th>Date</th><th>Action</th></tr>
         </thead>
         <tbody>
         {% for mensualite in mensualites %}
             <tr>
                 <td>{{ mensualite.mois }}</td>
+                <td>{{ cout }}</td>
                 {% if mensualite.paye %}
                     <td style="color: #66dd66"><span class="glyphicon glyphicon-ok-circle"></span></td>
                 {% else %}
                     <td style="color:red"><span class="glyphicon glyphicon-remove-circle"></span></td>
                 {% endif %}
-                <td>{{ mensualite.commentaire }}</td>
+                <td>{{ mensualite.createdAt|date('d/m/Y') }}</td>
+                <td>
+                    <div class="w3-dropdown-hover">
+                        <button class="btn btn-primary">action</button>
+                        <div class="w3-dropdown-content w3-bar-block w3-card-4 style="right:0"">
+                            <a href="{{ path('del_mensualite', {'id':mensualite.id}) }}" class="w3-bar-item w3-button">Supprimer</a>
+                            <a href="#" class="w3-bar-item w3-button">Modifier</a>
+                            <a href="#" class="w3-bar-item w3-button">Voir</a>
+                        </div>
+                    </div>
+                </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-{% endblock %}
+    <div>
+        <button class="w3-button w3-margin-top w3-green">Ajouter</button>
+    </div>
+</div>
+<div id="result"></div>
+<div id="div1">
 
+</div>
+
+
+{% block javascripts %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("button").click(function(){
+                $.ajax({url: "{{ path('add_mensualite', {'enfant_id': enfant_id}) }}", success: function(result){
+                    $("#div1").html(result);
+                }});
+            });
+        });
+    </script>
+{% endblock %}

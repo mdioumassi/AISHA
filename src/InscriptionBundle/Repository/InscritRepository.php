@@ -35,7 +35,7 @@ class InscritRepository extends \Doctrine\ORM\EntityRepository
     {
         $eleves = $this->getEntityManager()
             ->createQuery('
-                    SELECT e.nom, e.prenom, e.dateNaissance, e.genre
+                    SELECT e.id, e.nom, e.prenom, e.dateNaissance, e.genre
                     FROM InscriptionBundle:Inscrit i 
                     JOIN i.enfant e 
                     JOIN i.niveau n 
@@ -49,7 +49,7 @@ class InscritRepository extends \Doctrine\ORM\EntityRepository
      * @param $enfant
      * @return array|\Doctrine\ORM\Query
      */
-    public function findFicheByEnfant($enfant)
+    public function findByEnfant($enfant)
     {
         $fiche = $this->getEntityManager()
             ->createQuery('

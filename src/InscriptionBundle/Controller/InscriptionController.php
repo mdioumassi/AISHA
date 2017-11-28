@@ -137,7 +137,7 @@ class InscriptionController extends Controller
     {
         $fiche = $this->Em()
                       ->getRepository('InscriptionBundle:Inscrit')
-                      ->findFicheByEnfant($request->get('enfant_id'));
+                      ->findByEnfant($request->get('enfant_id'));
 
         $enfant = $fiche->getEnfant();
         $parent = $enfant->getParent();
