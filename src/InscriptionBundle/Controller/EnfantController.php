@@ -4,6 +4,9 @@ namespace InscriptionBundle\Controller;
 
 use InscriptionBundle\Entity\Enfant;
 use InscriptionBundle\Form\EnfantType;
+use InscriptionBundle\Form\InscritType;
+use InscriptionBundle\Form\NiveauType;
+use InscriptionBundle\Form\ParentsType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -90,7 +93,7 @@ class EnfantController extends Controller
         if ($request->isMethod('POST') && $form->isValid()) {
             $em->persist($enfant);
             $em->flush();
-            return $this->redirectToRoute('inscr_niveau', [
+            return $this->redirectToRoute('inscription_niveau', [
                 'enfant_id' => $enfant->getId()
             ]);
         }
@@ -144,5 +147,45 @@ class EnfantController extends Controller
            'form' => $form->createView(),
             'parent_id' => $parent->getId()
         ]);
+    }
+
+    /**
+     * @Route("enfant/{enfant_id}/fiche", name="enfant_fiche")
+     * @Template("@Inscription/Inscription/Fiche/Form/fiche.html.twig")
+     * @param Request $request
+     * @return array
+     */
+    public function getFicheAction(Request $request)
+    {
+        $fiche = $this->Em()
+            ->getRepository('InscriptionBundle:Inscrit')
+            ->findByEnfant($request->get('enfant_id'));
+
+        $enfant = $fiche->getEnfant();
+        $parent = $enfant->getParent();
+        $classe = $fiche->getNiveau();
+        $mensualites = $enfant->getMensualites();
+
+        $formEnfant = $this->createForm(EnfantType::class, $enfant);
+        $formParent = $this->createForm(ParentsType::class, $parent);
+        $formClasse = $this->createForm(NiveauType::class, $classe);
+        $formInscrit = $this->createForm(InscritType::class, $fiche);
+
+        return [
+            'formEnfant'  => $formEnfant->createView(),
+            'formParent'  => $formParent->createView(),
+            'formClasse'  => $formClasse->createView(),
+            'formInscrit' => $formInscrit->createView(),
+            'mensualites' => $mensualites,
+            'parent_id'   => $enfant->getParent()->getId()
+        ];
+    }
+
+    /**
+     * @return \Doctrine\Common\Persistence\ObjectManager|object
+     */
+    private function Em()
+    {
+        return $this->getDoctrine()->getManager();
     }
 }

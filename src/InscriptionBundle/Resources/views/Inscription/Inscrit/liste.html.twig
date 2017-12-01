@@ -1,0 +1,57 @@
+{% extends '@Inscription/layout.html.twig' %}
+
+{% block content %}
+<div class="w3-container w3-margin-top">
+    <table class="w3-table-all w3-card-4" align="center">
+        <thead>
+            <tr class="w3-green">
+                <th>Nom & Prenom</th></th><th>Classe</th><th>Frais d'inscription</th><th>Année</th><th>Date d'inscription</th><th>Payer</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for liste in listes %}
+                <tr>
+                    <td><a style="color: #5eb5e0" class="various" data-fancybox-type="iframe" href="{{ path('enfant_fiche', {'enfant_id':liste.id}) }}">{{ liste.nom|upper }}&nbsp;&nbsp;{{ liste.prenom }}</a></td>
+                    <td>{{ liste.classe }}</td>
+                    <td>{{ liste.frais~" UM" }}</td>
+                    <td>{{ liste.annee }}</td>
+                    <td>{{ liste.createdAt|date('d/m/Y') }}</td>
+                    {% if liste.paye %}
+                        <td style="color: #66dd66"><span class="glyphicon glyphicon-ok-circle"></span></td>
+                    {% else %}
+                        <td style="color:red"><span class="glyphicon glyphicon-remove-circle"></span></td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="row w3-margin-top" id="register">
+        <div class="col-sm-4">
+            <a href="{{ path('parent_insc') }}"><button class="w3-button w3-block w3-blue" style="width:100%">Nouvelle inscription</button></a>
+        </div>
+    </div>
+</div>
+
+    {% block javascripts %}
+        <script>
+            $(function () {
+                $(".various").fancybox({
+                    maxWidth	: 800,
+                    maxHeight	: 600,
+                    fitToView	: false,
+                    width		: '70%',
+                    height		: '70%',
+                    autoSize	: false,
+                    closeClick	: false,
+                    openEffect	: 'none',
+                    closeEffect	: 'none'
+                });
+                // $("#fiche").on("click", function () {
+                //     $("#navbar").hide();
+                //     $("#barStep").hide();
+                //     $("#sidebar").hide();
+                // });
+            });
+        </script>
+    {% endblock %}
+{% endblock %}

@@ -1,0 +1,129 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<div class="container-fluid">
+    <fieldset class="w3-white w3-card-2 w3-padding"><legend class="w3-green w3-padding-small">Enfant</legend>
+        <div class="row">
+            <div class="col-sm-2">
+                <div >
+                    <img src="{{ asset('img/enfant/child.png') }}" style="width:90%" alt="Person">
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-sm-6">
+                        {{ form_label(formEnfant.nom, 'Nom:' ,{'label_attr': {'class': ''}}) }}
+                        {{ form_widget(formEnfant.nom, {'attr': {'class': 'w3-input'}}) }}
+                    </div>
+                    <div class="col-sm-6">
+                        {{ form_label(formEnfant.prenom, 'Prenom:') }}
+                        {{ form_widget(formEnfant.prenom, {'attr':{'class':'w3-input'}}) }}
+                    </div>
+                </div>
+                <div class="row"><div class="col-sm-9">&nbsp;</div></div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        {{ form_label(formEnfant.dateNaissance, 'Date de naissance:') }}
+                        {{ form_widget(formEnfant.dateNaissance, {'attr':{'class':'w3-input'}}) }}
+                    </div>
+
+                    <div class="col-sm-6">
+                        {{ form_label(formEnfant.genre, 'Sexe:') }}<br>
+                        {{ form_widget(formEnfant.genre, {'attr':{'class':'w3-input'}}) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <br>
+    <fieldset class="w3-white w3-card-2 w3-padding"><legend class="w3-green w3-padding-small">PARENT</legend>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-4">
+                        {{ form_label(formParent.nom, 'Nom:' ,{'label_attr': {'class': ''}}) }}
+                        {{ form_widget(formParent.nom, {'attr': {'class': 'w3-input'}}) }}
+                    </div>
+                    <div class="col-sm-4">
+                        {{ form_label(formParent.prenom, 'Prenom:') }}
+                        {{ form_widget(formParent.prenom, {'attr':{'class':'w3-input'}}) }}
+                    </div>
+                    <div class="col-sm-4">
+                        {{ form_label(formParent.civilite, 'Civilité:') }}<br>
+                        {{ form_widget(formParent.civilite, {'attr':{'class':'w3-input'}}) }}
+                    </div>
+                </div>
+                <div class="row"><div class="col-sm-9">&nbsp;</div></div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        {{ form_label(formParent.telephone, 'Date de naissance:') }}
+                        {{ form_widget(formParent.telephone, {'attr':{'class':'w3-input'}}) }}
+                    </div>
+                    <div class="col-sm-4">
+                        {{ form_label(formParent.fonction, 'Fonction') }}
+                        {{ form_widget(formParent.fonction, {'attr':{'class':'w3-input'}}) }}
+                    </div>
+                    <div class="col-sm-4">
+                        {{ form_label(formParent.type, 'Type de parent') }}
+                        {{ form_widget(formParent.type, {'attr':{'class':'w3-input'}}) }}
+                    </div>
+                    <div class="col-sm-12">
+                        {{ form_label(formParent.addresse, 'Adresse') }}
+                        {{ form_widget(formParent.addresse, {'attr':{'class':'w3-input'}}) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <br>
+    <fieldset class="w3-white w3-card-2 w3-padding"><legend class="w3-green w3-padding-small">CLASSE</legend>
+        <div class="row">
+            <div class="col-sm-6">
+                {{ form_label(formClasse.classe, 'Classe:') }}
+                {{ form_widget(formClasse.classe, {'attr':{'class':'w3-input'}}) }}
+            </div>
+            <div class="col-sm-6">
+                {{ form_label(formClasse.mensualite, 'Mensualité:') }}
+                {{ form_widget(formClasse.mensualite, {'attr':{'class':'w3-input'}}) }}
+            </div>
+        </div>
+    </fieldset><br>
+
+    <fieldset class="w3-white w3-card-2 w3-padding"><legend class="w3-green w3-padding-small">INSCRIPTION</legend>
+        <div class="row">
+            <div class="col-sm-5">
+                {{ form_label(formInscrit.annee, 'Année:') }}
+                {{ form_widget(formInscrit.annee, {'attr':{'class':'w3-input'}}) }}
+            </div>
+            <div class="col-sm-5">
+                {{ form_label(formInscrit.frais, 'Frais d\'inscription :') }}
+                {{ form_widget(formInscrit.frais, {'attr':{'class':'w3-input'}}) }}
+            </div>
+            <div class="col-sm-2">
+                {{ form_label(formInscrit.paye, ' Payé:') }}
+                {{ form_widget(formInscrit.paye, {'attr':{'class':'w3-radio w3-margin-top'}}) }}
+            </div>
+        </div>
+    </fieldset><br>
+
+    <fieldset class="w3-white w3-card-2 w3-padding"><legend class="w3-green w3-padding-small">MENSUALITE</legend>
+        <table class="w3-table-all">
+            <thead>
+            <tr><th>Mois</th><th>Payé</th><th>Commentaire</th></tr>
+            </thead>
+            <tbody>
+            {% for mensualite in mensualites %}
+                <tr>
+                    <td>{{ mensualite.mois }}</td>
+                    {% if mensualite.paye %}
+                        <td style="color: #66dd66"><span class="glyphicon glyphicon-ok-circle"></span></td>
+                    {% else %}
+                        <td style="color:red"><span class="glyphicon glyphicon-remove-circle"></span></td>
+                    {% endif %}
+                    <td>{{ mensualite.commentaire }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </fieldset>
+</div>

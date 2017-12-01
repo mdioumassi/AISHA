@@ -47,7 +47,6 @@ class EnfantType extends AbstractType
                     'label' => false
                 ])
                 ->add('genre', ChoiceType::class, [
-                    'placeholder' => 'Choisir',
                     'choices' => [
                         'Garçon' => 'Garçon',
                         'Fille' => 'Fille'

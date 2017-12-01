@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -50,6 +51,18 @@ class ParentsType extends AbstractType
                     ],
                     'label' => false
                 ])
+                ->add('type', ChoiceType::class, [
+                    'placeholder' => 'Type de parent',
+                    'choices' => [
+                        'Pére' => 'pére',
+                        'Mère' => 'mère',
+                        'Oncle' => 'oncle',
+                        'Tante' => 'tante',
+                        'Frère' => 'frère',
+                        'Soeur' => 'soeur'
+                    ],
+                    'label' => false
+                ])
                 ->add('telephone', TextType::class, [
                     'attr' => [
                         'class' => 'w3-input w3-border',
@@ -57,7 +70,7 @@ class ParentsType extends AbstractType
                     ],
                     'label' => false
                 ])
-                ->add('addresse', TextType::class, [
+                ->add('addresse', TextareaType::class, [
                     'attr' => [
                         'class' => 'w3-input w3-border',
                         'placeholder' => 'Adresse'

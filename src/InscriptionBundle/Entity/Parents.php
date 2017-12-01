@@ -68,10 +68,16 @@ class Parents
     /**
      * @var string
      *
-     * @ORM\Column(name="addresse", type="string", length=255)
+     * @ORM\Column(name="addresse", type="text")
      * @Assert\NotBlank()
      */
     private $addresse;
+
+    /**
+     * @ORM\Column(name="type", type="string", length=40)
+     * @Assert\NotBlank()
+     */
+    private $type;
 
     /**
      * @var \DateTime
@@ -313,4 +319,28 @@ class Parents
         return $this->getNom();
     }
 
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return Parents
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
 }

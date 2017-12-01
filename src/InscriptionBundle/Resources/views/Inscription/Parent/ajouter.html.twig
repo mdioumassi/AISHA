@@ -1,8 +1,11 @@
 {% extends '@Inscription/layout.html.twig' %}
+
 {% block content %}
-    <div class="container">
+    <div class="container-fluid w3-light-grey">
         <div class="row">
-            {#{% include ':layoutAdmin/inscription:navbar.html.twig' %}#}
+            <div class="col-sm-12 w3-margin">
+                {% include ':layoutAdmin/inscription:navbar.html.twig' %}
+            </div>
         </div>
         <div class="row">
             <div class="col-sm-12">
@@ -10,4 +13,11 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(function () {
+            $("#enfant").addClass("w3-disabled");
+            $("#insc").addClass("w3-disabled");$("#enfant").addClass("w3-disabled");
+        });
+    </script>
 {% endblock %}

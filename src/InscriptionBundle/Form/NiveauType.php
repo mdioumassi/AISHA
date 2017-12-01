@@ -40,7 +40,8 @@ class NiveauType extends AbstractType
                     'entry_type'   => MatiereType::class,
                     'allow_add'    => true,
                     'allow_delete' => true,
-                    'by_reference' => false
+                    'by_reference' => false,
+                    'label' => false
                 ]);
                /* ->add('submit', SubmitType::class, [
                     'attr' => [

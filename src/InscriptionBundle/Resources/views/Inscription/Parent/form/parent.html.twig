@@ -1,6 +1,6 @@
 {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
 {{ form_errors(form) }}
-<fieldset class="w3-margin w3-white"><legend class="w3-gray w3-padding-small"> Ajouter un parent</legend>
+<fieldset class="w3-margin w3-white"><legend class="w3-green w3-padding-small"> Ajouter un parent</legend>
     <div class="row">
         <div class="col-sm-4">
             {{ form_row(form.nom) }}
@@ -20,6 +20,9 @@
             {{ form_row(form.fonction) }}
         </div>
         <div class="col-sm-4">
+            {{ form_row(form.type) }}
+        </div>
+        <div class="col-sm-12">
             {{ form_row(form.addresse) }}
         </div>
     </div>

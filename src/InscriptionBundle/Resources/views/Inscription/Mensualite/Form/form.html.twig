@@ -19,7 +19,7 @@
             {{ form_widget(form.enfant.dateNaissance, {'attr':{'class':'w3-disabled'}}) }}
         </div>
         <div class="col-sm-6">
-            {{ form_label(form.enfant.genre, 'Sexe') }}
+            {{ form_label(form.enfant.genre, 'Sexe:') }}
             {{ form_row(form.enfant.genre) }}
         </div>
     </div>
@@ -44,9 +44,9 @@
 
 <fieldset class="w3-margin w3-white w3-card-3"><legend class="w3-yellow w3-padding-small">Mensualité</legend>
     <div class="row">
-        <div class="col-sm-4">{{ form_row(form.mois) }}</div>
-        <div class="col-sm-4">{{ form_row(form.paye) }}</div>
-        <div class="col-sm-4">{{ form_row(form.commentaire) }}</div>
+        <div class="col-sm-6">{{ form_row(form.mois) }}</div>
+        <div class="col-sm-6">{{ form_row(form.paye) }}</div>
+        <div class="col-sm-12">{{ form_row(form.commentaire) }}</div>
     </div>
 </fieldset>
 

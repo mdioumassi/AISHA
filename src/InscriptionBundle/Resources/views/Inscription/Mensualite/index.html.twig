@@ -1,7 +1,7 @@
 {% extends '@Inscription/layout.html.twig' %}
 
 {% block content %}
-    <div class="container w3-light-gray">
+    <div class="container-fluid w3-light-gray W3-margin">
         <div class="row w3-margin">
             <div class="col-sm-12">
                 {% include ':layoutAdmin/inscription:navbar.html.twig' %}
@@ -20,6 +20,8 @@
             $("#enfant").addClass("w3-disabled");
             $("#insc").addClass("w3-disabled");
             $("#fiche").addClass("w3-disabled");
+           // $(".form-group .control-label").hide();
+            $("#inscriptionbundle_mensualite_niveau_matieres").hide();
         });
     </script>
 {% endblock %}

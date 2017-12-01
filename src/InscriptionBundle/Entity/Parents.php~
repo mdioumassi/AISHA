@@ -12,7 +12,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity as UniqueEntity;
  *
  * @ORM\Table(name="parents")
  * @ORM\Entity(repositoryClass="InscriptionBundle\Repository\ParentRepository")
- * @UniqueEntity(fields={"prenom"}, message="Ce parent est déjà enregistré")
+ * @UniqueEntity(fields={"nom","prenom"}, message="Ce parent est déjà enregistré")
  */
 class Parents
 {
@@ -68,10 +68,16 @@ class Parents
     /**
      * @var string
      *
-     * @ORM\Column(name="addresse", type="string", length=255)
+     * @ORM\Column(name="addresse", type="text")
      * @Assert\NotBlank()
      */
     private $addresse;
+
+    /**
+     * @ORM\Column(name="type", type="string", length=40)
+     * @Assert\NotBlank()
+     */
+    private $type;
 
     /**
      * @var \DateTime
@@ -81,7 +87,7 @@ class Parents
     private $createAt;
 
     /**
-     * @ORM\OneToMany(targetEntity="InscriptionBundle\Entity\Enfant", cascade={"persist","remove"}, mappedBy="parent")
+     * @ORM\OneToMany(targetEntity="InscriptionBundle\Entity\Enfant", cascade="all", orphanRemoval=true, mappedBy="parent")
      * @ORM\JoinColumn(nullable=false)
      * @var Enfant[]
      */
@@ -283,6 +289,7 @@ class Parents
     public function addEnfant(\InscriptionBundle\Entity\Enfant $enfant)
     {
         $this->enfants[] = $enfant;
+        $enfant->setParent($this);
 
         return $this;
     }
@@ -312,4 +319,28 @@ class Parents
         return $this->getNom();
     }
 
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return Parents
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
 }

@@ -118,7 +118,7 @@ class InscriptionController extends Controller
             $this->Em()->persist($mensualite);
             $this->Em()->flush();
             return $this->redirectToRoute('inscription_fiche', [
-                'enfant_id' => $enfant->getId()
+                'enfant_id' => $enfant->getEnfant()->getId()
             ]);
         }
 
@@ -138,6 +138,9 @@ class InscriptionController extends Controller
         $fiche = $this->Em()
                       ->getRepository('InscriptionBundle:Inscrit')
                       ->findByEnfant($request->get('enfant_id'));
+        if (null === $fiche) {
+            throw $this->createNotFoundException("Not Found");
+        }
 
         $enfant = $fiche->getEnfant();
         $parent = $enfant->getParent();
@@ -150,11 +153,11 @@ class InscriptionController extends Controller
         $formInscrit = $this->createForm(InscritType::class, $fiche);
 
         return $this->render('@Inscription/Inscription/Fiche/index.html.twig', [
-                'formEnfant' => $formEnfant->createView(),
-                'formParent' => $formParent->createView(),
-                'formClasse'     => $formClasse->createView(),
+                'formEnfant'  => $formEnfant->createView(),
+                'formParent'  => $formParent->createView(),
+                'formClasse'  => $formClasse->createView(),
                 'formInscrit' => $formInscrit->createView(),
-                'mensualites'    => $mensualites,
+                'mensualites' => $mensualites,
                 'parent_id'   => $enfant->getParent()->getId()
         ]);
     }
@@ -172,6 +175,24 @@ class InscriptionController extends Controller
         ];
     }
 
+    /**
+     * @Route("/inscription/liste", name="liste_inscrit")
+     * @Template("@Inscription/Inscription/Inscrit/liste.html.twig")
+     */
+    public function getInscritAction()
+    {
+        $listeinscrit = $this->Em()
+                            ->getRepository('InscriptionBundle:Inscrit')
+                            ->getInscritAll();
+
+        if (null === $listeinscrit) {
+            throw $this->createNotFoundException("Not Found");
+        }
+
+        return [
+          'listes' => $listeinscrit
+        ];
+    }
 
     /**
      * @return \Doctrine\Common\Persistence\ObjectManager|object

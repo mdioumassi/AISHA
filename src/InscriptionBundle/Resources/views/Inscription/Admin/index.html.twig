@@ -1,5 +1,30 @@
 {% extends '@Inscription/layout.html.twig' %}
 
 {% block content %}
+    <div class="w3-card-4 w3-margin-top">
 
+        <header class="w3-container w3-yellow">
+            <h4>Gestion de l'école</h4>
+        </header>
+
+        <div class="w3-container w3-margin-top">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="well">
+                        <p><a href="{{ path('liste_inscrit') }}">GESTION INSCRIPTIONS</a></p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="well">
+                        <p>GESTION CLASSES</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="well">
+                        <p>ADS</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

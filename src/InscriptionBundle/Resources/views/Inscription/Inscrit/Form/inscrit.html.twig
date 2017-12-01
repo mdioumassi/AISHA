@@ -1,7 +1,7 @@
 {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
 {{ form_errors(form) }}
 
-<fieldset class="w3-margin w3-white"><legend class="w3-gray w3-padding-small">Enfant</legend>
+<fieldset class="w3-margin w3-white"><legend class="w3-yellow w3-padding-small">Enfant</legend>
     <div class="row">
         <div class="col-sm-6">
             {{ form_label(form.enfant.nom, 'Nom:') }}
@@ -19,7 +19,7 @@
             {{ form_widget(form.enfant.dateNaissance, {'attr':{'class':'w3-disabled'}}) }}
         </div>
         <div class="col-sm-6">
-            {{ form_label(form.enfant.genre, 'Sexe') }}
+            {{ form_label(form.enfant.genre, 'Sexe:') }}
             {{ form_row(form.enfant.genre) }}
         </div>
     </div>

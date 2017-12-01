@@ -1,22 +1,22 @@
 <fieldset class="w3-card-2 w3-margin w3-padding-small"><legend class="w3-yellow w3-padding-small">Mensualisation</legend>
     {{ form_start(form, {'attr':{'class':'frmMensuel'}}) }}
     <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-6">
             {{ form_label(form.mois) }}
-            {{ form_widget(form.mois) }}
-        </div>
-        <div class="col-sm-3">
-            {{ form_label(form.paye, 'A payer:') }}
-            {{ form_widget(form.paye) }}
+            {{ form_widget(form.mois,{'attr':{'class':'mois'}}) }}
         </div>
         <div class="col-sm-6">
+            {{ form_label(form.paye, 'A payer:') }}
+            {{ form_widget(form.paye, {'attr':{'class':'paye'}}) }}
+        </div>
+        <div class="col-sm-12">
             {{ form_label(form.commentaire) }}
-            {{ form_widget(form.commentaire, {'attr':{'placeholder':'Commentaire'}}) }}
+            {{ form_widget(form.commentaire, {'attr':{'placeholder':'Commentaire', 'class':'commentaire'}}) }}
         </div>
         <div class="col-sm-12 w3-margin-top">
             <div class="w3-bar">
                 <button type="submit" class="w3-button w3-green" id="valider">Valider</button>
-                <button type="reset" class="w3-button w3-teal">Reset</button>
+                {#<button type="reset" class="w3-button w3-teal">Reset</button>#}
             </div>
         </div>
     </div>
@@ -41,8 +41,12 @@
                         success: function (data) {
                             $("#result1").hide()
                             box.html(data);
+                            $(".paye").checked = false;
+                            $(".mois").val('');
+                            $(".commentaire").val('');
                         }
                     });
+
                     e.preventDefault(); // avoid to execute the actual submit of the form.
             });
         });
