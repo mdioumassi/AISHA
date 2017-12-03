@@ -179,18 +179,44 @@ class InscriptionController extends Controller
      * @Route("/inscription/liste", name="liste_inscrit")
      * @Template("@Inscription/Inscription/Inscrit/liste.html.twig")
      */
-    public function getInscritAction()
+    public function getInscritAction(Request $request)
     {
-        $listeinscrit = $this->Em()
-                            ->getRepository('InscriptionBundle:Inscrit')
-                            ->getInscritAll();
+        if ($request->get('parent_id')) {
+            $listeinscrits = $this->Em()
+                ->getRepository('InscriptionBundle:Inscrit')
+                ->getInscritAll($request->get('parent_id'));
+        } else {
+            $listeinscrits = $this->Em()
+                ->getRepository('InscriptionBundle:Inscrit')
+                ->getInscritAll();
+        }
 
-        if (null === $listeinscrit) {
+
+        if (null === $listeinscrits) {
             throw $this->createNotFoundException("Not Found");
         }
 
+        if ($request->get('parent_id')) {
+            return [
+                'listes' => $listeinscrits,
+            ];
+        } else {
+            return [
+                'listes' => $listeinscrits,
+            ];
+        }
+    }
+
+    /**
+     * @Template("@Inscription/Inscription/Inscrit/Ajax/listeinscritbyp.html.twig")
+     */
+    public function selectParentAction()
+    {
+        $parents = $this->Em()
+                   ->getRepository('InscriptionBundle:Parents')
+                    ->findAll();
         return [
-          'listes' => $listeinscrit
+            'parents' => $parents,
         ];
     }
 

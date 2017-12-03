@@ -65,16 +65,23 @@ class InscritRepository extends \Doctrine\ORM\EntityRepository
         return $fiche->getSingleResult();
     }
 
-    public function getInscritAll()
+    public function getInscritAll($parent = null)
     {
+        $dql = "";
+        $dql .= "
+             SELECT e.id, e.nom, e.prenom, p.id idP, p.nom pnom, p.prenom pprenom, p.type ptype, n.classe, i.frais, i.paye, i.annee, i.createdAt 
+             FROM InscriptionBundle:Inscrit i 
+             JOIN i.enfant e 
+             JOIN e.parent p
+             JOIN i.niveau n
+        ";
+        if ($parent) {
+            $dql .= "WHERE p.id = $parent";
+        }
         $query = $this->getEntityManager()
-                 ->createQuery('
-                    SELECT e.id, e.nom, e.prenom, p.nom pnom, p.prenom pprenom, p.type ptype, n.classe, i.frais, i.paye, i.annee, i.createdAt 
-                    FROM InscriptionBundle:Inscrit i 
-                    JOIN i.enfant e 
-                    JOIN e.parent p
-                    JOIN i.niveau n
-                 ');
+                      ->createQuery($dql);
+
         return $query->getResult();
+
     }
 }

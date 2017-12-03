@@ -1,0 +1,6 @@
+<select class="form-control" id="sel1">
+<option value="" selected>Le parent</option>
+{% for parent in parents %}
+<option value="{{ parent.id }}">{{ parent.nom|upper }}&nbsp;&nbsp;{{ parent.prenom }}</option>
+{% endfor %}
+</select>
