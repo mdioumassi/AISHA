@@ -1,0 +1,33 @@
+{% extends '@Inscription/layout.html.twig' %}
+
+{% block content %}
+<div class="w3-card-4 w3-margin-top">
+    <div class="row">
+        <div class="col-sm-4">
+            <header class="w3-container w3-blue">
+                <h3 style="text-align: center">JARDIN D'ENFANT</h3></header>
+                <table border="1">
+                    <thead>
+                    <tr>
+                        <th colspan="2" class="w3-yellow">EFFECTIVE</th><th colspan="2">MENSUALITE</th><th colspan="2">Recette</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Fille</td><td>Garçon</td><td>Payé</td><td>Non Payé</td><td>Recette</td><td>Charge</td>
+                    </tr>
+                     <tr>
+                         <td><span class="w3-tag w3-xxlarge w3-green">49</span></td>
+                         <td> <span class="w3-tag w3-xxlarge w3-green">49</span></td>
+                         <td><span class="w3-tag w3-xxlarge w3-green">49</span></td>
+                         <td> <span class="w3-tag w3-xxlarge w3-red">49</span></td>
+                     </tr>
+                    </tbody>
+                </table>
+            </header>
+        </div>
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4"></div>
+    </div>
+</div>
+{% endblock %}

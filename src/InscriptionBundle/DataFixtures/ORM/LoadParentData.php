@@ -29,6 +29,7 @@ class LoadParentData extends Fixture
                 ->setCivilite("Monsieur")
                 ->setFonction("Informaticien")
                 ->setTelephone("0602732975")
+                ->setType("Père")
                 ->setAddresse("France");
         $manager->persist($parent1);
         $manager->flush();
