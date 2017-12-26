@@ -123,13 +123,13 @@ class EnfantController extends Controller
     }
 
     /**
-     * @Route("/enfants/{enfant_id}/enfant/modifier", name="modifier_enfant")
+     * @Route("/enfants/{id}/edit", name="modifier_enfant")
      */
     public function modifierEnfantAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $enfant = $em->getRepository('InscriptionBundle:Enfant')
-            ->find($request->get('enfant_id'));
+            ->find($request->get('id'));
         if (empty($enfant)) {
             throw  $this->createNotFoundException('Not found parent');
         }
@@ -143,9 +143,8 @@ class EnfantController extends Controller
                 'parent_id' => $parent->getId()
             ]);
         }
-        return $this->render('@Inscription/Inscription/Enfant/modifier.html.twig', [
+        return $this->render('@Inscription/Inscription/Inscrit/enfant.html.twig', [
            'form' => $form->createView(),
-            'parent_id' => $parent->getId()
         ]);
     }
 

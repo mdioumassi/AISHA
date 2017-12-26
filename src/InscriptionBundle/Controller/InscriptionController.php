@@ -50,6 +50,10 @@ class InscriptionController extends Controller
         if (empty($parent)) {
             throw  $this->createNotFoundException('Not found parent');
         }
+
+        $session = $request->getSession();
+        $session->set('parent_id', $request->get('parent_id'));
+
         $enfant = new Enfant();
         $enfant->setParent($parent);
         $form = $this->createForm(EnfantType::class, $enfant);
@@ -62,7 +66,7 @@ class InscriptionController extends Controller
             ]);
         }
         return $this->render('@Inscription/Inscription/Inscrit/enfant.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
         ]);
     }
 
@@ -78,6 +82,8 @@ class InscriptionController extends Controller
         if (empty($enfant)) {
             throw  $this->createNotFoundException('Not found enfant');
         }
+        $session = $request->getSession();
+        $session->set('enfant_id', $request->get('enfant_id'));
         $inscrit = new Inscrit();
         $inscrit->setEnfant($enfant);
 
@@ -93,7 +99,7 @@ class InscriptionController extends Controller
         }
 
         return $this->render('@Inscription/Inscription/Inscrit/inscrit.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
         ]);
     }
 

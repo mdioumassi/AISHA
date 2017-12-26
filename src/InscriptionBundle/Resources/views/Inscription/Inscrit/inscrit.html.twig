@@ -1,10 +1,16 @@
 {% extends '@Inscription/layout.html.twig' %}
 
 {% block content %}
+    {% set parent_id = app.session.get('parent_id') %}
+    {% set enfant_id = app.session.get('enfant_id') %}
     <div class="container-fluid w3-light-gray">
         <div class="row">
             <div class="col-sm-12 w3-margin">
-                {% include ':layoutAdmin/inscription:navbar.html.twig' %}
+                <a href="{{ path('parent_update', {'id':parent_id}) }}"><button id="parent" class="w3-bar-item w3-button w3-green" style="width:18%"><span class="w3-badge w3-yellow ">1</span>&nbsp;&nbsp;&nbsp;PARENT</button></a>
+                <a href="{{ path('modifier_enfant', {'id':enfant_id}) }}"><button id="enfant" class="w3-bar-item w3-button w3-yellow" style="width:18%"><span class="w3-badge w3-yellow ">2</span>&nbsp;&nbsp;&nbsp;ENFANT</button></a>
+                <button id="insc" class="w3-bar-item w3-button w3-green" style="width:18%"><span class="w3-badge w3-yellow">3</span>&nbsp;&nbsp;&nbsp;INSCRIPTION</button>
+                <button id="mensualite" class="w3-bar-item w3-button w3-yellow" style="width:18%"><span class="w3-badge w3-yellow ">4</span>&nbsp;&nbsp;&nbsp;MENSUALITÉ</button>
+                <button id="fiche" class="w3-bar-item w3-button w3-green" style="width:18%"><span class="w3-badge w3-yellow ">5</span>&nbsp;&nbsp;&nbsp;FICHE</button
             </div>
         </div>
         <div class="row">
@@ -16,10 +22,10 @@
 
     <script>
         $(function () {
-            $("#parent").addClass("w3-disabled");
-            $("#enfant").addClass("w3-disabled");
-            $("#mensualite").addClass("w3-disabled");
-            $("#fiche").addClass("w3-disabled");
+          //  $("#parent").addClass("w3-disabled");
+            //$("#enfant").addClass("w3-disabled");
+          //  $("#mensualite").addClass("w3-disabled");
+           // $("#fiche").addClass("w3-disabled");
         });
     </script>
 {% endblock %}

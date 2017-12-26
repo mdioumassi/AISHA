@@ -76,17 +76,21 @@ class ParentController extends Controller
         $em = $this->getDoctrine()->getManager();
         $parent = $em->getRepository('InscriptionBundle:Parents')
                   ->find($request->get('id'));
+
         if (empty($parent)) {
             throw $this->createNotFoundException('Not found parent');
         }
+
         $form = $this->createForm(ParentsType::class, $parent);
         $form->handleRequest($request);
         if ($request->isMethod('POST') && $form->isValid()) {
             $em->persist($parent);
             $em->flush();
-            return $this->redirectToRoute('liste_parents');
+            return $this->redirectToRoute('inscription_enfant',[
+                'parent_id' => $parent->getId()
+            ]);
         }
-        return $this->render('@Inscription/Inscription/Parent/modifier.html.twig', [
+        return $this->render('@Inscription/Inscription/Inscrit/parent.html.twig', [
            'form' => $form->createView()
         ]);
     }
