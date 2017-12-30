@@ -139,8 +139,8 @@ class EnfantController extends Controller
         if ($request->isMethod('POST') && $form->isValid()) {
             $em->persist($enfant);
             $em->flush();
-            return $this->redirectToRoute('parent_enfants', [
-                'parent_id' => $parent->getId()
+            return $this->redirectToRoute('inscription_niveau', [
+                'enfant_id' => $enfant->getId()
             ]);
         }
         return $this->render('@Inscription/Inscription/Inscrit/enfant.html.twig', [
