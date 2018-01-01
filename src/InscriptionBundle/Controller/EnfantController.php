@@ -129,10 +129,11 @@ class EnfantController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $enfant = $em->getRepository('InscriptionBundle:Enfant')
-            ->find($request->get('id'));
+                     ->find($request->get('id'));
         if (empty($enfant)) {
             throw  $this->createNotFoundException('Not found parent');
         }
+
         $parent = $enfant->getParent();
         $form = $this->createForm(EnfantType::class, $enfant);
         $form->handleRequest($request);
@@ -145,6 +146,33 @@ class EnfantController extends Controller
         }
         return $this->render('@Inscription/Inscription/Inscrit/enfant.html.twig', [
            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/enfants/{id}/update", name="update_child")
+     */
+    public function updateAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $enfant = $em->getRepository('InscriptionBundle:Enfant')
+                  ->find($request->get('id'));
+        if (empty($enfant)) {
+            throw  $this->createNotFoundException('Not found parent');
+        }
+
+        $parent = $enfant->getParent();
+        $form = $this->createForm(EnfantType::class, $enfant);
+        $form->handleRequest($request);
+        if ($request->isMethod('POST') && $form->isValid()) {
+            $em->persist($enfant);
+            $em->flush();
+            return $this->redirectToRoute('inscription_niveau', [
+                'enfant_id' => $enfant->getId()
+            ]);
+        }
+        return $this->render('@Inscription/Inscription/Inscrit/enfant.html.twig', [
+            'form' => $form->createView(),
         ]);
     }
 

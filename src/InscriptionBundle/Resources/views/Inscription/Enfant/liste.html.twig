@@ -21,7 +21,7 @@
                         <a href="{{ path('delete_enfant', {'enfant_id':enfant.id}) }}">
                             <span title="Supprimer" class="glyphicon glyphicon-trash"></span>
                         </a>
-                        <a href="{{ path('modifier_enfant', {'enfant_id':enfant.id}) }}">
+                        <a class="various" data-fancybox-type="iframe"  href="#">
                             <span title="Modifier" class="glyphicon glyphicon-edit"></span>
                         </a>
                         <a href="{{ path('inscription_fiche', {'enfant_id':enfant.id}) }}">
@@ -36,8 +36,23 @@
             <a href="{{ path('ajout_enfant',{'parent_id':parent_id}) }}" class="w3-button w3-blue" id="addChild">Ajouter un enfant</a>
             <a href="{{ path('liste_parents') }}" class="w3-button w3-green"> Liste des parents</a>
         </p>
-        <div id="formAddChild">
-
-        </div>
     </div>
+
+    {% block javascripts %}
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $(".various").fancybox({
+                    maxWidth	: 800,
+                    maxHeight	: 600,
+                    fitToView	: false,
+                    width		: '70%',
+                    height		: '70%',
+                    autoSize	: false,
+                    closeClick	: false,
+                    openEffect	: 'none',
+                    closeEffect	: 'none'
+                });
+            });
+        </script>
+    {% endblock %}
 {% endblock %}
