@@ -202,5 +202,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module" module-name="fvp" />
+    <orderEntry type="module" module-name="ecole" />
   </component>
 </module>

@@ -18,12 +18,6 @@
                     <td>{{ enfant.dateNaissance|age ~ " ans" }}</td>
                     <td>{{ enfant.classe }}</td>
                     <td>
-                        <a href="{{ path('delete_enfant', {'enfant_id':enfant.id}) }}">
-                            <span title="Supprimer" class="glyphicon glyphicon-trash"></span>
-                        </a>
-                        <a class="various" data-fancybox-type="iframe"  href="#">
-                            <span title="Modifier" class="glyphicon glyphicon-edit"></span>
-                        </a>
                         <a href="{{ path('inscription_fiche', {'enfant_id':enfant.id}) }}">
                             <span title="Fiche enfant" class="glyphicon glyphicon-file"></span>
                         </a>

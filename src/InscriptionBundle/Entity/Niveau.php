@@ -205,6 +205,6 @@ class Niveau
 
     public function __toString()
     {
-        return $this->classe;
+        return $this->getClasse();
     }
 }

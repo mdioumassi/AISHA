@@ -164,4 +164,9 @@ class Matiere
     {
         return $this->niveau;
     }
+
+    public function __toString()
+    {
+        return $this->libelle;
+    }
 }

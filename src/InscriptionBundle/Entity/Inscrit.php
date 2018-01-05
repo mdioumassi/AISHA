@@ -217,8 +217,4 @@ class Inscrit
         return $this->niveau;
     }
 
-    public function __toString()
-    {
-        return $this->niveau->getClasse();
-    }
 }

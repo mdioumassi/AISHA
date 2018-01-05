@@ -1,0 +1,88 @@
+<?php
+
+namespace InscriptionBundle\Admin;
+
+use Sonata\AdminBundle\Admin\AbstractAdmin;
+use Sonata\AdminBundle\Datagrid\DatagridMapper;
+use Sonata\AdminBundle\Datagrid\ListMapper;
+use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Show\ShowMapper;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+
+class ParentsAdmin extends AbstractAdmin
+{
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    {
+        $datagridMapper
+            ->add('nom')
+            ->add('prenom')
+            ->add('civilite')
+            ->add('fonction')
+            ->add('telephone')
+            ->add('addresse')
+            ->add('type')
+        ;
+    }
+
+    protected function configureListFields(ListMapper $listMapper)
+    {
+        $listMapper
+            ->add('nom')
+            ->add('prenom')
+            ->add('civilite')
+            ->add('fonction')
+            ->add('telephone')
+            ->add('addresse')
+            ->add('type')
+            ->add('_action', null, [
+                'actions' => [
+                    'show' => [],
+                    'edit' => [],
+                    'delete' => [],
+                ],
+            ])
+        ;
+    }
+
+    protected function configureFormFields(FormMapper $formMapper)
+    {
+        $formMapper
+            ->add('nom')
+            ->add('prenom')
+            ->add('civilite', ChoiceType::class, [
+                'placeholder' => 'Civilité',
+                'choices' => [
+                    'Homme' => 'Homme',
+                    'Femme' => 'Femme'
+                ]
+            ])
+            ->add('type', ChoiceType::class, [
+                'placeholder' => 'Lien de parenté',
+                'choices' => [
+                    'Pére' => 'pére',
+                    'Mère' => 'mère',
+                    'Oncle' => 'oncle',
+                    'Tante' => 'tante',
+                    'Frère' => 'frère',
+                    'Soeur' => 'soeur'
+                ]
+            ])
+            ->add('fonction')
+            ->add('telephone')
+            ->add('addresse')
+        ;
+    }
+
+    protected function configureShowFields(ShowMapper $showMapper)
+    {
+        $showMapper
+            ->add('nom')
+            ->add('prenom')
+            ->add('civilite')
+            ->add('fonction')
+            ->add('telephone')
+            ->add('addresse')
+            ->add('type')
+        ;
+    }
+}
