@@ -123,29 +123,56 @@ class EnfantController extends Controller
     }
 
     /**
-     * @Route("/enfants/{enfant_id}/enfant/modifier", name="modifier_enfant")
+     * @Route("/enfants/{id}/edit", name="modifier_enfant")
      */
     public function modifierEnfantAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $enfant = $em->getRepository('InscriptionBundle:Enfant')
-            ->find($request->get('enfant_id'));
+                     ->find($request->get('id'));
         if (empty($enfant)) {
             throw  $this->createNotFoundException('Not found parent');
         }
+
         $parent = $enfant->getParent();
         $form = $this->createForm(EnfantType::class, $enfant);
         $form->handleRequest($request);
         if ($request->isMethod('POST') && $form->isValid()) {
             $em->persist($enfant);
             $em->flush();
-            return $this->redirectToRoute('parent_enfants', [
-                'parent_id' => $parent->getId()
+            return $this->redirectToRoute('inscription_niveau', [
+                'enfant_id' => $enfant->getId()
             ]);
         }
-        return $this->render('@Inscription/Inscription/Enfant/modifier.html.twig', [
+        return $this->render('@Inscription/Inscription/Inscrit/enfant.html.twig', [
            'form' => $form->createView(),
-            'parent_id' => $parent->getId()
+        ]);
+    }
+
+    /**
+     * @Route("/enfants/{id}/update", name="update_child")
+     */
+    public function updateAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $enfant = $em->getRepository('InscriptionBundle:Enfant')
+                  ->find($request->get('id'));
+        if (empty($enfant)) {
+            throw  $this->createNotFoundException('Not found parent');
+        }
+
+        $parent = $enfant->getParent();
+        $form = $this->createForm(EnfantType::class, $enfant);
+        $form->handleRequest($request);
+        if ($request->isMethod('POST') && $form->isValid()) {
+            $em->persist($enfant);
+            $em->flush();
+            return $this->redirectToRoute('inscription_niveau', [
+                'enfant_id' => $enfant->getId()
+            ]);
+        }
+        return $this->render('@Inscription/Inscription/Inscrit/enfant.html.twig', [
+            'form' => $form->createView(),
         ]);
     }
 

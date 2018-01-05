@@ -43,6 +43,7 @@ twig:
     form_themes:
       - 'bootstrap_3_layout.html.twig'
       - 'form/fields.html.twig'
+      - 'SonataCoreBundle:Form:datepicker.html.twig'
 
 # Doctrine Configuration
 
@@ -74,3 +75,9 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts: [admin]

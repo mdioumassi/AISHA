@@ -166,6 +166,7 @@ class Enfant
     public function getDateNaissance()
     {
         return $this->dateNaissance;
+
     }
 
     /**
@@ -272,5 +273,10 @@ class Enfant
     public function getMensualites()
     {
         return $this->mensualites;
+    }
+
+    public function __toString()
+    {
+        return $this->nom ." ".$this->prenom;
     }
 }

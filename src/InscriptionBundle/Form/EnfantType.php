@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\Validator\Constraints\IsTrue;
 
 class EnfantType extends AbstractType
 {
@@ -39,9 +40,9 @@ class EnfantType extends AbstractType
                     'format' => 'dd-MM-yyyy',
                     'html5' => false,
                     'attr'  => [
-                        'class' => 'form-control input-inline datepicker',
-                        'data-provide' => 'datepicker',
-                        'data-date-format' => 'dd-mm-yyyy',
+                      //  'class' => 'form-control input-inline datepicker',
+                      //  'data-provide' => 'datepicker',
+                     //   'data-date-format' => 'dd-mm-yyyy',
                         'placeholder' => 'Date de naissance'
                     ],
                     'label' => false
@@ -51,6 +52,7 @@ class EnfantType extends AbstractType
                         'Garçon' => 'Garçon',
                         'Fille' => 'Fille'
                     ],
+                 //   'constraints' => new IsTrue(['message'=>'Needs to be clicked']),
                     'label_attr' => ['class' =>'radio-inline'],
                     'multiple' => false,
                     'expanded' => true,

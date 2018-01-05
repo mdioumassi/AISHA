@@ -52,7 +52,7 @@ class ParentsType extends AbstractType
                     'label' => false
                 ])
                 ->add('type', ChoiceType::class, [
-                    'placeholder' => 'Type de parent',
+                    'placeholder' => 'Lien de parenté',
                     'choices' => [
                         'Pére' => 'pére',
                         'Mère' => 'mère',
