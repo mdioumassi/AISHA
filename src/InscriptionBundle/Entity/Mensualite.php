@@ -218,6 +218,9 @@ class Mensualite
 
     public function __toString()
     {
+        if(is_null($this->mois)) {
+            return 'NULL';
+        }
         return $this->mois;
     }
 }

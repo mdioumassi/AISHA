@@ -6,6 +6,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Form\Type\ModelAutocompleteType;
 use Sonata\AdminBundle\Form\Type\ModelType;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -61,7 +62,11 @@ class EnfantAdmin extends AbstractAdmin
             ])
             ->end()
             ->with('Parent', array('class' => 'col-md-6'))
-               ->add('parent', ModelType::class, [
+               ->add('parent', ModelAutocompleteType::class, [
+                   'property'=>'nom',
+                   'placeholder'=>'Selectionner',
+                  //'label'=>'town.name',
+                  // 'model_manager'=> null,
                    'btn_add' => true,
                ])
             ->end()
