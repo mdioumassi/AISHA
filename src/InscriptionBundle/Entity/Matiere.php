@@ -167,6 +167,9 @@ class Matiere
 
     public function __toString()
     {
+        if(is_null($this->libelle)) {
+            return 'NULL';
+        }
         return $this->libelle;
     }
 }

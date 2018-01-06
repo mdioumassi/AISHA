@@ -6,6 +6,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Form\Type\ModelAutocompleteType;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -55,12 +56,14 @@ class MensualiteAdmin extends AbstractAdmin
                 ->add('commentaire')
             ->end()
             ->with('Enfant', ['class' => 'col-md-6'])
-                ->add('enfant', null, [
+                ->add('enfant', ModelAutocompleteType::class, [
+                    'property' => 'nom',
                     'label' => false
                 ])
             ->end()
             ->with('Classe', ['class' => 'col-md-6'])
-                ->add('niveau', null, [
+                ->add('niveau', ModelAutocompleteType::class, [
+                    'property' => 'classe',
                     'label' => false
                 ])
             ->end()

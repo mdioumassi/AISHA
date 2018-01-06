@@ -6,6 +6,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Form\Type\ModelType;
 use Sonata\AdminBundle\Show\ShowMapper;
 
 class MatiereAdmin extends AbstractAdmin
@@ -39,10 +40,16 @@ class MatiereAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
+            ->with('Matière', array('class' => 'col-md-6'))
             ->add('libelle')
             ->add('description')
             ->add('coefficient')
-            ->add('niveau')
+            ->end()
+            ->with('Classe', array('class' => 'col-md-6'))
+            ->add('niveau', ModelType::class, [
+                'btn_add' => true
+            ])
+            ->end()
         ;
     }
 
