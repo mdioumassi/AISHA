@@ -4,10 +4,13 @@ namespace InscriptionBundle\Admin;
 
 
 use InscriptionBundle\Entity\Matiere;
+use InscriptionBundle\Form\MatiereType;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Form\Type\ModelAutocompleteType;
+use Sonata\AdminBundle\Form\Type\ModelType;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -49,24 +52,7 @@ class NiveauAdmin extends AbstractAdmin
                 ->add('mensualite')
             ->end()
             ->with('Matières', array('class' => 'col-md-8'))
-            ->add('matieres', 'sonata_type_collection', [
-                'type_options' => [
-                    'delete' => false,
-                    'delete_options' => [
-                        // You may otherwise choose to put the field but hide it
-                        'type'         => 'hidden',
-                        // In that case, you need to fill in the options as well
-                        'type_options' => [
-                            'mapped'   => false,
-                            'required' => false,
-                        ]
-                    ]
-                ]
-            ], [
-                'edit' => 'inline',
-                'inline' => 'table',
-                'sortable' => 'position',
-            ])
+            ->add('matieres')
             ->end()
         ;
     }

@@ -12,40 +12,40 @@ services:
         class: InscriptionBundle\Admin\EnfantAdmin
         arguments: [~, InscriptionBundle\Entity\Enfant, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: Enfant }
+            - { name: sonata.admin, manager_type: orm, group: Ecole, label: Enfants }
         public: true
 
     inscription.admin.parents:
         class: InscriptionBundle\Admin\ParentsAdmin
         arguments: [~, InscriptionBundle\Entity\Parents, InscriptionBundle:ParentsAdmin]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: Parents }
+            - { name: sonata.admin, manager_type: orm, group: Ecole, label: Parents }
         public: true
 
     inscription.admin.inscrit:
         class: InscriptionBundle\Admin\InscritAdmin
         arguments: [~, InscriptionBundle\Entity\Inscrit, InscriptionBundle:InscritAdmin]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: Inscrit }
+            - { name: sonata.admin, manager_type: orm, group: Ecole, label: Inscriptions }
         public: true
 
     inscription.admin.mensualite:
         class: InscriptionBundle\Admin\MensualiteAdmin
         arguments: [~, InscriptionBundle\Entity\Mensualite, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: Mensualite }
+            - { name: sonata.admin, manager_type: orm, group: Ecole, label: Mensualites }
         public: true
 
     inscription.admin.niveau:
         class: InscriptionBundle\Admin\NiveauAdmin
         arguments: [~, InscriptionBundle\Entity\Niveau, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: Niveau }
+            - { name: sonata.admin, manager_type: orm, group: Ecole, label: Niveaux }
         public: true
 
     inscription.admin.matiere:
         class: InscriptionBundle\Admin\MatiereAdmin
         arguments: [~, InscriptionBundle\Entity\Matiere, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: Matiere }
+            - { name: sonata.admin, manager_type: orm, group: Ecole, label: Matiere }
         public: true
