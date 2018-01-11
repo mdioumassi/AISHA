@@ -49,3 +49,10 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: Ecole, label: Matiere }
         public: true
+
+    inscription.admin.user:
+        class: InscriptionBundle\Admin\UserAdmin
+        arguments: [~, InscriptionBundle\Entity\User, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Gestion utilisateurs, label: User }
+        public: true

@@ -20,3 +20,7 @@ _sonata_admin:
     resource: .
     type: sonata_admin
     prefix: /admin
+
+fos_user:
+    resource: "routing_user.yml"
+

@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: user.yml }
     - { resource: "@PageBundle/Resources/config/services.yml" }
     - { resource: "@InscriptionBundle/Resources/config/services.yml" }
 
