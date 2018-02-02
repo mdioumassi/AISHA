@@ -5,6 +5,7 @@ imports:
     - { resource: user.yml }
     - { resource: "@PageBundle/Resources/config/services.yml" }
     - { resource: "@InscriptionBundle/Resources/config/services.yml" }
+    - { resource: "@InscriptionBundle/Resources/config/servicesSonata.yml" }
 
 
 # Put parameters here that don't need to change on each machine where the app is deployed

@@ -1,58 +1,32 @@
-services:
-#    page.example:
-#        class: PageBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+parameters:
+    enfant.manager.class: InscriptionBundle\Services\EnfantManager
+    parent.manager.class: InscriptionBundle\Services\ParentManager
+    mensualite.manager.class: InscriptionBundle\Services\MensualiteManager
+    inscrit.manager.class: InscriptionBundle\Services\InscritManager
+    niveau.manager.class: InscriptionBundle\Services\NiveauManager
 
+services:
     aisha.twig.age:
         class: InscriptionBundle\Twig\AishaExtension
         tags:
           - { name: twig.extension }
 
-    inscription.admin.enfant:
-        class: InscriptionBundle\Admin\EnfantAdmin
-        arguments: [~, InscriptionBundle\Entity\Enfant, SonataAdminBundle:CRUD]
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: Ecole, label: Enfants }
-        public: true
+    enfant_manager:
+        class: "%enfant.manager.class%"
+        arguments: ['@doctrine.orm.entity_manager']
 
-    inscription.admin.parents:
-        class: InscriptionBundle\Admin\ParentsAdmin
-        arguments: [~, InscriptionBundle\Entity\Parents, InscriptionBundle:ParentsAdmin]
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: Ecole, label: Parents }
-        public: true
+    parent_manager:
+        class: "%parent.manager.class%"
+        arguments: ['@doctrine.orm.entity_manager']
 
-    inscription.admin.inscrit:
-        class: InscriptionBundle\Admin\InscritAdmin
-        arguments: [~, InscriptionBundle\Entity\Inscrit, InscriptionBundle:InscritAdmin]
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: Ecole, label: Inscriptions }
-        public: true
+    mensualite_manager:
+            class: "%mensualite.manager.class%"
+            arguments: ['@doctrine.orm.entity_manager']
 
-    inscription.admin.mensualite:
-        class: InscriptionBundle\Admin\MensualiteAdmin
-        arguments: [~, InscriptionBundle\Entity\Mensualite, SonataAdminBundle:CRUD]
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: Ecole, label: Mensualites }
-        public: true
+    inscrit_manager:
+           class: "%inscrit.manager.class%"
+           arguments: ['@doctrine.orm.entity_manager']
 
-    inscription.admin.niveau:
-        class: InscriptionBundle\Admin\NiveauAdmin
-        arguments: [~, InscriptionBundle\Entity\Niveau, SonataAdminBundle:CRUD]
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: Ecole, label: Niveaux }
-        public: true
-
-    inscription.admin.matiere:
-        class: InscriptionBundle\Admin\MatiereAdmin
-        arguments: [~, InscriptionBundle\Entity\Matiere, SonataAdminBundle:CRUD]
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: Ecole, label: Matiere }
-        public: true
-
-    inscription.admin.user:
-        class: InscriptionBundle\Admin\UserAdmin
-        arguments: [~, InscriptionBundle\Entity\User, SonataAdminBundle:CRUD]
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: Gestion utilisateurs, label: User }
-        public: true
+    niveau_manager:
+               class: "%niveau.manager.class%"
+               arguments: ['@doctrine.orm.entity_manager']

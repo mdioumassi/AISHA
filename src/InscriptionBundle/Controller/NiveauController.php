@@ -15,17 +15,13 @@ class NiveauController extends Controller
 {
     /**
      * @Route("/niveaux", name="liste_niveaux")
-     * @Method({"GET"})
      * @Template("@Inscription/Inscription/Niveau/index.html.twig")
      */
     public function indexAction()
     {
-        $niveaux = $this->Em()
-                     ->getRepository('InscriptionBundle:Niveau')
-                     ->findAll()
-        ;
+        $niveauManager = $this->get('niveau_manager');
+        $niveaux = $niveauManager->getAll();
         $this->isExist($niveaux, "niveau");
-
         return [
             'niveaux' => $niveaux
         ];
@@ -38,11 +34,11 @@ class NiveauController extends Controller
     public function addNiveauAction(Request $request)
     {
         $niveau = new Niveau();
+        $niveauManager = $this->get('niveau_manager');
         $form = $this->createForm(NiveauType::class, $niveau);
         $form->handleRequest($request);
         if ($request->isMethod('POST') && $form->isValid()) {
-            $this->Em()->persist($niveau);
-            $this->Em()->flush();
+            $niveauManager->setForm($form)->create();
             $this->redirectToRoute('liste_niveaux');
         }
         return [
@@ -56,11 +52,11 @@ class NiveauController extends Controller
      */
     public function getElevesAction($classe)
     {
-        $eleves = $this->Em()->getRepository('InscriptionBundle:Inscrit')
-                             ->getElevesByNiveau($classe);
-
+        $niveauManager = $this->get('niveau_manager');
+        $eleves = $niveauManager->getElevesByNiveau($classe);
         return [
-          'eleves' => $eleves  
+          'eleves' => $eleves ,
+          'niveau' => $niveauManager->getOne($classe)
         ];
     }
 
@@ -79,7 +75,6 @@ class NiveauController extends Controller
         return [
             'matieres' => $niveau->getMatieres()
         ];
-
     }
 
     /**

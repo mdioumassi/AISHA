@@ -10,21 +10,20 @@ namespace InscriptionBundle\Repository;
  */
 class NiveauRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function findAllNiveau($parentId)
+    /**
+     * @param $classe
+     */
+    public function findElevesByNiveau($classe)
     {
-        $em = $this->getEntityManager();
-        $query = $em->createQuery("
-            SELECT e.id, e.nom, e.prenom, e.dateNaissance, e.genre, n.classe
-            FROM InscriptionBundle:Inscrit i 
-            LEFT JOIN i.niveau n 
-            LEFT JOIN i.enfant e 
-            LEFT JOIN e.parent p 
-            WHERE p.id = :parent_id
-        ");
-        $query->setParameter('parent_id', $parentId);
-        $result = $query->getResult();
-
-        return $result;
+        $eleves = $this->getEntityManager()
+            ->createQuery('
+                    SELECT e.id, e.nom, e.prenom, e.dateNaissance, e.genre
+                    FROM InscriptionBundle:Inscrit i 
+                    JOIN i.enfant e 
+                    JOIN i.niveau n 
+                    WHERE n.id = :classe
+                  ');
+        $eleves->setParameter('classe', $classe);
+        return $eleves->getResult();
     }
-
 }

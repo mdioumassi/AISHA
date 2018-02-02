@@ -26,7 +26,7 @@ class EnfantRepository extends \Doctrine\ORM\EntityRepository
                     WHERE  e.id = :enfant
                  ');
         $fiche->setParameter('enfant', $enfant);
-        return $fiche->getSingleResult();
+        return $fiche->getResult();
     }
 
     /**
@@ -46,5 +46,22 @@ class EnfantRepository extends \Doctrine\ORM\EntityRepository
                  ');
         $fiche->setParameter('enfant', $enfant);
         return $fiche->getResult();
+    }
+
+    public function findNiveauxEnfants($parentId)
+    {
+        $em = $this->getEntityManager();
+        $query = $em->createQuery("
+            SELECT e.id, e.nom, e.prenom, e.dateNaissance, e.genre, n.classe
+            FROM InscriptionBundle:Inscrit i 
+            LEFT JOIN i.niveau n 
+            LEFT JOIN i.enfant e 
+            LEFT JOIN e.parent p 
+            WHERE p.id = :parent_id
+        ");
+        $query->setParameter('parent_id', $parentId);
+        $result = $query->getResult();
+
+        return $result;
     }
 }

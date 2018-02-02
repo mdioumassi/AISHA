@@ -14,13 +14,11 @@ class ParentController extends Controller
 {
     /**
      * @Route("/parents", name="liste_parents")
-     * @Method({"GET"})
      * @Template("@Inscription/Inscription/Parent/liste.html.twig")
      */
     public function getParentsAction(){
-        $em = $this->getDoctrine()->getManager();
-        $parents = $em->getRepository('InscriptionBundle:Parents')
-                   ->findAll();
+        $manager = $this->get('parent_manager');
+        $parents = $manager->getParents();
         if (empty($parents)) {
             throw $this->createNotFoundException('Parents not found');
         }
@@ -34,14 +32,12 @@ class ParentController extends Controller
      * @Template("@Inscription/Inscription/Parent/ajouter.html.twig")
      */
     public function postParentsAction(Request $request){
+        $parentManager = $this->get('parent_manager');
         $parent = new Parents();
         $form = $this->createForm(ParentsType::class, $parent);
         $form->handleRequest($request);
-        if ($request->isMethod('POST') && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($parent);
-            $em->persist($parent);
-            $em->flush();
+        if ($form->isValid()) {
+            $parentManager->setForm($form)->create();
             return $this->redirectToRoute('ajout_enfant', [
                 'parent_id' =>$parent->getId(),
             ]);
@@ -57,14 +53,12 @@ class ParentController extends Controller
      */
     public function deleteAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $parent = $em->getRepository('InscriptionBundle:Parents')
-                     ->find($request->get('id'));
+        $parentManager = $this->get('parent_manager');
+        $parent = $parentManager->getParentById($request->get('id'));
         if (empty($parent)) {
             throw $this->createNotFoundException('Not found parent');
         }
-        $em->remove($parent);
-        $em->flush();
+        $parentManager->remove($parent);
         return $this->redirectToRoute('liste_parents');
     }
 
@@ -73,24 +67,18 @@ class ParentController extends Controller
      */
     public function updateParentAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $parent = $em->getRepository('InscriptionBundle:Parents')
-                  ->find($request->get('id'));
-
+        $parentManager = $this->get('parent_manager');
+        $parent = $parentManager->getParentById($request->get('id'));
         if (empty($parent)) {
             throw $this->createNotFoundException('Not found parent');
         }
-
         $form = $this->createForm(ParentsType::class, $parent);
         $form->handleRequest($request);
-        if ($request->isMethod('POST') && $form->isValid()) {
-            $em->persist($parent);
-            $em->flush();
-            return $this->redirectToRoute('inscription_enfant',[
-                'parent_id' => $parent->getId()
-            ]);
+        if ($form->isValid()) {
+            $parentManager->setForm($form)->update();
+            return $this->redirectToRoute('liste_parents');
         }
-        return $this->render('@Inscription/Inscription/Inscrit/parent.html.twig', [
+        return $this->render('@Inscription/Inscription/Parent/form/parent.html.twig', [
            'form' => $form->createView()
         ]);
     }
@@ -100,9 +88,8 @@ class ParentController extends Controller
      */
     public function displayParentAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $parent = $em->getRepository('InscriptionBundle:Parents')
-            ->find($request->get('id'));
+        $parentManager = $this->get('parent_manager');
+        $parent = $parentManager->getParentById($request->get('id'));
         if (empty($parent)) {
             throw $this->createNotFoundException('Not found parent');
         }

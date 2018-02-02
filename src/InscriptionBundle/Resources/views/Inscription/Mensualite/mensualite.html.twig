@@ -2,7 +2,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <div id="result1">
-    <h2>{{ classe }}</h2>
     <table class="w3-table-all">
         <thead>
         <tr class="w3-green"><th>Mois</th><th>Coût Mensuel</th><th>Payé</th><th>Date</th><th>Action</th></tr>
@@ -11,7 +10,7 @@
         {% for mensualite in mensualites %}
             <tr>
                 <td>{{ mensualite.mois }}</td>
-                <td>{{ cout }}</td>
+                <td>{{ mensualite.niveau.mensualite }}</td>
                 {% if mensualite.paye %}
                     <td style="color: #66dd66"><span class="glyphicon glyphicon-ok-circle"></span></td>
                 {% else %}

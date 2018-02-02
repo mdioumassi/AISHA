@@ -24,12 +24,12 @@ class InscriptionController extends Controller
      */
     public function addParentAction(Request $request)
     {
+        $parentManager = $this->get('parent_manager');
         $parent = new Parents();
         $form = $this->createForm(ParentsType::class, $parent);
         $form->handleRequest($request);
         if ($request->isMethod('POST') && $form->isValid()) {
-            $this->Em()->persist($parent);
-            $this->Em()->flush();
+            $parentManager->setForm($form)->create();
             return $this->redirectToRoute('inscription_enfant',[
                 'parent_id' => $parent->getId()
             ]);
@@ -45,12 +45,12 @@ class InscriptionController extends Controller
      */
     public function addEnfantAction(Request $request)
     {
-        $parent = $this->Em()->getRepository('InscriptionBundle:Parents')
-            ->find($request->get('parent_id'));
+        $parentManager = $this->get('parent_manager');
+        $enfantManager = $this->get('enfant_manager');
+        $parent = $parentManager->getParentById($request->get('parent_id'));
         if (empty($parent)) {
             throw  $this->createNotFoundException('Not found parent');
         }
-
         $session = $request->getSession();
         $session->set('parent_id', $request->get('parent_id'));
 
@@ -59,8 +59,7 @@ class InscriptionController extends Controller
         $form = $this->createForm(EnfantType::class, $enfant);
         $form->handleRequest($request);
         if ($request->isMethod('POST') && $form->isValid()) {
-            $this->Em()->persist($enfant);
-            $this->Em()->flush();
+            $enfantManager->setForm($form)->create();
             return $this->redirectToRoute('inscription_niveau', [
                 'enfant_id' => $enfant->getId()
             ]);
@@ -75,9 +74,8 @@ class InscriptionController extends Controller
      */
     public function addNiveauAction(Request $request)
     {
-        $enfant = $this->Em()->getRepository('InscriptionBundle:Enfant')
-            ->find($request->get('enfant_id'));
-
+        $manager = $this->get('enfant_manager');
+        $enfant = $manager->getEnfantById($request->get('enfant_id'));
 
         if (empty($enfant)) {
             throw  $this->createNotFoundException('Not found enfant');
@@ -108,15 +106,14 @@ class InscriptionController extends Controller
      */
     public function addMensualiteAction(Request $request)
     {
-        $enfant = $this->Em()->getRepository('InscriptionBundle:Enfant')
-            ->findByClasse($request->get('enfant_id'));
-
+        $enfantManager = $this->get('enfant_manager');
+        $enfant = $enfantManager->getEnfantByClasse($request->get('enfant_id'));
         if (empty($enfant)) {
             throw  $this->createNotFoundException('Not found enfant');
         }
 
         $mensualite = new Mensualite();
-        $mensualite->setEnfant($enfant->getEnfant());
+        $mensualite->setEnfant($enfant);
         $mensualite->setNiveau($enfant->getNiveau());
         $form = $this->createForm(MensualiteType::class, $mensualite);
 

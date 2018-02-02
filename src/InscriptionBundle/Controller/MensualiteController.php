@@ -20,22 +20,14 @@ class MensualiteController extends Controller
      */
     public function getMensualiteAction(Request $request)
     {
-        $em = $this->get('doctrine.orm.entity_manager');
-        $inscrit = $em->getRepository('InscriptionBundle:Inscrit')
-                          ->findByEnfant($request->get('enfant_id'));
-
-        $enfant = $inscrit->getEnfant();
-        $mensualites = $enfant->getMensualites();
-
+        $mensualiteManager = $this->get('mensualite_manager');
+        $mensualites = $mensualiteManager->getMensualitesEnfant($request->get('enfant_id'));
         if (null === $mensualites) {
             throw $this->createNotFoundException("Not Found");
         }
-
         return [
           'mensualites' => $mensualites,
-          'classe' => $inscrit->getNiveau(),
-            'cout' => $inscrit->getNiveau()->getMensualite(),
-          'enfant_id' => $enfant->getId()
+          'enfant_id' => $request->get('enfant_id')
         ];
     }
 

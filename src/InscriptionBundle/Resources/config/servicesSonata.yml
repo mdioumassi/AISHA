@@ -1,0 +1,58 @@
+services:
+#    page.example:
+#        class: PageBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    aisha.twig.age:
+        class: InscriptionBundle\Twig\AishaExtension
+        tags:
+          - { name: twig.extension }
+
+    inscription.admin.enfant:
+        class: InscriptionBundle\Admin\EnfantAdmin
+        arguments: [~, InscriptionBundle\Entity\Enfant, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Ecole, label: Enfants }
+        public: true
+
+    inscription.admin.parents:
+        class: InscriptionBundle\Admin\ParentsAdmin
+        arguments: [~, InscriptionBundle\Entity\Parents, InscriptionBundle:ParentsAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Ecole, label: Parents }
+        public: true
+
+    inscription.admin.inscrit:
+        class: InscriptionBundle\Admin\InscritAdmin
+        arguments: [~, InscriptionBundle\Entity\Inscrit, InscriptionBundle:InscritAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Ecole, label: Inscriptions }
+        public: true
+
+    inscription.admin.mensualite:
+        class: InscriptionBundle\Admin\MensualiteAdmin
+        arguments: [~, InscriptionBundle\Entity\Mensualite, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Ecole, label: Mensualites }
+        public: true
+
+    inscription.admin.niveau:
+        class: InscriptionBundle\Admin\NiveauAdmin
+        arguments: [~, InscriptionBundle\Entity\Niveau, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Ecole, label: Niveaux }
+        public: true
+
+    inscription.admin.matiere:
+        class: InscriptionBundle\Admin\MatiereAdmin
+        arguments: [~, InscriptionBundle\Entity\Matiere, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Ecole, label: Matiere }
+        public: true
+
+    inscription.admin.user:
+        class: InscriptionBundle\Admin\UserAdmin
+        arguments: [~, InscriptionBundle\Entity\User, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Gestion utilisateurs, label: User }
+        public: true
