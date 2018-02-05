@@ -136,7 +136,7 @@ class EnfantController extends Controller
      * @param Request $request
      * @return array
      */
-    public function getFicheAction(Request $request)
+   /* public function getFicheAction(Request $request)
     {
         $fiche = $this->Em()
             ->getRepository('InscriptionBundle:Inscrit')
@@ -160,7 +160,7 @@ class EnfantController extends Controller
             'mensualites' => $mensualites,
             'parent_id'   => $enfant->getParent()->getId()
         ];
-    }
+    }*/
 
     /**
      * @return \Doctrine\Common\Persistence\ObjectManager|object

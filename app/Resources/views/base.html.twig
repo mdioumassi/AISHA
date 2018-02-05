@@ -49,7 +49,6 @@
         /* On small screens, set height to 'auto' for sidenav and grid */
         @media screen and (max-width: 767px) {
             .sidenav {
-                height: auto;
                 padding: 15px;
             }
             .row.content {height:auto;}
@@ -62,21 +61,18 @@
             color: #000 !important;
             background-color: #CCFF00 !important;
         }
-       /* input[type=text] {
-            width: 130px;
-            -webkit-transition: width 0.4s ease-in-out;
-            transition: width 0.4s ease-in-out;
+
+        .page-wrapper{
+            margin-left: auto;
+            margin-right: auto;
+            width: 90%;
         }
-        input[type=text]:focus {
-            width: 100%;
-        }*/
     </style>
 </head>
 <body>
-{% block body %}
-
-{% endblock %}
-
-{% include 'layout/footer.html.twig' %}
+<div class="page-wrapper w3-light-grey">
+    {% block body %}{% endblock %}
+    {% include 'layout/footer.html.twig' %}
+</div>
 </body>
 </html>

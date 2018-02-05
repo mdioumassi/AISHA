@@ -31,7 +31,7 @@ class InscritType extends AbstractType
                         'placeholder' => 'Année en cours',
                     ]
                 ])
-                ->add('enfant', EnfantType::class)
+               // ->add('enfant', EnfantType::class)
              //   ->add('niveau', NiveauType::class);
                     ->add('niveau', null, [
                         'label' => false,

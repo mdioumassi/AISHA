@@ -83,7 +83,7 @@ class InscriptionController extends Controller
         $session = $request->getSession();
         $session->set('enfant_id', $request->get('enfant_id'));
         $inscrit = new Inscrit();
-        $inscrit->setEnfant($enfant);
+       // $inscrit->setEnfant($enfant);
 
         $form = $this->createForm(InscritType::class, $inscrit);
         $form->handleRequest($request);
@@ -113,8 +113,8 @@ class InscriptionController extends Controller
         }
 
         $mensualite = new Mensualite();
-        $mensualite->setEnfant($inscrit->getEnfant());
-        $mensualite->setNiveau($inscrit->getNiveau());
+       // $mensualite->setEnfant($inscrit->getEnfant());
+        //$mensualite->setNiveau($inscrit->getNiveau());
         $form = $this->createForm(MensualiteType::class, $mensualite);
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {

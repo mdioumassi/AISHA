@@ -29,13 +29,13 @@ class MensualiteType extends AbstractType
                     'attr' => ['placeholder' => 'Commentaire'],
                     'label' => false,
                     'required' => false
-                ])
-                ->add('enfant', EnfantType::class, [
-                    'label' => false
-                ])
-               ->add('niveau', NiveauType::class, [
-                   'label' => false
-               ]);
+                ]);
+               // ->add('enfant', EnfantType::class, [
+               //     'label' => false
+                //])
+               //->add('niveau', NiveauType::class, [
+                 //  'label' => false
+               //]);
     }
     
     /**
