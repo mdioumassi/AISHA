@@ -27,6 +27,7 @@ class LoadParentData extends Fixture
         $parent1->setNom("DIOUMASSI")
                 ->setPrenom("Mohamed")
                 ->setCivilite("Monsieur")
+                ->setType('Père')
                 ->setFonction("Informaticien")
                 ->setTelephone("0602732975")
                 ->setAddresse("France");

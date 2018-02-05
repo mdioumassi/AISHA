@@ -2,6 +2,9 @@
 
 namespace InscriptionBundle\Entity;
 
+use InscriptionBundle\Entity\Traits\ActivatedTrait;
+use InscriptionBundle\Entity\Traits\CreatedAtTrait;
+use InscriptionBundle\Entity\Traits\UpdatedAtTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity as UniqueEntity;
@@ -15,6 +18,10 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity as UniqueEntity;
  */
 class Enfant
 {
+    use ActivatedTrait;
+    use CreatedAtTrait;
+    use UpdatedAtTrait;
+
     /**
      * @var int
      *
@@ -59,13 +66,6 @@ class Enfant
     private $genre;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="create_at", type="datetime",nullable=true)
-     */
-    private $createAt;
-
-    /**
      * @ORM\ManyToOne(targetEntity="InscriptionBundle\Entity\Parents", inversedBy="enfants")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -82,7 +82,6 @@ class Enfant
     public function __construct(Parents $parent = null)
     {
         $this->mensualites = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->setCreateAt(new \DateTime("now"));
         $this->parent = $parent;
     }
 
@@ -194,30 +193,6 @@ class Enfant
     }
 
     /**
-     * Set createAt
-     *
-     * @param \DateTime $createAt
-     *
-     * @return Enfant
-     */
-    public function setCreateAt($createAt)
-    {
-        $this->createAt = $createAt;
-
-        return $this;
-    }
-
-    /**
-     * Get createAt
-     *
-     * @return \DateTime
-     */
-    public function getCreateAt()
-    {
-        return $this->createAt;
-    }
-
-    /**
      * Set parent
      *
      * @param \InscriptionBundle\Entity\Parents $parent
@@ -278,5 +253,15 @@ class Enfant
     public function __toString()
     {
         return $this->nom ." ".$this->prenom;
+    }
+
+    /**
+     * Get activated
+     *
+     * @return boolean
+     */
+    public function getActivated()
+    {
+        return $this->activated;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace InscriptionBundle\Entity;
 
+use InscriptionBundle\Entity\Traits\CreatedAtTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -9,9 +10,11 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="inscrit")
  * @ORM\Entity(repositoryClass="InscriptionBundle\Repository\InscritRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Inscrit
 {
+    use CreatedAtTrait;
     /**
      * @var int
      *
@@ -47,21 +50,6 @@ class Inscrit
      * @ORM\JoinColumn(name="niveau_id", referencedColumnName="id", onDelete="SET NULL")
      */
     private $niveau;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="created_at", type="datetime", nullable=true)
-     */
-    private $createdAt;
-
-    /**
-     * Inscrit constructor.
-     */
-    public function __construct()
-    {
-        $this->setCreatedAt(new \DateTime("now"));
-    }
 
     /**
      * Get id
@@ -144,31 +132,6 @@ class Inscrit
     {
         return $this->annee;
     }
-
-    /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     *
-     * @return Inscrit
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
     /**
      * Set enfant
      *

@@ -29,30 +29,11 @@ class EnfantRepository extends \Doctrine\ORM\EntityRepository
         return $fiche->getResult();
     }
 
-    /**
-     * @param $enfant
-     * @return array|\Doctrine\ORM\Query
-     */
-    public function findByEnfant($enfant)
-    {
-        $fiche = $this->getEntityManager()
-            ->createQuery('
-                    SELECT i
-                    FROM InscriptionBundle:Inscrit i 
-                    JOIN i.enfant e 
-                    JOIN e.mensualites m 
-                    JOIN e.parent p
-                    WHERE  e.id = :enfant
-                 ');
-        $fiche->setParameter('enfant', $enfant);
-        return $fiche->getResult();
-    }
-
     public function findNiveauxEnfants($parentId)
     {
         $em = $this->getEntityManager();
         $query = $em->createQuery("
-            SELECT e.id, e.nom, e.prenom, e.dateNaissance, e.genre, n.classe
+            SELECT e.id, e.nom, e.prenom, e.dateNaissance, e.genre, n.classe, i.id as idInscrit
             FROM InscriptionBundle:Inscrit i 
             LEFT JOIN i.niveau n 
             LEFT JOIN i.enfant e 

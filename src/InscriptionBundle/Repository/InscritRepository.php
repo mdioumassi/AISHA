@@ -11,6 +11,24 @@ namespace InscriptionBundle\Repository;
 class InscritRepository extends \Doctrine\ORM\EntityRepository
 {
     /**
+     * @param $enfant
+     * @return array|\Doctrine\ORM\Query
+     */
+    public function findByEnfant($inscrit)
+    {
+        $fiche = $this->getEntityManager()
+            ->createQuery('
+                    SELECT i
+                    FROM InscriptionBundle:Inscrit i 
+                    JOIN i.enfant e 
+                    JOIN e.mensualites m 
+                    JOIN e.parent p
+                    WHERE  i.id = :inscrit
+                 ');
+        $fiche->setParameter('inscrit', $inscrit);
+        return $fiche->getResult();
+    }
+    /**
      * @param $classe
      * @return mixed
      */

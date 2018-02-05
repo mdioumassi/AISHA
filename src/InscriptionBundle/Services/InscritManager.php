@@ -22,4 +22,8 @@ class InscritManager
         $this->repository = $this->em->getRepository(Inscrit::class);
     }
 
+    public function getOne($inscritId)
+    {
+        return $this->repository->find($inscritId);
+    }
 }

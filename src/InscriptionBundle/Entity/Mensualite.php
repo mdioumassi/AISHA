@@ -2,6 +2,8 @@
 
 namespace InscriptionBundle\Entity;
 
+use InscriptionBundle\Entity\Traits\CreatedAtTrait;
+use InscriptionBundle\Entity\Traits\UpdatedAtTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -9,9 +11,13 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="mensualite")
  * @ORM\Entity(repositoryClass="InscriptionBundle\Repository\MensualiteRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Mensualite
 {
+    use CreatedAtTrait;
+    use UpdatedAtTrait;
+
     /**
      * @var int
      *
@@ -38,14 +44,6 @@ class Mensualite
     private $commentaire;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="created_at", type="datetime", nullable=true)
-     */
-    private $createdAt;
-
-
-    /**
      * @ORM\ManyToOne(targetEntity="InscriptionBundle\Entity\Enfant")
      * @ORM\JoinColumn(name="enfant_id", referencedColumnName="id", onDelete="SET NULL", nullable=true)
      */
@@ -57,10 +55,6 @@ class Mensualite
      */
     private $niveau;
 
-    public function __construct()
-    {
-        $this->setCreatedAt(new \DateTime("now"));
-    }
 
     /**
      * Get id
@@ -118,30 +112,6 @@ class Mensualite
     public function getPaye()
     {
         return $this->paye;
-    }
-
-    /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     *
-     * @return Mensualite
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
     }
 
     /**

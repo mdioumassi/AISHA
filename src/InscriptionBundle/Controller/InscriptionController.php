@@ -92,7 +92,7 @@ class InscriptionController extends Controller
             $this->Em()->persist($inscrit);
             $this->Em()->flush();
             return $this->redirectToRoute('inscription_mensualite', [
-                'enfant_id' => $enfant->getId()
+                'inscrit_id' => $inscrit->getId(),
             ]);
         }
 
@@ -106,22 +106,22 @@ class InscriptionController extends Controller
      */
     public function addMensualiteAction(Request $request)
     {
-        $enfantManager = $this->get('enfant_manager');
-        $enfant = $enfantManager->getEnfantByClasse($request->get('enfant_id'));
-        if (empty($enfant)) {
+        $inscrit  = $this->get('inscrit_manager')->getOne($request->get('inscrit_id'));
+
+        if (empty($inscrit)) {
             throw  $this->createNotFoundException('Not found enfant');
         }
 
         $mensualite = new Mensualite();
-        $mensualite->setEnfant($enfant);
-        $mensualite->setNiveau($enfant->getNiveau());
+        $mensualite->setEnfant($inscrit->getEnfant());
+        $mensualite->setNiveau($inscrit->getNiveau());
         $form = $this->createForm(MensualiteType::class, $mensualite);
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
             $this->Em()->persist($mensualite);
             $this->Em()->flush();
             return $this->redirectToRoute('inscription_fiche', [
-                'enfant_id' => $enfant->getEnfant()->getId()
+                'inscrit_id' => $inscrit->getId()
             ]);
         }
 
@@ -138,9 +138,9 @@ class InscriptionController extends Controller
      */
     public function getFicheAction(Request $request)
     {
-        $fiche = $this->Em()
-                      ->getRepository('InscriptionBundle:Inscrit')
-                      ->findByEnfant($request->get('enfant_id'));
+
+        $fiche  = $this->get('inscrit_manager')->getOne($request->get('inscrit_id'));
+
         if (null === $fiche) {
             throw $this->createNotFoundException("Not Found");
         }
