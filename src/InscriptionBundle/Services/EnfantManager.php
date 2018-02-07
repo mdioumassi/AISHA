@@ -48,18 +48,7 @@ class EnfantManager
 
     public function getEnfants()
     {
-        $enfants = $this->repository->findAll();
-
-        if(empty($enfants)){
-            throw $this->createNotFoundException('Not found enfants');
-        }
-
-        return $enfants;
-    }
-
-    public function getParentById($parentId)
-    {
-        return $this->repository->find($parentId);
+        return $this->repository->findAll();
     }
 
     public function getNiveauEnfants($parentId)
@@ -67,10 +56,9 @@ class EnfantManager
         return $this->repository->findNiveauxEnfants($parentId);
     }
 
-    public function getEnfantById($enfantId)
+    public function getOne($enfantId)
     {
-        $enfant = $this->repository->find($enfantId);
-        return $enfant;
+        return $this->repository->find($enfantId);
     }
 
     public function getEnfantByClasse($enfantId)

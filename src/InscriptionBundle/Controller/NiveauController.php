@@ -66,10 +66,7 @@ class NiveauController extends Controller
      */
     public function getMatieresAction(Request $request)
     {
-        $niveau = $this->Em()
-                       ->getRepository('InscriptionBundle:Niveau')
-                       ->find($request->get('id'))
-        ;
+        $niveau = $this->get('niveau_manager')->getOne(id);
         $this->isExist($niveau, "niveau");
 
         return [

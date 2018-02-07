@@ -19,27 +19,52 @@ class ParentManager
         $this->repository = $this->em->getRepository(Parents::class);
     }
 
+
+    public function getOne($parentId)
+    {
+        return $this->repository->find($parentId);
+    }
+
+    /**
+     * @return array
+     */
     public function getParents()
     {
         return $this->repository->findAll();
     }
 
+    /**
+     * @param $parentId
+     * @return null|object
+     */
     public function getParentById($parentId)
     {
         return $this->repository->find($parentId);
     }
 
+    /**
+     * @param $parent
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
     public function remove($parent)
     {
         $this->em->remove($parent);
         $this->em->flush();
     }
+
+    /**
+     * @param $form
+     * @return $this
+     */
     public function setForm($form)
     {
         $this->form = $form;
         return $this;
     }
 
+    /**
+     * Persister les données du formulaire
+     */
     public function create()
     {
         if ($this->form->isValid()) {

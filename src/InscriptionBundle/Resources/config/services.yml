@@ -4,6 +4,7 @@ parameters:
     mensualite.manager.class: InscriptionBundle\Services\MensualiteManager
     inscrit.manager.class: InscriptionBundle\Services\InscritManager
     niveau.manager.class: InscriptionBundle\Services\NiveauManager
+    parent.handler.class: InscriptionBundle\Form\Handler\ParentHandler
 
 services:
     aisha.twig.age:
@@ -28,5 +29,5 @@ services:
            arguments: ['@doctrine.orm.entity_manager']
 
     niveau_manager:
-               class: "%niveau.manager.class%"
-               arguments: ['@doctrine.orm.entity_manager']
+           class: "%niveau.manager.class%"
+           arguments: ['@doctrine.orm.entity_manager']

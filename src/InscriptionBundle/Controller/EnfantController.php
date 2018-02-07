@@ -35,9 +35,11 @@ class EnfantController extends Controller
      */
     public function getEnfantsAction(Request $request){
         $manager = $this->get('enfant_manager');
-        $parent = $manager->getParentById($request->get('parent_id'));
+        $parent = $this->get('parent_manager')->getOne($request->get('parent_id'));
         $niveauEnfantsParent = $manager->getNiveauEnfants($request->get('parent_id'));
-
+        if(empty($parent)){
+            throw $this->createNotFoundException('Not found parent');
+        }
         return [
             'parent_id' => $request->get('parent_id'),
             'parent' => $parent,
@@ -51,7 +53,7 @@ class EnfantController extends Controller
      */
     public function getParent(Request $request){
         $manager = $this->get('enfant_manager');
-        $enfant = $manager->getEnfantById($request->get('id'));
+        $enfant = $manager->getOne($request->get('id'));
         if(empty($enfant)){
             throw $this->createNotFoundException('Not found Enfant');
         }
@@ -92,9 +94,8 @@ class EnfantController extends Controller
      */
     public function deleteEnfant(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $enfant = $em->getRepository('InscriptionBundle:Enfant')
-                     ->find($request->get('enfant_id'));
+        $enfantManager = $this->get('enfant_manager');
+        $enfant = $enfantManager->getOne($request->get('enfant_id'));
         if (empty($enfant)) {
             throw  $this->createNotFoundException('Not found parent');
         }
@@ -112,7 +113,7 @@ class EnfantController extends Controller
     public function modifierEnfantAction(Request $request)
     {
         $manager = $this->get('enfant_manager');
-        $enfant = $manager->getEnfantById($request->get('enfant_id'));
+        $enfant = $manager->getOne($request->get('enfant_id'));
         if (empty($enfant)) {
             throw  $this->createNotFoundException('Not found parent');
         }
@@ -136,7 +137,7 @@ class EnfantController extends Controller
      * @param Request $request
      * @return array
      */
-   /* public function getFicheAction(Request $request)
+    public function getFicheAction(Request $request)
     {
         $fiche = $this->Em()
             ->getRepository('InscriptionBundle:Inscrit')
@@ -160,7 +161,7 @@ class EnfantController extends Controller
             'mensualites' => $mensualites,
             'parent_id'   => $enfant->getParent()->getId()
         ];
-    }*/
+    }
 
     /**
      * @return \Doctrine\Common\Persistence\ObjectManager|object

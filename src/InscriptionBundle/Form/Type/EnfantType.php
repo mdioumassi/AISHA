@@ -1,6 +1,6 @@
 <?php
 
-namespace InscriptionBundle\Form;
+namespace InscriptionBundle\Form\Type;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;

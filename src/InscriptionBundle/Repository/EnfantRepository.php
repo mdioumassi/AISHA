@@ -26,7 +26,7 @@ class EnfantRepository extends \Doctrine\ORM\EntityRepository
                     WHERE  e.id = :enfant
                  ');
         $fiche->setParameter('enfant', $enfant);
-        return $fiche->getResult();
+        return $fiche->getSingleResult();
     }
 
     public function findNiveauxEnfants($parentId)

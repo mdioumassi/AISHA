@@ -21,9 +21,9 @@ class NiveauManager
         return $this->repository->findAll();
     }
 
-    public function getOne($classeId)
+    public function getOne($id)
     {
-        return $this->repository->find($classeId);
+        return $this->repository->find($id);
     }
 
     public function getElevesByNiveau($classeId)

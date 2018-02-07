@@ -1,6 +1,6 @@
 <?php
 
-namespace InscriptionBundle\Form;
+namespace InscriptionBundle\Form\Type;
 
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Form\AbstractType;
@@ -104,7 +104,7 @@ class ParentsType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'inscriptionbundle_parents';
+        return 'parent';
     }
 
 

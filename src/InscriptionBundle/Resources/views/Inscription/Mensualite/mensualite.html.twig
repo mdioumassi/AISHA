@@ -32,7 +32,7 @@
         </tbody>
     </table>
     <div>
-        <button class="w3-button w3-margin-top w3-green">Ajouter</button>
+        <button class="w3-button w3-margin-top w3-green" id="add">Ajouter</button>
     </div>
 </div>
 <div id="result"></div>
@@ -44,7 +44,7 @@
 {% block javascripts %}
     <script type="text/javascript">
         $(document).ready(function() {
-            $("button").click(function(){
+            $("#add").click(function(){
                 $.ajax({url: "{{ path('add_mensualite', {'enfant_id': enfant_id}) }}", success: function(result){
                     $("#div1").html(result);
                 }});

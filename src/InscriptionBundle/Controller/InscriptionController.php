@@ -6,11 +6,11 @@ use InscriptionBundle\Entity\Enfant;
 use InscriptionBundle\Entity\Inscrit;
 use InscriptionBundle\Entity\Mensualite;
 use InscriptionBundle\Entity\Parents;
-use InscriptionBundle\Form\EnfantType;
-use InscriptionBundle\Form\InscritType;
-use InscriptionBundle\Form\MensualiteType;
-use InscriptionBundle\Form\NiveauType;
-use InscriptionBundle\Form\ParentsType;
+use InscriptionBundle\Form\Type\EnfantType;
+use InscriptionBundle\Form\Type\InscritType;
+use InscriptionBundle\Form\Type\MensualiteType;
+use InscriptionBundle\Form\Type\NiveauType;
+use InscriptionBundle\Form\Type\ParentsType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -20,7 +20,7 @@ class InscriptionController extends Controller
 {
     /**
      * @Route("/inscription/parent", name="parent_insc")
-     * @Template()
+     * @Template("@Inscription/Inscription/Inscrit/parent.html.twig")
      */
     public function addParentAction(Request $request)
     {
@@ -35,19 +35,17 @@ class InscriptionController extends Controller
             ]);
         }
 
-        return $this->render('@Inscription/Inscription/Inscrit/parent.html.twig',[
-            'form' => $form->createView()
-        ]);
+        return['form' => $form->createView()];
     }
 
     /**
      * @Route("/inscription/enfant", name="inscription_enfant")
+     * @Template("@Inscription/Inscription/Inscrit/enfant.html.twig")
      */
     public function addEnfantAction(Request $request)
     {
-        $parentManager = $this->get('parent_manager');
         $enfantManager = $this->get('enfant_manager');
-        $parent = $parentManager->getParentById($request->get('parent_id'));
+        $parent = $this->get('parent_manager')->getParentById($request->get('parent_id'));
         if (empty($parent)) {
             throw  $this->createNotFoundException('Not found parent');
         }
@@ -64,41 +62,34 @@ class InscriptionController extends Controller
                 'enfant_id' => $enfant->getId()
             ]);
         }
-        return $this->render('@Inscription/Inscription/Inscrit/enfant.html.twig', [
-            'form' => $form->createView(),
-        ]);
+        return ['form' => $form->createView()];
     }
 
     /**
      * @Route("/inscription/niveau", name="inscription_niveau")
+     * @Template("@Inscription/Inscription/Inscrit/inscrit.html.twig")
      */
     public function addNiveauAction(Request $request)
     {
-        $manager = $this->get('enfant_manager');
-        $enfant = $manager->getEnfantById($request->get('enfant_id'));
-
+        $inscritManager = $this->get('inscrit_manager');
+        $enfant =  $this->get('enfant_manager')->getEnfantById($request->get('enfant_id'));
         if (empty($enfant)) {
             throw  $this->createNotFoundException('Not found enfant');
         }
         $session = $request->getSession();
         $session->set('enfant_id', $request->get('enfant_id'));
         $inscrit = new Inscrit();
-       // $inscrit->setEnfant($enfant);
-
+        $inscrit->setEnfant($enfant);
         $form = $this->createForm(InscritType::class, $inscrit);
         $form->handleRequest($request);
 
         if ($request->isMethod('POST') && $form->isValid()) {
-            $this->Em()->persist($inscrit);
-            $this->Em()->flush();
+            $inscritManager->setForm($form)->create();
             return $this->redirectToRoute('inscription_mensualite', [
                 'inscrit_id' => $inscrit->getId(),
             ]);
         }
-
-        return $this->render('@Inscription/Inscription/Inscrit/inscrit.html.twig', [
-            'form' => $form->createView(),
-        ]);
+        return ['form' => $form->createView()];
     }
 
     /**
@@ -113,8 +104,8 @@ class InscriptionController extends Controller
         }
 
         $mensualite = new Mensualite();
-       // $mensualite->setEnfant($inscrit->getEnfant());
-        //$mensualite->setNiveau($inscrit->getNiveau());
+        $mensualite->setEnfant($inscrit->getEnfant());
+        $mensualite->setNiveau($inscrit->getNiveau());
         $form = $this->createForm(MensualiteType::class, $mensualite);
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {

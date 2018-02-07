@@ -1,6 +1,6 @@
 <?php
 
-namespace InscriptionBundle\Form;
+namespace InscriptionBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;

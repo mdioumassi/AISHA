@@ -26,4 +26,17 @@ class MensualiteRepository extends \Doctrine\ORM\EntityRepository
         $fiche->setParameter('enfant', $enfant);
         return $fiche->getResult();
     }
+
+    public function findInscritByEnfant($enfantId)
+    {
+        $inscrit = $this->getEntityManager()
+            ->createQuery('
+                SELECT i
+                FROM InscriptionBundle:Inscrit i 
+                JOIN i.enfant e  
+                WHERE e.id = :enfant
+            ');
+        $inscrit->setParameter('enfant', $enfantId);
+        return $inscrit->getSingleResult();
+    }
 }

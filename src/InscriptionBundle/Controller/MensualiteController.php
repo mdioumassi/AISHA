@@ -3,13 +3,10 @@
 namespace InscriptionBundle\Controller;
 
 use InscriptionBundle\Entity\Mensualite;
-use InscriptionBundle\Form\MensualiteType;
+use InscriptionBundle\Form\Type\MensualiteType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\HttpFoundation\Request;
 
 class MensualiteController extends Controller
@@ -37,30 +34,28 @@ class MensualiteController extends Controller
      */
     public function addMensualiteAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $enfant = $em->getRepository('InscriptionBundle:Enfant')
-                     ->findByClasse($request->get('enfant_id'));
-
-        if (empty($enfant)) {
+        $mensualiteManager = $this->get('mensualite_manager');
+        $inscrit = $mensualiteManager->getInscritOne($request->get('enfant_id'));
+        dump($inscrit);
+        if (empty($inscrit)) {
             throw  $this->createNotFoundException('Not found enfant');
         }
 
         $mensualite = new Mensualite();
-        $mensualite->setEnfant($enfant->getEnfant());
-        $mensualite->setNiveau($enfant->getNiveau());
+        $mensualite->setEnfant($inscrit->getEnfant());
+        $mensualite->setNiveau($inscrit->getNiveau());
         $form = $this->createForm(MensualiteType::class, $mensualite);
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
-            $em->persist($mensualite);
-            $em->flush();
+            $mensualiteManager->setForm($form)->create();
             return $this->redirectToRoute('mensualite_child', [
-                'enfant_id' => $enfant->getEnfant()->getId()
+                'enfant_id' => $request->get('enfant_id')
             ]);
         }
 
         return [
             'form' => $form->createView(),
-            'enfant' => $enfant->getEnfant()->getId()
+            'enfant' => $request->get('enfant_id')
         ];
     }
 
