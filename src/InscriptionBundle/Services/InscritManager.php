@@ -7,6 +7,7 @@
  */
 
 namespace InscriptionBundle\Services;
+
 use Doctrine\ORM\EntityManager;
 use InscriptionBundle\Entity\Inscrit;
 
@@ -47,5 +48,15 @@ class InscritManager
     public function getOne($inscritId)
     {
         return $this->repository->find($inscritId);
+    }
+
+    public function getAll()
+    {
+        return $this->repository->findAll();
+    }
+
+    public function getListInscritEnfant($parent = null)
+    {
+        return $this->repository->getInscritAll($parent);
     }
 }

@@ -179,5 +179,4 @@ class Inscrit
     {
         return $this->niveau;
     }
-
 }

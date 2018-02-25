@@ -16,7 +16,8 @@ class ParentController extends Controller
      * @Route("/parents", name="liste_parents")
      * @Template("@Inscription/Inscription/Parent/liste.html.twig")
      */
-    public function getParentsAction(){
+    public function getParentsAction()
+    {
         $manager = $this->get('parent_manager');
         $parents = $manager->getParents();
         if (empty($parents)) {
@@ -31,7 +32,8 @@ class ParentController extends Controller
      * @Route("/parents/ajouter", name ="add_parents")
      * @Template("@Inscription/Inscription/Parent/ajouter.html.twig")
      */
-    public function postParentsAction(Request $request){
+    public function postParentsAction(Request $request)
+    {
         $parentManager = $this->get('parent_manager');
         $parent = new Parents();
         $form = $this->createForm(ParentsType::class, $parent);
@@ -53,6 +55,7 @@ class ParentController extends Controller
      */
     public function deleteAction(Request $request)
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
         $parentManager = $this->get('parent_manager');
         $parent = $parentManager->getParentById($request->get('id'));
         if (empty($parent)) {

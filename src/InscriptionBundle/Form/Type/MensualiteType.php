@@ -30,7 +30,7 @@ class MensualiteType extends AbstractType
                     'label' => false,
                     'required' => false
                 ]);
-               // ->add('enfant', EnfantType::class, [
+        // ->add('enfant', EnfantType::class, [
                //     'label' => false
                 //])
                //->add('niveau', NiveauType::class, [
@@ -55,6 +55,4 @@ class MensualiteType extends AbstractType
     {
         return 'inscriptionbundle_mensualite';
     }
-
-
 }

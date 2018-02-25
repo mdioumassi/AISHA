@@ -2,7 +2,6 @@
 
 namespace InscriptionBundle\Form\Type;
 
-
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -48,7 +47,7 @@ class MatiereType extends AbstractType
                     ),
                     'label' => false
                 ]);
-                //->add('niveau');
+        //->add('niveau');
     }
     
     /**
@@ -68,6 +67,4 @@ class MatiereType extends AbstractType
     {
         return 'inscriptionbundle_matiere';
     }
-
-
 }

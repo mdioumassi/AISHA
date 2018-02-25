@@ -24,3 +24,7 @@ _sonata_admin:
 fos_user:
     resource: "routing_user.yml"
 
+api_web:
+    resource: '@InscriptionBundle/Controller/ApiWeb'
+    type: annotation
+    prefix: /apiweb

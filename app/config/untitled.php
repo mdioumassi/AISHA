@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller\ApiRest;
 
-
 use AppBundle\Entity\Customer;
 use AppBundle\Entity\Depository;
 use AppBundle\Entity\Equipement;
@@ -25,23 +24,23 @@ class InterventionController extends Controller
      */
     public function getInterventionsAction()
     {
-     $em = $this->getDoctrine()->getManager();
-     $technician = $this->getUser();
-     $interventions = $em->getRepository(Intervention::class)->getInterventions($technician);
+        $em = $this->getDoctrine()->getManager();
+        $technician = $this->getUser();
+        $interventions = $em->getRepository(Intervention::class)->getInterventions($technician);
 
-     if (empty($interventions)) {
-        throw $this->createNotFoundException();
-     }
+        if (empty($interventions)) {
+            throw $this->createNotFoundException();
+        }
 
-     foreach ($interventions as $intervention) {
-         $dueDateAndDepositoryId = $intervention->getDueDate()->format('Y-m-d H:i:s') . ':'
+        foreach ($interventions as $intervention) {
+            $dueDateAndDepositoryId = $intervention->getDueDate()->format('Y-m-d H:i:s') . ':'
                             . $intervention->getEquipement()->getDepository()->getId();
 
-         $equipement = $intervention->getEquipement();
-         $customer   = $equipement->getDepository()->getCustomer();
-         $depository = $equipement->getDepository();
+            $equipement = $intervention->getEquipement();
+            $customer   = $equipement->getDepository()->getCustomer();
+            $depository = $equipement->getDepository();
 
-         $InterventionsArray = [
+            $InterventionsArray = [
              'id' => $intervention->getId(),
              'due_date' => $intervention->getDueDate(),
              'referentiel' => $intervention->getReferential()->getName(),
@@ -50,30 +49,30 @@ class InterventionController extends Controller
              'equipement_id' => $intervention->getEquipement()->getId(),
          ];
 
-         if (isset($listeInterventions[$dueDateAndDepositoryId])) {
-             $listInterventions[$dueDateAndDepositoryId][] = $InterventionsArray;
-         } else {
-             $listInterventions[$dueDateAndDepositoryId] = [$InterventionsArray];
-         }
+            if (isset($listeInterventions[$dueDateAndDepositoryId])) {
+                $listInterventions[$dueDateAndDepositoryId][] = $InterventionsArray;
+            } else {
+                $listInterventions[$dueDateAndDepositoryId] = [$InterventionsArray];
+            }
 
-         $depositoriesId[]  = $depository->getId();
-         $customersId[]     = $customer->getId();
-         $equipementsId[]   = $equipement->getId();
-     }
-
-    foreach ($listInterventions as $key => $value) {
-        if ($dueDateAndDepositoryId === $key) {
-            $lotIntervention[] = ['intervention' => $value];
-        } else {
-            $lotIntervention[] = ['intervention' => $value];
+            $depositoriesId[]  = $depository->getId();
+            $customersId[]     = $customer->getId();
+            $equipementsId[]   = $equipement->getId();
         }
-    }
 
-     $listDepositories = $this->getDepositories($depositoriesId);
-     $listCustomers    = $this->getCustomers($customersId);
-     $listEquipements   = $this->getEquipements($equipementsId);
+        foreach ($listInterventions as $key => $value) {
+            if ($dueDateAndDepositoryId === $key) {
+                $lotIntervention[] = ['intervention' => $value];
+            } else {
+                $lotIntervention[] = ['intervention' => $value];
+            }
+        }
 
-     return [
+        $listDepositories = $this->getDepositories($depositoriesId);
+        $listCustomers    = $this->getCustomers($customersId);
+        $listEquipements   = $this->getEquipements($equipementsId);
+
+        return [
          'Interventions' => $lotIntervention,
          'Depositories'  => $listDepositories,
          'Customers'     => $listCustomers,
@@ -95,7 +94,6 @@ class InterventionController extends Controller
         }
 
         foreach ($depositories as $depository) {
-
             $DepositoriesArray = [
                 'id' => $depository->getId(),
                 'name' => $depository->getName(),

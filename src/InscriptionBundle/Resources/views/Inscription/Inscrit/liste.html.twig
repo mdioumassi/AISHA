@@ -17,13 +17,13 @@
         <table class="w3-table-all w3-card-4" id="id01">
             <thead>
                 <tr class="w3-green">
-                    <th>Nom & Prenom</th></th><th>Classe</th><th>Inscription</th><th>Année</th><th>Inscrit le</th><th>Payer</th>
+                    <th>Nom & Prenom</th></th><th>Classe</th><th>Inscription</th><th>Année</th><th>Inscrit le</th><th>Payer</th><th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 {% for liste in listes %}
                     <tr class="item">
-                        <td><a style="color: #5eb5e0" class="various" data-fancybox-type="iframe" href="{{ path('enfant_fiche', {'enfant_id':liste.id}) }}">{{ liste.nom|upper }}&nbsp;&nbsp;{{ liste.prenom }}</a></td>
+                        <td>{{ liste.nom|upper }}&nbsp;&nbsp;{{ liste.prenom }}</a></td>
                         <td>{{ liste.classe }}</td>
                         <td>{{ liste.frais~" UM" }}</td>
                         <td>{{ liste.annee }}</td>
@@ -33,7 +33,17 @@
                         {% else %}
                             <td style="color:red"><span class="glyphicon glyphicon-remove-circle"></span></td>
                         {% endif %}
+                        <td>
+                            <div class="w3-dropdown-hover">
+                                <button class="btn btn-primary">action</button>
+                                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                                <a href="{{ path('inscription_fiche', {'inscrit_id': liste.idInscrit}) }}" class="w3-bar-item w3-button">Fiche</a>
+                                <a href="#" class="w3-bar-item w3-button">Mensualite</a>
+                            </div>
+</div>
+                        </td>
                     </tr>
+
                 {% endfor %}
             </tbody>
         </table>

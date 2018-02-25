@@ -9,6 +9,11 @@
         </div>
         <div class="row">
             <div class="col-sm-12">
+                {{ form_start(formS, {attr:{id: 'formS'}}) }}
+                    {{ form_label(formS.telephone, 'Téléphone', {'label_attr': {'placeholder': 'Téléphone'}}) }}
+                    {{ form_widget(formS.telephone) }}
+                     <button type="submit" class="btn btn-primary">Rechercher</button>
+                {{ form_end(formS) }}
                 {% include '@Inscription/Inscription/Parent/form/parent.html.twig' %}
             </div>
         </div>
@@ -18,6 +23,13 @@
         $(function () {
            // $("#enfant").addClass("w3-disabled");
           //  $("#insc").addClass("w3-disabled");$("#enfant").addClass("w3-disabled");
+            //$("#parentForm").hide();
+            $("#formS").submit(function () {
+                var val = $("#form_telephone").val()
+                $.ajax(
+                    url:
+                )
+            });
         });
     </script>
 {% endblock %}

@@ -8,12 +8,11 @@
 
 namespace InscriptionBundle\DataFixtures\ORM;
 
-
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use InscriptionBundle\Entity\Matiere;
 
-class LoadMatiereData extends  Fixture
+class LoadMatiereData extends Fixture
 {
 
     /**
@@ -35,7 +34,7 @@ class LoadMatiereData extends  Fixture
         $this->addReference('mat1', $mat1);
     }
 
-    public function  getDependencies()
+    public function getDependencies()
     {
         return [
            LoadNiveauData::class

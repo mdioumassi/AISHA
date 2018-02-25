@@ -6,33 +6,28 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">ADMINISTRATION</a>
+            <a class="navbar-brand" href="{{ path('adminHome') }}">ADMINISTRATION</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">INSCRIPTION<span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">PARENT & ENFANT<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ path('parent_insc') }}">Parent & Enfant</a></li>
-                        <li><a href="{{ path('liste_inscrit') }}">Liste</a></li>
+                        <li><a href="{{ path('liste_inscrit') }}">Les Inscrits</a></li>
+                        <li><a href="{{ path('liste_parents') }}">Les parents</a></li>
+                        <li><a href="{{ path('liste_niveaux') }}">Les Classes</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">
+            <!--    <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">PARENTS<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ path('liste_parents') }}">Liste</a></li>
                     </ul>
-                </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">CLASSES<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ path('liste_niveaux') }}">Liste</a></li>
-                        <li><a href="{{ path('ajouter_niveau') }}">Ajouter</a></li>
-                    </ul>
-                </li>
+                </li>-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Deconnexion</a></li>
+                <li><span class="w3-margin">Bonjour {{ app.user.username }} !</span></li>
+                <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Deconnexion</a></li>
             </ul>
         </div>
     </div>

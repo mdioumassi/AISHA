@@ -48,7 +48,7 @@ class EnfantAdmin extends AbstractAdmin
             ->with('Enfant', array('class' => 'col-md-6'))
                 ->add('nom')
                 ->add('prenom')
-                 ->add('dateNaissance','sonata_type_date_picker')
+                 ->add('dateNaissance', 'sonata_type_date_picker')
             ->add('genre', ChoiceType::class, [
                 'choices' => [
                     'Garçon' => 'Garçon',

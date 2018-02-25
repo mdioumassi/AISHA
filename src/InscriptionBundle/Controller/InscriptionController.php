@@ -14,7 +14,11 @@ use InscriptionBundle\Form\Type\ParentsType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\HttpFoundation\HttpFoundationExtension;
+use Symfony\Component\Form\Forms;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class InscriptionController extends Controller
 {
@@ -25,17 +29,37 @@ class InscriptionController extends Controller
     public function addParentAction(Request $request)
     {
         $parentManager = $this->get('parent_manager');
+        $formFactory =
+            Forms::createFormFactoryBuilder()
+            ->addExtension(new HttpFoundationExtension())
+            ->getFormFactory();
+        $formSearch =
+            $formFactory->createBuilder()
+            ->add('telephone', IntegerType::class, [
+             //   'constraints' => new NotBlank()
+            ])
+            ->getForm();
+        $request = Request::createFromGlobals();
+        $formSearch->handleRequest($request);
+        if ($formSearch->isSubmitted() && $formSearch->isValid()) {
+            $parents = $parentManager->getParents();
+            $data = $formSearch->getData();
+            //var_dump($parents); die;
+        }
         $parent = new Parents();
         $form = $this->createForm(ParentsType::class, $parent);
         $form->handleRequest($request);
         if ($request->isMethod('POST') && $form->isValid()) {
             $parentManager->setForm($form)->create();
-            return $this->redirectToRoute('inscription_enfant',[
+            return $this->redirectToRoute('inscription_enfant', [
                 'parent_id' => $parent->getId()
             ]);
         }
 
-        return['form' => $form->createView()];
+        return[
+            'form' => $form->createView(),
+            'formS' => $formSearch->createView()
+        ];
     }
 
     /**
@@ -129,13 +153,10 @@ class InscriptionController extends Controller
      */
     public function getFicheAction(Request $request)
     {
-
         $fiche  = $this->get('inscrit_manager')->getOne($request->get('inscrit_id'));
-
         if (null === $fiche) {
             throw $this->createNotFoundException("Not Found");
         }
-
         $enfant = $fiche->getEnfant();
         $parent = $enfant->getParent();
         $classe = $fiche->getNiveau();
@@ -175,30 +196,18 @@ class InscriptionController extends Controller
      */
     public function getInscritAction(Request $request)
     {
+        $inscritManager = $this->get('inscrit_manager');
         if ($request->get('parent_id')) {
-            $listeinscrits = $this->Em()
-                ->getRepository('InscriptionBundle:Inscrit')
-                ->getInscritAll($request->get('parent_id'));
+            $listeinscrits = $inscritManager->getListInscritEnfant($request->get('parent_id'));
         } else {
-            $listeinscrits = $this->Em()
-                ->getRepository('InscriptionBundle:Inscrit')
-                ->getInscritAll();
+            $listeinscrits = $inscritManager->getListInscritEnfant();
         }
-
-
         if (null === $listeinscrits) {
             throw $this->createNotFoundException("Not Found");
         }
-
-        if ($request->get('parent_id')) {
-            return [
-                'listes' => $listeinscrits,
-            ];
-        } else {
-            return [
-                'listes' => $listeinscrits,
-            ];
-        }
+        return [
+            'listes' => $listeinscrits,
+        ];
     }
 
     /**

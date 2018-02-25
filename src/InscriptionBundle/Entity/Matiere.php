@@ -5,7 +5,6 @@ namespace InscriptionBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity as UniqueEntity;
 
-
 /**
  * Matiere
  *
@@ -167,7 +166,7 @@ class Matiere
 
     public function __toString()
     {
-        if(is_null($this->libelle)) {
+        if (is_null($this->libelle)) {
             return 'NULL';
         }
         return $this->libelle;

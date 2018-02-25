@@ -8,7 +8,6 @@
 
 namespace InscriptionBundle\Services;
 
-
 use Doctrine\ORM\EntityManager;
 
 class InscriptionManager
@@ -20,6 +19,6 @@ class InscriptionManager
     public function __construct(EntityManager $entityManager)
     {
         $this->em = $entityManager;
-       // $this->repository = $this->em->g
+        // $this->repository = $this->em->g
     }
 }

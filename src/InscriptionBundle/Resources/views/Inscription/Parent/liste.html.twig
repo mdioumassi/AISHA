@@ -29,9 +29,11 @@
                     <td>{{ parent.addresse }}</td>
                     <td><span class="w3-badge w3-yellow "><a href="{{ path('parent_enfants',{'parent_id': parent.id}) }}"> {{ parent.enfants|length }} enfants</a></span></td></a>
                     <td>
+                       {% if app.user.hasRole("ROLE_ADMIN") %}
                         <a href="{{ path('parent_delete', {'id':parent.id}) }}">
                             <span title="Supprimer" class="glyphicon glyphicon-trash"></span>
                         </a>
+                        {% endif %}
                         <a class="various" data-fancybox-type="iframe" href="{{ path('parent_update', {'id':parent.id}) }}">
                             <span title="Modifier" class="glyphicon glyphicon-edit"></span>
                         </a>

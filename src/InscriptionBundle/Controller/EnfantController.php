@@ -3,10 +3,10 @@
 namespace InscriptionBundle\Controller;
 
 use InscriptionBundle\Entity\Enfant;
-use InscriptionBundle\Form\EnfantType;
-use InscriptionBundle\Form\InscritType;
-use InscriptionBundle\Form\NiveauType;
-use InscriptionBundle\Form\ParentsType;
+use InscriptionBundle\Form\Type\EnfantType;
+use InscriptionBundle\Form\Type\InscritType;
+use InscriptionBundle\Form\Type\NiveauType;
+use InscriptionBundle\Form\Type\ParentsType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -20,7 +20,8 @@ class EnfantController extends Controller
      * @Method({"GET"})
      * @Template("@Inscription/Inscription/Enfant/liste.html.twig")
      */
-    public function getEnfants(){
+    public function getEnfants()
+    {
         $manager = $this->get('enfant_manager');
         $enfants = $manager->getEnfants();
 
@@ -33,17 +34,18 @@ class EnfantController extends Controller
      * @Route("/parents/{parent_id}/enfants", name="parent_enfants")
      * @Template("@Inscription/Inscription/Enfant/liste.html.twig")
      */
-    public function getEnfantsAction(Request $request){
+    public function getEnfantsAction(Request $request)
+    {
         $manager = $this->get('enfant_manager');
         $parent = $this->get('parent_manager')->getOne($request->get('parent_id'));
         $niveauEnfantsParent = $manager->getNiveauEnfants($request->get('parent_id'));
-        if(empty($parent)){
+        if (empty($parent)) {
             throw $this->createNotFoundException('Not found parent');
         }
         return [
             'parent_id' => $request->get('parent_id'),
-            'parent' => $parent,
-            'enfants' => $niveauEnfantsParent
+            'parent'    => $parent,
+            'enfants'   => $niveauEnfantsParent
         ];
     }
 
@@ -51,10 +53,11 @@ class EnfantController extends Controller
      * @Route("/enfants/{id}/parent", name="enfant_parent")
      * @Template("@Inscription/Inscription/Parent/parent.html.twig")
      */
-    public function getParent(Request $request){
+    public function getParent(Request $request)
+    {
         $manager = $this->get('enfant_manager');
         $enfant = $manager->getOne($request->get('id'));
-        if(empty($enfant)){
+        if (empty($enfant)) {
             throw $this->createNotFoundException('Not found Enfant');
         }
         return [
@@ -70,6 +73,8 @@ class EnfantController extends Controller
         $enfantManager = $this->get('enfant_manager');
         $parentManager = $this->get('parent_manager');
         $parent = $parentManager->getParentById($request->get('parent_id'));
+        $session = $request->getSession();
+        $session->set('parent_id', $request->get('parent_id'));
         if (empty($parent)) {
             throw  $this->createNotFoundException('Not found parent');
         }
@@ -77,14 +82,16 @@ class EnfantController extends Controller
         $enfant->setParent($parent);
         $form = $this->createForm(EnfantType::class, $enfant);
         $form->handleRequest($request);
+
         if ($request->isMethod('POST') && $form->isValid()) {
             $enfantManager->setForm($form)->create();
             return $this->redirectToRoute('inscription_niveau', [
                 'enfant_id' => $enfant->getId()
             ]);
         }
+
         return $this->render('@Inscription/Inscription/Inscrit/enfant.html.twig', [
-            'form' => $form->createView(),
+            'form'      => $form->createView(),
             'parent_id' => $parent->getId()
         ]);
     }
@@ -121,7 +128,7 @@ class EnfantController extends Controller
         $form = $this->createForm(EnfantType::class, $enfant);
         $form->handleRequest($request);
         if ($request->isMethod('POST') && $form->isValid()) {
-           $manager->setForm($form)->update();
+            $manager->setForm($form)->update();
             return $this->redirectToRoute('inscription_niveau', [
                 'enfant_id' => $enfant->getId()
             ]);
@@ -139,11 +146,9 @@ class EnfantController extends Controller
      */
     public function getFicheAction(Request $request)
     {
-        $fiche = $this->Em()
-            ->getRepository('InscriptionBundle:Inscrit')
-            ->findByEnfant($request->get('enfant_id'));
+        $$enfant = $this->get('enfant_manager')->getOne($request->get('enfant_id'));
 
-        $enfant = $fiche->getEnfant();
+       // $enfant = $fiche->getEnfant();
         $parent = $enfant->getParent();
         $classe = $fiche->getNiveau();
         $mensualites = $enfant->getMensualites();

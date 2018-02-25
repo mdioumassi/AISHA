@@ -848,10 +848,8 @@ class Installer
 
         if (!$fh = fopen($this->tmpFile, 'w')) {
             $error = sprintf('Could not create file "%s": %s', $this->tmpFile, $this->errHandler->message);
-
         } elseif (!$this->getSignature($sigUrl, $signature)) {
             $error = sprintf($errFmt, $sigUrl, $this->errHandler->message);
-
         } elseif (!fwrite($fh, $this->httpClient->get($url))) {
             $error = sprintf($errFmt, $url, $this->errHandler->message);
         }
@@ -878,10 +876,8 @@ class Installer
 
         if (!$this->validatePhar($this->tmpFile, $pharError)) {
             $error = 'The download is corrupt: '.$pharError;
-
         } elseif (!$this->verifySignature($version, $signature, $this->tmpFile)) {
             $error = 'Signature mismatch, could not verify the phar file integrity';
-
         } else {
             $this->errHandler->start();
 
@@ -996,7 +992,6 @@ class Installer
             // Free the variable to unlock the file
             unset($phar);
             $result = true;
-
         } catch (Exception $e) {
             if (!$e instanceof UnexpectedValueException && !$e instanceof PharException) {
                 throw $e;
@@ -1162,8 +1157,8 @@ class ErrorHandler
     }
 }
 
-class HttpClient {
-
+class HttpClient
+{
     private $options = array('http' => array());
     private $disableTls = false;
 
@@ -5445,5 +5440,4 @@ q5Rm+K37DwhuJi1/FwcJsoz7UMCflo3Ptv0AnVoUmr8CRPXBwp8iXqIPoeM=
 -----END CERTIFICATE-----
 CACERT;
     }
-
 }
