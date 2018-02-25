@@ -2,7 +2,6 @@
 
 namespace InscriptionBundle\Services;
 
-
 use Doctrine\ORM\EntityManager;
 use InscriptionBundle\Entity\Parents;
 

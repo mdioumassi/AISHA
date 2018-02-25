@@ -8,7 +8,6 @@
 
 namespace InscriptionBundle\DataFixtures\ORM;
 
-
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use InscriptionBundle\Entity\Parents;
@@ -35,5 +34,4 @@ class LoadParentData extends Fixture
         $manager->flush();
         $this->addReference('parent1', $parent1);
     }
-
 }

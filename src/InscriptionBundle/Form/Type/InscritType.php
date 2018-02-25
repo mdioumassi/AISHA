@@ -38,7 +38,7 @@ class InscritType extends AbstractType
                         'expanded' => true,
                         'label_attr' => ['class' => 'radio-inline']
                 ]);
-              //  ]);
+        //  ]);
     }
     
     /**
@@ -58,6 +58,4 @@ class InscritType extends AbstractType
     {
         return 'inscriptionbundle_inscrit';
     }
-
-
 }

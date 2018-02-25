@@ -15,7 +15,7 @@ class SiteController extends Controller
         return $this->render('@App/site/index.html.twig');
     }
 
-    public function presentationAction(){
-
+    public function presentationAction()
+    {
     }
 }

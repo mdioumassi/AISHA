@@ -1,7 +1,6 @@
 <?php
 namespace InscriptionBundle\Form\Handler;
 
-
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,7 +23,7 @@ class ParentHandler
     {
         $this->form->handleRequest($this->request);
         if ($this->request->isMethod('POST') && $this->form->isValid()) {
-           $this->onSuccess();
+            $this->onSuccess();
         } else {
             return false;
         }

@@ -9,7 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity as UniqueEntity;
 
-
 /**
  * Parent
  *
@@ -99,7 +98,7 @@ class Parents
      */
     public function __construct()
     {
-       $this->enfants = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->enfants = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

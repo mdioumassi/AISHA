@@ -8,11 +8,9 @@
 
 namespace InscriptionBundle\DataFixtures\ORM;
 
-
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use InscriptionBundle\Entity\Mensualite;
-
 
 class LoadMensualiteData extends Fixture
 {
@@ -35,19 +33,21 @@ class LoadMensualiteData extends Fixture
         $mois2 ->setMois('Février')
             ->setPaye(1)
             ->setEnfant($this->getReference('enfant2'))
-            ->setNiveau($this->getReference('niv1'));;
+            ->setNiveau($this->getReference('niv1'));
+        ;
         $manager->persist($mois2);
 
         $mois3 = new Mensualite();
         $mois3 ->setMois('Février')
             ->setPaye(1)
             ->setEnfant($this->getReference('enfant3'))
-            ->setNiveau($this->getReference('niv1'));;
+            ->setNiveau($this->getReference('niv1'));
+        ;
         $manager->persist($mois3);
         $manager->flush();
     }
 
-    public function  getDependencies()
+    public function getDependencies()
     {
         return [
             LoadEnfantData::class,

@@ -3,13 +3,12 @@
 namespace InscriptionBundle\Controller;
 
 use InscriptionBundle\Entity\Niveau;
-use InscriptionBundle\Form\NiveauType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use InscriptionBundle\Form\Type\NiveauType;
+
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-
 
 class NiveauController extends Controller
 {
@@ -66,7 +65,7 @@ class NiveauController extends Controller
      */
     public function getMatieresAction(Request $request)
     {
-        $niveau = $this->get('niveau_manager')->getOne(id);
+        $niveau = $this->get('niveau_manager')->getOne($request->get('id'));
         $this->isExist($niveau, "niveau");
 
         return [
@@ -87,7 +86,7 @@ class NiveauController extends Controller
      * @param $entity
      * @param $exception
      */
-    private function isExist($entity, $exception )
+    private function isExist($entity, $exception)
     {
         if (empty($entity)) {
             throw $this->createNotFoundException('Not fount '.$exception);

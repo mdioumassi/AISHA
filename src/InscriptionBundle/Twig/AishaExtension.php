@@ -8,10 +8,8 @@
 
 namespace InscriptionBundle\Twig;
 
-
 class AishaExtension extends \Twig_Extension
 {
-
     public function getFilters()
     {
         return array(

@@ -10,7 +10,7 @@ namespace InscriptionBundle\Repository;
  */
 class ParentRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function  findByParent($parent)
+    public function findByParent($parent)
     {
         $em = $this->getEntityManager();
 
@@ -23,10 +23,9 @@ class ParentRepository extends \Doctrine\ORM\EntityRepository
             ');
         $query->setParameter('parent', $parent);
         return $query->getResult();
-
     }
 
-    public function  findByNiveau($parent)
+    public function findByNiveau($parent)
     {
         $em = $this->getEntityManager();
 
@@ -41,6 +40,5 @@ class ParentRepository extends \Doctrine\ORM\EntityRepository
             ');
         $query->setParameter('parent', $parent);
         return $query->getResult();
-
     }
 }

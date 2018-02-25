@@ -79,5 +79,4 @@ trait ActivatedTrait
     {
         $this->activated = true;
     }
-
 }

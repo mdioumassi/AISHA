@@ -8,7 +8,6 @@
 
 namespace InscriptionBundle\Services;
 
-
 use Doctrine\ORM\EntityManager;
 use InscriptionBundle\Entity\Mensualite;
 
@@ -36,7 +35,7 @@ class MensualiteManager
 
     public function create()
     {
-        if ($this->form->isValid()){
+        if ($this->form->isValid()) {
             $this->persist($this->form->getData());
         }
     }

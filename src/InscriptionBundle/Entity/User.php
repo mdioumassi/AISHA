@@ -1,6 +1,7 @@
 <?php
 
 namespace InscriptionBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -237,5 +238,4 @@ class User extends BaseUser
     {
         return $this->phone;
     }
-
 }

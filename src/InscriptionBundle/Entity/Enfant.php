@@ -6,6 +6,7 @@ use InscriptionBundle\Entity\Traits\ActivatedTrait;
 use InscriptionBundle\Entity\Traits\CreatedAtTrait;
 use InscriptionBundle\Entity\Traits\UpdatedAtTrait;
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity as UniqueEntity;
 
@@ -68,11 +69,13 @@ class Enfant
     /**
      * @ORM\ManyToOne(targetEntity="InscriptionBundle\Entity\Parents", inversedBy="enfants")
      * @ORM\JoinColumn(nullable=false)
+     * @Serializer\Groups({"Parent&Enfant"})
      */
     private $parent;
 
     /**
      * @ORM\OneToMany(targetEntity="InscriptionBundle\Entity\Mensualite", mappedBy="enfant", cascade="all", orphanRemoval=true)
+     * @Serializer\Groups({"Parent&Enfant"})
      */
     private $mensualites;
 
@@ -165,7 +168,6 @@ class Enfant
     public function getDateNaissance()
     {
         return $this->dateNaissance;
-
     }
 
     /**

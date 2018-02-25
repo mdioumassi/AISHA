@@ -1,5 +1,6 @@
 <?php
 namespace InscriptionBundle\Services;
+
 use Doctrine\ORM\EntityManager;
 use InscriptionBundle\Entity\Niveau;
 

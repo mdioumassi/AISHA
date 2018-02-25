@@ -28,7 +28,7 @@ class EnfantType extends AbstractType
                     ),
                     'label' => false
                 ])
-                ->add('prenom',TextType::class, [
+                ->add('prenom', TextType::class, [
                     'attr' => array(
                         'class' => 'w3-input w3-border',
                         'placeholder' => 'Prenom'
@@ -58,12 +58,12 @@ class EnfantType extends AbstractType
                     'expanded' => true,
                     'label' => false
                 ]);
-              /*  ->add('niveau', EntityType::class, [
-                    'class' => 'InscriptionBundle\Entity\Niveau',
-                    'choice_label' => 'classe',
-                    'placeholder' => 'Classe',
-                    'label' => false
-                ]);*/
+        /*  ->add('niveau', EntityType::class, [
+              'class' => 'InscriptionBundle\Entity\Niveau',
+              'choice_label' => 'classe',
+              'placeholder' => 'Classe',
+              'label' => false
+          ]);*/
                 //->add('parentId', HiddenType::class)
     //            ->add('submit', SubmitType::class, [
     //                'attr' => ['class' => 'btn btn-primary'],
@@ -88,6 +88,4 @@ class EnfantType extends AbstractType
     {
         return 'inscriptionbundle_enfant';
     }
-
-
 }

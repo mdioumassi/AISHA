@@ -50,7 +50,7 @@ class InscritRepository extends \Doctrine\ORM\EntityRepository
     {
         $dql = "";
         $dql .= "
-             SELECT e.id, e.nom, e.prenom, p.id idP, p.nom pnom, p.prenom pprenom, p.type ptype, n.classe, i.frais, i.paye, i.annee, i.createdAt 
+             SELECT e.id, e.nom, e.prenom, p.id idP, p.nom pnom, p.prenom pprenom, p.type ptype, n.classe, i.frais, i.paye, i.annee, i.createdAt, i.id idInscrit 
              FROM InscriptionBundle:Inscrit i 
              JOIN i.enfant e 
              JOIN e.parent p
@@ -63,6 +63,5 @@ class InscritRepository extends \Doctrine\ORM\EntityRepository
                       ->createQuery($dql);
 
         return $query->getResult();
-
     }
 }

@@ -18,7 +18,7 @@ class NiveauType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('classe', TextType::class,[
+        $builder->add('classe', TextType::class, [
                     'attr' => [
                         'placeholder' => 'Classe'
                     ],
@@ -42,13 +42,18 @@ class NiveauType extends AbstractType
                     'allow_delete' => true,
                     'by_reference' => false,
                     'label' => false
-                ]);
-               /* ->add('submit', SubmitType::class, [
+                ])
+                ->add("Enregistrer", SubmitType::class, [
                     'attr' => [
-                        'class' => 'btn btn-primary',
-                    ],
-                    'label' => 'Enregistrer'
-                ]);*/
+                        'class' => 'w3-button w3-blue'
+                    ]
+                ]);
+        /* ->add('submit', SubmitType::class, [
+             'attr' => [
+                 'class' => 'btn btn-primary',
+             ],
+             'label' => 'Enregistrer'
+         ]);*/
     }
     
     /**
@@ -68,6 +73,4 @@ class NiveauType extends AbstractType
     {
         return 'inscriptionbundle_niveau';
     }
-
-
 }

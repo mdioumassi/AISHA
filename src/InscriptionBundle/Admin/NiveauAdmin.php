@@ -2,7 +2,6 @@
 
 namespace InscriptionBundle\Admin;
 
-
 use InscriptionBundle\Entity\Matiere;
 use InscriptionBundle\Form\MatiereType;
 use Sonata\AdminBundle\Admin\AbstractAdmin;

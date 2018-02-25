@@ -205,7 +205,7 @@ class Niveau
 
     public function __toString()
     {
-        if(is_null($this->classe)) {
+        if (is_null($this->classe)) {
             return 'NULL';
         }
         return $this->getClasse();

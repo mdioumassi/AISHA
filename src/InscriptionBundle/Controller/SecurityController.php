@@ -26,9 +26,9 @@ class SecurityController extends BaseController
             return $this->render('@FOSUser/Security/login.html.twig', $data);
         }
 
-      /*  if ($user->isSuperAdmin()) {
-            return $this->redirectToRoute('sonata_admin_dashboard');
-        }*/
+        /*  if ($user->isSuperAdmin()) {
+              return $this->redirectToRoute('sonata_admin_dashboard');
+          }*/
 
         return $this->redirectToRoute('homepage');
     }
