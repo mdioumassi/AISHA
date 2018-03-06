@@ -17,13 +17,14 @@
         <table class="w3-table-all w3-card-4" id="id01">
             <thead>
                 <tr class="w3-green">
-                    <th>Nom & Prenom</th></th><th>Classe</th><th>Inscription</th><th>Année</th><th>Inscrit le</th><th>Payer</th><th>Action</th>
+                    <th>Nom</th><th>Prenom</th></th><th>Classe</th><th>Inscription</th><th>Année</th><th>Inscrit le</th><th>Payer</th><th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 {% for liste in listes %}
                     <tr class="item">
-                        <td>{{ liste.nom|upper }}&nbsp;&nbsp;{{ liste.prenom }}</a></td>
+                        <td>{{ liste.nom|upper }}</td>
+                        <td>{{ liste.prenom }}</td>
                         <td>{{ liste.classe }}</td>
                         <td>{{ liste.frais~" UM" }}</td>
                         <td>{{ liste.annee }}</td>
@@ -37,7 +38,7 @@
                             <div class="w3-dropdown-hover">
                                 <button class="btn btn-primary">action</button>
                                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                                <a href="{{ path('inscription_fiche', {'inscrit_id': liste.idInscrit}) }}" class="w3-bar-item w3-button">Fiche</a>
+                                <a data-fancybox-type="iframe" href="{{ path('enfant_fiche', {'inscrit_id':liste.idInscrit}) }}" class="w3-bar-item w3-button various">Fiche</a>
                                 <a href="#" class="w3-bar-item w3-button">Mensualite</a>
                             </div>
 </div>
@@ -60,25 +61,24 @@
             $(function () {
                 $(".various").fancybox({
                     maxWidth	: 800,
-                    maxHeight	: 600,
+                    maxHeight	: 800,
                     fitToView	: false,
                     width		: '70%',
-                    height		: '70%',
+                    height		: '80%',
                     autoSize	: false,
                     closeClick	: false,
                     openEffect	: 'none',
                     closeEffect	: 'none'
                 });
-                $("#sel1").change(function () {
-                   var val = $(this).val();
-                   $.get("{{ path('liste_inscrit') }}?parent_id="+val, function (data) {
-                       $("body").html(data);
-                       $("body").refresh();
-                   });
 
+                $("#sel1").change(function (e) {
+                    e.preventDefault();
+                   var value = $(this).val();
+                   $.get("{{ path('liste_inscrit') }}?parent_id="+value, function (data) {
+                       $("body").html(data);
+                   });
                     return false;
                 });
-
             });
         </script>
     {% endblock %}

@@ -139,16 +139,18 @@ class EnfantController extends Controller
     }
 
     /**
-     * @Route("enfant/{enfant_id}/fiche", name="enfant_fiche")
+     * @Route("enfant/inscrit/{inscrit_id}", name="enfant_fiche")
      * @Template("@Inscription/Inscription/Fiche/Form/fiche.html.twig")
      * @param Request $request
      * @return array
      */
     public function getFicheAction(Request $request)
     {
-        $$enfant = $this->get('enfant_manager')->getOne($request->get('enfant_id'));
-
-       // $enfant = $fiche->getEnfant();
+        $fiche  = $this->get('inscrit_manager')->getOne($request->get('inscrit_id'));
+        if (null === $fiche) {
+            throw $this->createNotFoundException('Not Found');
+        }
+        $enfant = $fiche->getEnfant();
         $parent = $enfant->getParent();
         $classe = $fiche->getNiveau();
         $mensualites = $enfant->getMensualites();

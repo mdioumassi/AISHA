@@ -18,6 +18,7 @@
     <script type="text/javascript" src="/bundles/sonatacore/vendor/moment/min/moment-with-locales.min.js"></script>
     <script type="text/javascript" src="/bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
     <link rel="stylesheet" href="/bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="/bundles/inscription/css/menu-accordeon.css">
     <style>
         body{
             font-family: 'Play', sans-serif;
@@ -33,9 +34,9 @@
 
         /* Set gray background color and 100% height */
         .sidenav {
-            padding-top: 20px;
             background-color: #006600;
             height: 100%;
+            padding-right: 0px;
         }
 
 
@@ -65,7 +66,7 @@
         .page-wrapper{
             margin-left: auto;
             margin-right: auto;
-            width: 90%;
+            width: 95%;
         }
     </style>
 </head>
@@ -74,5 +75,9 @@
     {% block body %}{% endblock %}
     {% include 'layout/footer.html.twig' %}
 </div>
+{% block javascripts %}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+{% endblock %}
 </body>
 </html>

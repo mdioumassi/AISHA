@@ -5,6 +5,10 @@ namespace InscriptionBundle\Services;
 use Doctrine\ORM\EntityManager;
 use InscriptionBundle\Entity\Parents;
 
+/**
+ * Class ParentManager
+ * @package InscriptionBundle\Services
+ */
 class ParentManager
 {
     private $em;
@@ -18,6 +22,10 @@ class ParentManager
         $this->repository = $this->em->getRepository(Parents::class);
     }
 
+    public function getSearchParentByTelephone($telephone)
+    {
+        return $this->repository->findOneBy(['telephone' => $telephone]);
+    }
 
     public function getOne($parentId)
     {

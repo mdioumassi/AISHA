@@ -26,6 +26,7 @@
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/orm": "^2.5",
         "friendsofphp/php-cs-fixer": "^2.10",
+        "friendsofsymfony/jsrouting-bundle": "^2.2",
         "friendsofsymfony/rest-bundle": "^2.3",
         "friendsofsymfony/user-bundle": "^2.0",
         "fzaninotto/faker": "^1.7",
