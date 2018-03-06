@@ -2,6 +2,7 @@
 
 namespace InscriptionBundle\Controller;
 
+use FOS\RestBundle\Controller\Annotations as Rest;
 use InscriptionBundle\Entity\Enfant;
 use InscriptionBundle\Entity\Inscrit;
 use InscriptionBundle\Entity\Mensualite;
@@ -15,37 +16,34 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\HttpFoundation\HttpFoundationExtension;
 use Symfony\Component\Form\Forms;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Class InscriptionController
+ * @package InscriptionBundle\Controller
+ */
 class InscriptionController extends Controller
 {
+
     /**
      * @Route("/inscription/parent", name="parent_insc")
      * @Template("@Inscription/Inscription/Inscrit/parent.html.twig")
      */
     public function addParentAction(Request $request)
     {
+        $formFactory = Forms::createFormFactoryBuilder()
+                ->addExtension(new HttpFoundationExtension())
+                ->getFormFactory();
+        $formSearch = $formFactory->createBuilder()
+                ->add('telephone', TextType::class)
+                ->getForm();
+
         $parentManager = $this->get('parent_manager');
-        $formFactory =
-            Forms::createFormFactoryBuilder()
-            ->addExtension(new HttpFoundationExtension())
-            ->getFormFactory();
-        $formSearch =
-            $formFactory->createBuilder()
-            ->add('telephone', IntegerType::class, [
-             //   'constraints' => new NotBlank()
-            ])
-            ->getForm();
-        $request = Request::createFromGlobals();
-        $formSearch->handleRequest($request);
-        if ($formSearch->isSubmitted() && $formSearch->isValid()) {
-            $parents = $parentManager->getParents();
-            $data = $formSearch->getData();
-            //var_dump($parents); die;
-        }
         $parent = new Parents();
         $form = $this->createForm(ParentsType::class, $parent);
         $form->handleRequest($request);
@@ -55,7 +53,6 @@ class InscriptionController extends Controller
                 'parent_id' => $parent->getId()
             ]);
         }
-
         return[
             'form' => $form->createView(),
             'formS' => $formSearch->createView()
@@ -215,19 +212,9 @@ class InscriptionController extends Controller
      */
     public function selectParentAction()
     {
-        $parents = $this->Em()
-                   ->getRepository('InscriptionBundle:Parents')
-                    ->findAll();
+        $parents = $this->get('parent_manager')->getParents();
         return [
             'parents' => $parents,
         ];
-    }
-
-    /**
-     * @return \Doctrine\Common\Persistence\ObjectManager|object
-     */
-    private function Em()
-    {
-        return $this->getDoctrine()->getManager();
     }
 }

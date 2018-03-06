@@ -92,7 +92,7 @@ fos_rest:
     format_listener:
         rules:
             -
-              path: '^/apiweb'
+              path: '^/ecole/inscription/apiweb'
               priorities: ['json']
               fallback_format: json
               prefer_extension: false

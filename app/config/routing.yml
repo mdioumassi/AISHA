@@ -27,4 +27,7 @@ fos_user:
 api_web:
     resource: '@InscriptionBundle/Controller/ApiWeb'
     type: annotation
-    prefix: /apiweb
+    prefix: /ecole/inscription/apiweb
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

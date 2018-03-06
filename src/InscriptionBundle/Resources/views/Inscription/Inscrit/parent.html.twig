@@ -12,9 +12,12 @@
                 {{ form_start(formS, {attr:{id: 'formS'}}) }}
                     {{ form_label(formS.telephone, 'Téléphone', {'label_attr': {'placeholder': 'Téléphone'}}) }}
                     {{ form_widget(formS.telephone) }}
-                     <button type="submit" class="btn btn-primary">Rechercher</button>
+                     <button type="submit" class="btn btn-primary btnSearch">Rechercher</button>
                 {{ form_end(formS) }}
                 {% include '@Inscription/Inscription/Parent/form/parent.html.twig' %}
+            </div>
+            <div class="col-sm-12" id="resultatAjax">
+
             </div>
         </div>
     </div>
@@ -24,11 +27,31 @@
            // $("#enfant").addClass("w3-disabled");
           //  $("#insc").addClass("w3-disabled");$("#enfant").addClass("w3-disabled");
             //$("#parentForm").hide();
-            $("#formS").submit(function () {
-                var val = $("#form_telephone").val()
-                $.ajax(
-                    url:
-                )
+
+            $(".btnSearch").click(function () {
+                var value = $("#form_telephone").val();
+               // var url = 'apiweb/parent/search/'+value;
+                $.ajax({
+                    url: Routing.generate('search_parent', {telephone: value}),
+                    type: 'get',
+                    dataType: 'json',
+                    success: function (data) {
+                        //console.log(data);
+                        //$("div#resultat").html(data);
+                        if (data) {
+                            var table = $('<table class="w3-table-all w3-card-4" id="id01">')
+                            table.append('<tr class="w3-green"><th>Nom & Prenom</th></th><th>Civilité</th><th>Téléphone</th><th>Adresse</th><th>Enfants</th></tr>')
+                            $(data).each(function (index, element) {
+                                table.append('<tr><td>' + this.nom+' '+ this.prenom + '</td><td>' + this.civilie + '</td><td>' + this.telephone + '</td><td>' + this.addresse + '</td></tr>')
+                                $("#resultatAjax").append(table);
+                            })
+                            $('#parentForm').hide();
+                        } else {
+                            $('#parentForm').show();
+                        }
+                    }
+                })
+                return false;
             });
         });
     </script>

@@ -6,6 +6,7 @@ use InscriptionBundle\Entity\Traits\ActivatedTrait;
 use InscriptionBundle\Entity\Traits\CreatedAtTrait;
 use InscriptionBundle\Entity\Traits\UpdatedAtTrait;
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity as UniqueEntity;
 
@@ -29,6 +30,7 @@ class Parents
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Serializer\Groups({"Parent"})
      */
     private $id;
 
@@ -37,6 +39,7 @@ class Parents
      *
      * @ORM\Column(name="nom", type="string", length=255)
      * @Assert\NotBlank()
+     * @Serializer\Groups({"Parent"})
      */
     private $nom;
 
@@ -45,6 +48,7 @@ class Parents
      *
      * @ORM\Column(name="prenom", type="string", length=255)
      * @Assert\NotBlank()
+     * @Serializer\Groups({"Parent"})
      */
     private $prenom;
 
@@ -53,6 +57,7 @@ class Parents
      *
      * @ORM\Column(name="civilite", type="string", length=30)
      * @Assert\Choice({"Homme", "Femme"})
+     * @Serializer\Groups({"Parent"})
      */
     private $civilite;
 
@@ -61,6 +66,7 @@ class Parents
      *
      * @ORM\Column(name="fonction", type="string", length=255)
      * @Assert\NotBlank()
+     * @Serializer\Groups({"Parent"})
      */
     private $fonction;
 
@@ -69,6 +75,7 @@ class Parents
      *
      * @ORM\Column(name="telephone", type="integer")
      * @Assert\NotBlank()
+     * @Serializer\Groups({"Parent"})
      */
     private $telephone;
 
@@ -77,12 +84,14 @@ class Parents
      *
      * @ORM\Column(name="addresse", type="text")
      * @Assert\NotBlank()
+     * @Serializer\Groups({"Parent"})
      */
     private $addresse;
 
     /**
      * @ORM\Column(name="type", type="string", length=40)
      * @Assert\NotBlank()
+     * @Serializer\Groups({"Parent"})
      */
     private $type;
 
@@ -91,6 +100,7 @@ class Parents
      * @ORM\OneToMany(targetEntity="InscriptionBundle\Entity\Enfant", cascade="all", orphanRemoval=true, mappedBy="parent")
      * @ORM\JoinColumn(nullable=false)
      * @var Enfant[]
+     *
      */
     private $enfants;
     /**
