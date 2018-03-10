@@ -12,6 +12,7 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use FOS\RestBundle\View\View;
 
 class InscriptionApiController extends Controller
 {
@@ -36,12 +37,10 @@ class InscriptionApiController extends Controller
     public function getSearchParentAction(Request $request)
     {
        $resultat = $this->get('parent_manager')->getSearchParentByTelephone($request->get('telephone'));
-       if (!empty($resultat)) {
-           return $resultat;
-       } else {
-           return null;
+       if (empty($resultat)) {
+           return View::create(['message' => 'Not found'], Response::HTTP_NOT_FOUND);
        }
-
+       return $resultat;
     }
 
 

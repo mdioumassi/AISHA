@@ -42,7 +42,7 @@
                             var table = $('<table class="w3-table-all w3-card-4" id="id01">')
                             table.append('<tr class="w3-green"><th>Nom & Prenom</th></th><th>Civilité</th><th>Téléphone</th><th>Adresse</th><th>Enfants</th></tr>')
                             $(data).each(function (index, element) {
-                                table.append('<tr><td>' + this.nom+' '+ this.prenom + '</td><td>' + this.civilie + '</td><td>' + this.telephone + '</td><td>' + this.addresse + '</td></tr>')
+                                table.append('<tr><td>' + this.nom+' '+ this.prenom + '</td><td>' + this.civilite + '</td><td>' + this.telephone + '</td><td>' + this.addresse + '</td></tr>')
                                 $("#resultatAjax").append(table);
                             })
                             $('#parentForm').hide();
