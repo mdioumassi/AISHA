@@ -183,7 +183,6 @@ class InscriptionController extends Controller
     public function nbinscritsAction($classe)
     {
         $nbinscrit = $this->get('inscrit_manager')->getNbInscritByClasse($classe);
-        dump($classe);
         return [
             'classe' => $nbinscrit
         ];

@@ -18,6 +18,7 @@ li {
 }
 .panel-group {
     margin-top: 35px;
+    margin-left: 10px;
 }
 .panel-collapse {
     background-color:rgba(220, 213, 172, 0.5);

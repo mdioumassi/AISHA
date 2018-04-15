@@ -14,7 +14,6 @@
                     <li><a href="#onglet-3">Titre onglet 3</a></li>
                 </ul>
                 <div id="inscrits">
-                    <div class="loader" style="margin: 30%"></div>
                     <!--contenu -->
                 </div>
                 <div id="onglet-2">
@@ -65,6 +64,18 @@
                         .always(function () {
 
                         });
+
+                    $(".various").fancybox({
+                        maxWidth	: 800,
+                        maxHeight	: 800,
+                        fitToView	: false,
+                        width		: '70%',
+                        height		: '80%',
+                        autoSize	: false,
+                        closeClick	: false,
+                        openEffect	: 'none',
+                        closeEffect	: 'none'
+                    });
                 });
          //   });
             /**
@@ -79,17 +90,7 @@
                     return '<span class="glyphicon glyphicon-remove-circle"  style="color: red">'
             }
 
-            $(".various").fancybox({
-                maxWidth	: 800,
-                maxHeight	: 800,
-                fitToView	: false,
-                width		: '70%',
-                height		: '80%',
-                autoSize	: false,
-                closeClick	: false,
-                openEffect	: 'none',
-                closeEffect	: 'none'
-            });
+
         </script>
         </script>
         {% endblock %}

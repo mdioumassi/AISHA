@@ -3,15 +3,16 @@
 {% block content %}
     <div id="tabResutl">
 <div class="w3-container w3-margin-top">
-    <div class="row">
+    <h1>La liste des inscrits</h1>
+    <div class="row w3-bar well w3-padding-16" style="margin-left: -2px;">
         <div class="col-sm-4">
             <input oninput="w3.filterHTML('#id01', '.item', this.value)" placeholder="Chercher...">
         </div>
         <div class="col-sm-4">
-            {{ render(controller('InscriptionBundle:Inscription:SelectParent')) }}
+
         </div>
         <div class="col-sm-4">
-
+          {{ render(controller('InscriptionBundle:Inscription:SelectParent')) }}
         </div>
     </div>
         <table class="w3-table-all w3-card-4" id="id01">
