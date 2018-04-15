@@ -33,7 +33,7 @@ class EnfantRepository extends \Doctrine\ORM\EntityRepository
     {
         $em = $this->getEntityManager();
         $query = $em->createQuery("
-            SELECT e.id, e.nom, e.prenom, e.dateNaissance, e.genre, n.classe, i.id as idInscrit
+            SELECT e.id, e.nom, e.prenom, e.dateNaissance, e.genre, e.activated as isActive, n.classe, i.id as idInscrit
             FROM InscriptionBundle:Inscrit i 
             LEFT JOIN i.niveau n 
             LEFT JOIN i.enfant e 

@@ -32,6 +32,7 @@ class EnfantAdmin extends AbstractAdmin
             ->add('genre')
             ->add('parent')
             ->add('mensualites')
+            ->add('activated')
             ->add('_action', null, [
                 'actions' => [
                     'show' => [],
@@ -60,6 +61,7 @@ class EnfantAdmin extends AbstractAdmin
                 'expanded' => true,
                 'label' => 'Genre'
             ])
+            ->add('activated')
             ->end()
             ->with('Parent', array('class' => 'col-md-6'))
                ->add('parent', ModelAutocompleteType::class, [

@@ -19,9 +19,10 @@ class AdminController extends Controller
 
     /**
      * @Route("/parentAndChild", name="admin_parent_enfant")
+     * @Template()
      */
-    public function parentChildAction()
+    public function ongletInscritAction()
     {
-        return $this->render('@Inscription/Inscription/Admin/parentchild.html.twig');
+        return $this->render('@Inscription/Inscription/Admin/parentAndchild/inscrit.html.twig');
     }
 }

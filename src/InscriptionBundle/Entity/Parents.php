@@ -297,7 +297,17 @@ class Parents
      */
     public function getEnfants()
     {
-        return $this->enfants;
+        foreach ($this->enfants as $enfant){
+           // var_dump($this->$enfant); die;
+            if($enfant->getActivated()) {
+                return $this->enfants;
+            }
+        }
+    }
+
+    public function isActivated()
+    {
+
     }
 
     public function __toString()

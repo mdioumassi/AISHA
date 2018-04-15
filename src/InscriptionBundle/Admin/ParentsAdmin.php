@@ -2,7 +2,7 @@
 
 namespace InscriptionBundle\Admin;
 
-use InscriptionBundle\Form\EnfantType;
+use InscriptionBundle\Form\Type\EnfantType;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -37,6 +37,11 @@ class ParentsAdmin extends AbstractAdmin
             ->add('addresse')
             ->add('type')
             ->add('enfants')
+            ->add('activated', null, [
+                'attr' => [
+                    'label' => 'Active'
+                ]
+            ])
             ->add('_action', null, [
                 'actions' => [
                     'show' => [],
@@ -74,15 +79,16 @@ class ParentsAdmin extends AbstractAdmin
             ->add('fonction')
             ->add('telephone')
             ->add('addresse')
+            ->add('activated')
             ->end()
             ->with('Enfant', array('class' => 'col-md-6'))
-            ->add('enfants', CollectionType::class, [
-                'entry_type'   => EnfantType::class,
-                'allow_add'    => true,
-                'allow_delete' => true,
-                'by_reference' => false,
-                'label' => false
-            ])
+                ->add('enfants', CollectionType::class, [
+                    'entry_type'   => EnfantType::class,
+                    'allow_add'    => true,
+                    'allow_delete' => true,
+                    'by_reference' => false,
+                    'label' => false
+                ])
             ->end()
         ;
     }

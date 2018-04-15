@@ -20,7 +20,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for parent in parents %}
+                {% for parent in parents if parent.activated %}
                 <tr class="item">
                     <td>{{ parent.nom }}</td>
                     <td>{{ parent.prenom }}</td>

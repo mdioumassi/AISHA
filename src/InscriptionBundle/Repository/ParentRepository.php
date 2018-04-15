@@ -10,6 +10,18 @@ namespace InscriptionBundle\Repository;
  */
 class ParentRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function isDeleted($parent)
+    {
+        return
+            $this->createQueryBuilder('p')
+                ->join('p.enfants', 'e')
+                ->where('p.id= :parent')
+                ->setParameter('parent', $parent)
+                ->getQuery()
+                ->getResult()
+        ;
+    }
+
     public function findByParent($parent)
     {
         $em = $this->getEntityManager();

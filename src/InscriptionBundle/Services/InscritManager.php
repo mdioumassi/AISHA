@@ -24,6 +24,14 @@ class InscritManager
     }
 
     /**
+     * @param $classe
+     */
+    public function getNbInscritByClasse($classe)
+    {
+        return $this->repository->findByEleve($classe);
+    }
+
+    /**
      * @param mixed $form
      * @return InscritManager
      */

@@ -1,0 +1,96 @@
+{% extends '@Inscription/layout.html.twig' %}
+{% block content %}
+    <div class="w3-card-4 w3-margin-top">
+
+        <header class="w3-container w3-blue">
+            <h4>Gestion de l'école</h4>
+        </header>
+
+        <div class="w3-container w3-margin-top">
+            <div id="onglets">
+                <ul>
+                    <li aria-controls="inscrits"><a href="{{ path('api_les_inscrits') }}">Les Inscrits</a></li>
+                    <li><a href="#onglet-2">Titre onglet 2</a></li>
+                    <li><a href="#onglet-3">Titre onglet 3</a></li>
+                </ul>
+                <div id="inscrits">
+                    <div class="loader" style="margin: 30%"></div>
+                    <!--contenu -->
+                </div>
+                <div id="onglet-2">
+                    <!--contenu -->
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam consectetur ex iusto maxime, minima nemo nisi provident quia quo rem, reprehenderit! Animi consequatur deleniti fugiat iusto magnam nobis non?
+                    </p>
+                </div>
+                <div id="onglet-3">
+                    <!--contenu -->
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium at aut commodi consectetur consequatur dicta dignissimos dolores error facere fugit harum nihil odit quidem quisquam repudiandae, rerum soluta. Debitis, optio.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {% block javascripts %}
+        <script>
+            $(function () {
+                $('#onglets').tabs();
+                   var url = "{{ path('api_les_inscrits') }}";
+                    $.get(url)
+                        .done(function(data, text, jqxhr){
+                            var table = $('<table class="w3-table-all w3-card-4" id="id01">')
+                            table.append('<tr class="w3-green"><th>Nom & Prenom</th></th><th>Classe</th><th>Inscription</th><th>Année</th><th>Inscrit le</th><th>Payer</th><td>Action</tr>')
+                            $(data).each(function (index, element) {
+                                table.append(
+                                    '<tr><td>' + this.nom+' '+ this.prenom + '</td>' +
+                                    '<td>' + this.classe + '</td><td>' + this.frais + '</td>' +
+                                    '<td>' + this.annee + '</td><td>' + moment(this.createdAt).format('MMMM Do YYYY') + '</td>' +
+                                    '<td>' + getLibelle(this.paye)+ '</td>'+
+                                    '<td><div class="w3-dropdown-hover">'+
+                                        '<button class="btn btn-primary">action</button>'+
+                                        '<div class="w3-dropdown-content w3-bar-block w3-card-4">'+
+                                         '<a data-fancybox-type="iframe" href="inscription/fiche?inscrit_id='+this.idInscrit+'" class="w3-bar-item w3-button various">Fiche</a>'+
+                                        '<a href="#" class="w3-bar-item w3-button">Mensualite</a></td>'+
+                                    '</div>'
+                                )
+                                $("#inscrits").html(table);
+                            })
+
+                        })
+                        .fail(function (jqxhr) {
+
+                        })
+                        .always(function () {
+
+                        });
+                });
+         //   });
+            /**
+             *
+             * @param paye
+             * @returns {string}
+             */
+            function getLibelle(paye) {
+                if (paye)
+                    return '<span class="glyphicon glyphicon-ok-circle" style="color: #66dd66"></span>'
+                else
+                    return '<span class="glyphicon glyphicon-remove-circle"  style="color: red">'
+            }
+
+            $(".various").fancybox({
+                maxWidth	: 800,
+                maxHeight	: 800,
+                fitToView	: false,
+                width		: '70%',
+                height		: '80%',
+                autoSize	: false,
+                closeClick	: false,
+                openEffect	: 'none',
+                closeEffect	: 'none'
+            });
+        </script>
+        </script>
+        {% endblock %}
+{% endblock %}

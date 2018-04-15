@@ -26,8 +26,11 @@ class InscriptionApiController extends Controller
     public function getInscritAction(Request $request)
     {
         $inscritManager = $this->get('inscrit_manager');
-
-        return $inscritManager->getListInscritEnfant();
+        $listeinscrits = $inscritManager->getListInscritEnfant();
+        if (empty($listeinscrits)) {
+            return View::create(['message' => 'Not found'], Response::HTTP_NOT_FOUND);
+        }
+        return $listeinscrits;
     }
 
     /**

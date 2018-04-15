@@ -64,7 +64,7 @@ class EnfantManager
      */
     public function getEnfants()
     {
-        return $this->repository->findAll();
+        return $this->repository->findBy(['activated' => true]);
     }
 
     /**

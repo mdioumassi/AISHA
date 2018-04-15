@@ -130,8 +130,9 @@ class InscriptionController extends Controller
         $form = $this->createForm(MensualiteType::class, $mensualite);
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
-            $this->Em()->persist($mensualite);
-            $this->Em()->flush();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($mensualite);
+            $em->flush();
             return $this->redirectToRoute('inscription_fiche', [
                 'inscrit_id' => $inscrit->getId()
             ]);
@@ -151,6 +152,7 @@ class InscriptionController extends Controller
     public function getFicheAction(Request $request)
     {
         $fiche  = $this->get('inscrit_manager')->getOne($request->get('inscrit_id'));
+        dump($request->get('inscrit_id'));
         if (null === $fiche) {
             throw $this->createNotFoundException("Not Found");
         }
@@ -180,8 +182,8 @@ class InscriptionController extends Controller
      */
     public function nbinscritsAction($classe)
     {
-        $nbinscrit = $this->Em()->getRepository('InscriptionBundle:Inscrit')
-            ->findByEleve($classe);
+        $nbinscrit = $this->get('inscrit_manager')->getNbInscritByClasse($classe);
+        dump($classe);
         return [
             'classe' => $nbinscrit
         ];

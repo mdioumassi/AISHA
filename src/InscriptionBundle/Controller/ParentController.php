@@ -3,8 +3,7 @@
 namespace InscriptionBundle\Controller;
 
 use InscriptionBundle\Entity\Parents;
-use InscriptionBundle\Form\ParentsType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use InscriptionBundle\Form\Type\ParentsType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -20,6 +19,7 @@ class ParentController extends Controller
     {
         $manager = $this->get('parent_manager');
         $parents = $manager->getParents();
+
         if (empty($parents)) {
             throw $this->createNotFoundException('Parents not found');
         }
@@ -55,13 +55,16 @@ class ParentController extends Controller
      */
     public function deleteAction(Request $request)
     {
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+       $this->denyAccessUnlessGranted('ROLE_ADMIN');
         $parentManager = $this->get('parent_manager');
         $parent = $parentManager->getParentById($request->get('id'));
+
         if (empty($parent)) {
             throw $this->createNotFoundException('Not found parent');
         }
-        $parentManager->remove($parent);
+        //$parentManager->remove($parent);
+        $parentManager->deletedParent($parent);
+        //$parentenfants->desactivated();
         return $this->redirectToRoute('liste_parents');
     }
 
@@ -72,6 +75,7 @@ class ParentController extends Controller
     {
         $parentManager = $this->get('parent_manager');
         $parent = $parentManager->getParentById($request->get('id'));
+
         if (empty($parent)) {
             throw $this->createNotFoundException('Not found parent');
         }

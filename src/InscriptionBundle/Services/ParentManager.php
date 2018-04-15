@@ -37,7 +37,7 @@ class ParentManager
      */
     public function getParents()
     {
-        return $this->repository->findAll();
+        return $this->repository->findBy(['activated' => true]);
     }
 
     /**
@@ -57,6 +57,19 @@ class ParentManager
     {
         $this->em->remove($parent);
         $this->em->flush();
+    }
+
+    public function deletedParent($parent)
+    {
+        $parentenfants = $this->repository->isDeleted($parent);
+        foreach ($parentenfants as $parent){
+            foreach ($parent->getEnfants() as $enfants){
+                $parent->setActivated(false);
+                $enfants->setActivated(false);
+            }
+        }
+        $this->flush($parent);
+        $this->flush($enfants);
     }
 
     /**

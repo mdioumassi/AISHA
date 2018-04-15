@@ -5,10 +5,10 @@
     {% include 'layoutAdmin/menu.html.twig' %}
     <div class="container-fluid text-left">
         <div class="row content">
-            <div class="col-sm-9">
+            <div class="col-sm-12">
                 {% block content %}{% endblock %}
             </div>
-            {% include 'layoutAdmin/sidebar_right.html.twig' %}
+    {#{% include 'layoutAdmin/sidebar_right.html.twig' %}#}
         </div>
     </div>
 {% endblock %}

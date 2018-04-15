@@ -6,7 +6,7 @@
         <table class="w3-table-all w3-card-4">
             <thead>
             <tr class="w3-green">
-                <th>Nom</th><th>Prenom</th><th>Genre</th><th>Age</th><th>Classe</th><th>Actions</th>
+                <th>Nom</th><th>Prenom</th><th>Genre</th><th>Age</th><th>Classe</th><th>Actions</th><th>Active</th>
             </tr>
             </thead>
             <tbody>
@@ -18,10 +18,11 @@
                     <td>{{ enfant.dateNaissance|age ~ " ans" }}</td>
                     <td>{{ enfant.classe }}</td>
                     <td>
-                        <a href="{{ path('inscription_fiche', {'inscrit_id':enfant.idInscrit}) }}">
+                        <a data-fancybox-type="iframe" class="various" href="{{ path('enfant_fiche', {'inscrit_id':enfant.idInscrit}) }}">
                             <span title="Fiche enfant" class="glyphicon glyphicon-file"></span>
                         </a>
                     </td>
+                    <td>{{ enfant.isActive}}</td>
                 </tr>
             {% endfor %}
             </tbody>

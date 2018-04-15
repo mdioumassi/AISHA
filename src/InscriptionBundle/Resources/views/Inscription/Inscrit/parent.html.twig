@@ -9,7 +9,7 @@
         </div>
         <div class="row">
             <div class="col-sm-12">
-                {{ form_start(formS, {attr:{id: 'formS'}}) }}
+                {{ form_start(formS, {attr:{id: 'formS', class: 'form-inline'}}) }}
                     {{ form_label(formS.telephone, 'Téléphone', {'label_attr': {'placeholder': 'Téléphone'}}) }}
                     {{ form_widget(formS.telephone) }}
                      <button type="submit" class="btn btn-primary btnSearch">Rechercher</button>
@@ -28,7 +28,8 @@
           //  $("#insc").addClass("w3-disabled");$("#enfant").addClass("w3-disabled");
             //$("#parentForm").hide();
 
-            $(".btnSearch").click(function () {
+            $(".btnSearch").click(function (e) {
+                e.preventDefault();
                 var value = $("#form_telephone").val();
                // var url = 'apiweb/parent/search/'+value;
                 $.ajax({
