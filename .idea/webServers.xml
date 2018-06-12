@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="11a6b96f-8fd8-4973-9a3b-c64646c83646" name="1and1" url="http://aisha.asso-apmeg.comdata.host">
+        <fileTransfer host="home468996527.1and1-data.host" port="22" rootFolder="/AICHA" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

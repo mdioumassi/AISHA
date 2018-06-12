@@ -23,8 +23,10 @@
     },
     "require": {
         "php": ">=5.5.9",
+        "chi-teck/drupal-code-generator": "^1.24",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/orm": "^2.5",
+        "drush/drush": "^9.3",
         "friendsofphp/php-cs-fixer": "^2.10",
         "friendsofsymfony/jsrouting-bundle": "^2.2",
         "friendsofsymfony/rest-bundle": "^2.3",
@@ -41,7 +43,7 @@
         "symfony/polyfill-apcu": "^1.6",
         "symfony/swiftmailer-bundle": "^2.3.10",
         "symfony/symfony": "3.4.*",
-        "twig/twig": "^1.0||^2.0",
+        "twig/twig": "^1.23.1",
         "uran1980/fancybox-bundle": "*",
         "vich/uploader-bundle": "^1.4"
     },
