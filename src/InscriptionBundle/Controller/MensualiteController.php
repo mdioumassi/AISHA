@@ -36,7 +36,6 @@ class MensualiteController extends Controller
     {
         $mensualiteManager = $this->get('mensualite_manager');
         $inscrit = $mensualiteManager->getInscritOne($request->get('enfant_id'));
-        dump($inscrit);
         if (empty($inscrit)) {
             throw  $this->createNotFoundException('Not found enfant');
         }

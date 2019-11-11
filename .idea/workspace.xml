@@ -3,12 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="e521cd53-8107-43c9-a177-9a19027904a9" name="Default" comment="Ajout des options">
       <change beforePath="$PROJECT_DIR$/.idea/aisha.dev.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aisha.dev.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/layoutAdmin/menu.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/layoutAdmin/menu.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/layout/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/layout/footer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InscriptionBundle/Controller/MensualiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/InscriptionBundle/Controller/MensualiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/liste.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Inscrit/liste.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Matiere/liste.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/Inscription/Matiere/liste.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/layout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/InscriptionBundle/Resources/views/layout.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/sessions/.gitkeep" beforeDir="false" afterPath="$PROJECT_DIR$/var/sessions/.gitkeep" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,7 +17,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <phar pharPath="$PROJECT_DIR$/composer_2.phar" interpreterId="087cf33d-bfeb-4a11-8874-c812deae2990" />
@@ -24,13 +25,32 @@
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
     <option name="GROUP_SCHEMA" value="true" />
     <option name="GROUP_CONTENTS" value="false" />
     <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <expand />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="aisha@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="aisha@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="aisha@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="aisha: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -44,6 +64,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
   </component>
   <component name="PhpServers">
     <servers />
@@ -161,12 +188,7 @@
       <path value="$PROJECT_DIR$/vendor/consolidation/site-process" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-51" />
-    <option name="y" value="31" />
-    <option name="width" value="1370" />
-    <option name="height" value="772" />
-  </component>
+  <component name="ProjectId" id="1TObKnT4FkIVEDbiHmpluL5aZKd" />
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
       <profile-state>
@@ -193,17 +215,18 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
-    <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../agatt-api" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.deploy.options" />
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.deploy.options" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -293,6 +316,9 @@
       <workItem from="1511193103023" duration="7553000" />
       <workItem from="1523811080813" duration="4954000" />
       <workItem from="1528099857377" duration="3712000" />
+      <workItem from="1573337240239" duration="3283000" />
+      <workItem from="1573417251613" duration="207000" />
+      <workItem from="1573417486576" duration="6755000" />
     </task>
     <task id="LOCAL-00001" summary="AdminController">
       <created>1508950514173</created>
@@ -335,7 +361,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
