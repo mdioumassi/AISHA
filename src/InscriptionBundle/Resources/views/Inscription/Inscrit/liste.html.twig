@@ -40,7 +40,7 @@
                                 <button class="btn btn-primary">action</button>
                                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
                                     <a data-fancybox-type="iframe" href="{{ path('enfant_fiche', {'inscrit_id':liste.idInscrit}) }}" class="w3-bar-item w3-button various">Fiche</a>
-                                    <a href="#" class="w3-bar-item w3-button">Mensualite</a>
+                                    <a data-fancybox-type="iframe" href="{{ path('mensualite_child', {'enfant_id':liste.id}) }}" class="w3-bar-item w3-button">Mensualite</a>
                                 </div>
                             </div>
                         </td>

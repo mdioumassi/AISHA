@@ -197,8 +197,10 @@ class InscriptionController extends Controller
         $inscritManager = $this->get('inscrit_manager');
         if ($request->get('parent_id')) {
             $listeinscrits = $inscritManager->getListInscritEnfant($request->get('parent_id'));
+
         } else {
             $listeinscrits = $inscritManager->getListInscritEnfant();
+         //  echo '<pre>'; print_r($listeinscrits);echo '</pre>'; die;
         }
         if (null === $listeinscrits) {
             throw $this->createNotFoundException("Not Found");
