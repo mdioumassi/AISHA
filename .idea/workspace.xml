@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e521cd53-8107-43c9-a177-9a19027904a9" name="Default" comment="Ajout des options">
-      <change beforePath="$PROJECT_DIR$/.idea/symfony2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InscriptionBundle/Controller/EnfantController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/InscriptionBundle/Controller/EnfantController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InscriptionBundle/Controller/NiveauController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/InscriptionBundle/Controller/NiveauController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InscriptionBundle/Services/AbstractManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/InscriptionBundle/Services/AbstractManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InscriptionBundle/Services/EnfantManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/InscriptionBundle/Services/EnfantManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InscriptionBundle/Services/NiveauManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/InscriptionBundle/Services/NiveauManager.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,36 +17,6 @@
     <execution>
       <phar pharPath="$PROJECT_DIR$/composer_2.phar" interpreterId="087cf33d-bfeb-4a11-8874-c812deae2990" />
     </execution>
-  </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="aisha@localhost" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="aisha@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="aisha@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="aisha: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-    </expand>
-    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -305,7 +277,7 @@
       <workItem from="1573417251613" duration="207000" />
       <workItem from="1573417486576" duration="6755000" />
       <workItem from="1598909703250" duration="396000" />
-      <workItem from="1599947175050" duration="8184000" />
+      <workItem from="1599947175050" duration="10360000" />
     </task>
     <task id="LOCAL-00001" summary="AdminController">
       <created>1508950514173</created>
@@ -342,7 +314,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599956419807</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Ajout des options">
+      <created>1599956877635</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1599956877635</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView">
@@ -378,24 +357,24 @@
     <option name="LAST_COMMIT_MESSAGE" value="Ajout des options" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="449" y="154" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599953505931">
+    <state x="449" y="154" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600000508507">
       <screen x="67" y="27" width="3219" height="1053" />
     </state>
-    <state x="449" y="154" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.3219.1053@67.27.3219.1053" timestamp="1599953505931" />
-    <state x="1366" y="27" width="1920" height="1053" key="CommitChangelistDialog2" timestamp="1599956400924">
+    <state x="449" y="154" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.3219.1053@67.27.3219.1053" timestamp="1600000508507" />
+    <state x="1366" y="27" width="1920" height="1053" key="CommitChangelistDialog2" timestamp="1599956877464">
       <screen x="67" y="27" width="3219" height="1053" />
     </state>
     <state x="255" y="27" width="912" height="741" key="CommitChangelistDialog2/67.27.1299.741/1366.0.1920.1080@67.27.1299.741" timestamp="1598913371739" />
-    <state x="1366" y="27" width="1920" height="1053" key="CommitChangelistDialog2/67.27.3219.1053@67.27.3219.1053" timestamp="1599956400924" />
+    <state x="1366" y="27" width="1920" height="1053" key="CommitChangelistDialog2/67.27.3219.1053@67.27.3219.1053" timestamp="1599956877464" />
     <state x="392" y="100" width="639" height="593" key="NewPhpClassDialog" timestamp="1599953462587">
       <screen x="67" y="27" width="3219" height="1053" />
     </state>
     <state x="392" y="100" width="639" height="593" key="NewPhpClassDialog/67.27.3219.1053@67.27.3219.1053" timestamp="1599953462587" />
-    <state x="1366" y="171" width="1920" height="762" key="Vcs.Push.Dialog.v2" timestamp="1599956424611">
+    <state x="1366" y="171" width="1920" height="762" key="Vcs.Push.Dialog.v2" timestamp="1599956905098">
       <screen x="67" y="27" width="3219" height="1053" />
     </state>
     <state x="311" y="128" width="800" height="536" key="Vcs.Push.Dialog.v2/67.27.1299.741/1366.0.1920.1080@67.27.1299.741" timestamp="1598913376701" />
-    <state x="1366" y="171" width="1920" height="762" key="Vcs.Push.Dialog.v2/67.27.3219.1053@67.27.3219.1053" timestamp="1599956424611" />
+    <state x="1366" y="171" width="1920" height="762" key="Vcs.Push.Dialog.v2/67.27.3219.1053@67.27.3219.1053" timestamp="1599956905098" />
     <state x="380" y="175" key="run.anything.popup" timestamp="1599953401930">
       <screen x="67" y="27" width="3219" height="1053" />
     </state>

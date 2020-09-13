@@ -37,7 +37,7 @@ class NiveauController extends Controller
         $form = $this->createForm(NiveauType::class, $niveau);
         $form->handleRequest($request);
         if ($request->isMethod('POST') && $form->isValid()) {
-            $niveauManager->setForm($form)->create();
+            $niveauManager->setForm($form)->flush();
             $this->redirectToRoute('liste_niveaux');
         }
         return [

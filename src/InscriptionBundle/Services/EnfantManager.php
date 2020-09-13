@@ -8,7 +8,8 @@ class EnfantManager extends AbstractManager
 {
     public function __construct(EntityManager $entityManager)
     {
-        parent::__construct($entityManager);
+      //  parent::__construct($entityManager);
+        $this->manager($entityManager);
         $this->repository = $this->em->getRepository(Enfant::class);
     }
 

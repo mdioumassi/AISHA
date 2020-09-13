@@ -7,17 +7,16 @@ namespace InscriptionBundle\Services;
 use Doctrine\ORM\EntityManager;
 
 
-Class AbstractManager
+abstract Class AbstractManager
 {
     protected $em;
     protected $repository;
     protected $form;
 
     /**
-     * EnfantManager constructor.
      * @param EntityManager $entityManager
      */
-    public function __construct(EntityManager $entityManager)
+    public function manager(EntityManager $entityManager)
     {
         $this->em = $entityManager;
     }
