@@ -7,27 +7,33 @@ parameters:
     parent.handler.class: InscriptionBundle\Form\Handler\ParentHandler
 
 services:
-    aisha.twig.age:
-        class: InscriptionBundle\Twig\AishaExtension
-        tags:
-          - { name: twig.extension }
+  _defaults:
+    # automatically injects dependencies in your services
+    autowire: true
+    # automatically registers your services as commands, event subscribers, etc.
+    autoconfigure: true
 
-    enfant_manager:
-        class: "%enfant.manager.class%"
-        arguments: ['@doctrine.orm.entity_manager']
+  aisha.twig.age:
+      class: InscriptionBundle\Twig\AishaExtension
+      tags:
+        - { name: twig.extension }
 
-    parent_manager:
-        class: "%parent.manager.class%"
-        arguments: ['@doctrine.orm.entity_manager']
+  enfant_manager:
+      class: "%enfant.manager.class%"
+      arguments: ['@doctrine.orm.entity_manager']
 
-    mensualite_manager:
-            class: "%mensualite.manager.class%"
-            arguments: ['@doctrine.orm.entity_manager']
+  parent_manager:
+      class: "%parent.manager.class%"
+      arguments: ['@doctrine.orm.entity_manager']
 
-    inscrit_manager:
-           class: "%inscrit.manager.class%"
-           arguments: ['@doctrine.orm.entity_manager']
+  mensualite_manager:
+          class: "%mensualite.manager.class%"
+          arguments: ['@doctrine.orm.entity_manager']
 
-    niveau_manager:
-           class: "%niveau.manager.class%"
-           arguments: ['@doctrine.orm.entity_manager']
+  inscrit_manager:
+         class: "%inscrit.manager.class%"
+         arguments: ['@doctrine.orm.entity_manager']
+
+  niveau_manager:
+         class: "%niveau.manager.class%"
+         arguments: ['@doctrine.orm.entity_manager']

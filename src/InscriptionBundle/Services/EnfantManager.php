@@ -4,59 +4,12 @@ namespace InscriptionBundle\Services;
 use Doctrine\ORM\EntityManager;
 use InscriptionBundle\Entity\Enfant;
 
-class EnfantManager
+class EnfantManager extends AbstractManager
 {
-    private $em;
-    private $repository;
-    private $form;
-
-
-    /**
-     * EnfantManager constructor.
-     * @param EntityManager $entityManager
-     */
     public function __construct(EntityManager $entityManager)
     {
-        $this->em = $entityManager;
+        parent::__construct($entityManager);
         $this->repository = $this->em->getRepository(Enfant::class);
-    }
-
-    /**
-     * @param mixed $form
-     * @return EnfantManager
-     */
-    public function setForm($form)
-    {
-        $this->form = $form;
-        return $this;
-    }
-
-    /**
-     *
-     */
-    public function create()
-    {
-        $enfant = $this->form->getData();
-        $this->flush($enfant);
-    }
-
-    /**
-     *
-     */
-    public function update()
-    {
-        $enfant = $this->form->getData();
-        $this->flush($enfant);
-    }
-
-    /**
-     * @param $enfant
-     * @throws \Doctrine\ORM\OptimisticLockException
-     */
-    public function flush($enfant)
-    {
-        $this->em->persist($enfant);
-        $this->em->flush();
     }
 
     /**

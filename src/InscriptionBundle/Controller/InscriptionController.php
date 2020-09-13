@@ -78,7 +78,7 @@ class InscriptionController extends Controller
         $form = $this->createForm(EnfantType::class, $enfant);
         $form->handleRequest($request);
         if ($request->isMethod('POST') && $form->isValid()) {
-            $enfantManager->setForm($form)->create();
+            $enfantManager->setForm($form)->flush();
             return $this->redirectToRoute('inscription_niveau', [
                 'enfant_id' => $enfant->getId()
             ]);
